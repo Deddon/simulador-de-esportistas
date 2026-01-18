@@ -14,6 +14,11 @@ config/name="Simulador de Esportistas v4"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://dkhdhwwni3jmp"
 
+[autoload]
+
+GameBuffer="*res://shared/autoloads/game_buffer.gd"
+Constants="*res://shared/autoloads/constants.gd"
+
 [file_customization]
 
 folder_colors={
