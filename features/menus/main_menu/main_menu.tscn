@@ -43,6 +43,7 @@ layout_mode = 2
 
 [node name="MainWorkspace" parent="MainContainer/BodyContainer" instance=ExtResource("5_aukys")]
 layout_mode = 2
+metadata/_edit_lock_ = true
 
 [node name="LandingScreen" parent="MainContainer/BodyContainer/MainWorkspace" instance=ExtResource("7_b0sis")]
 layout_mode = 1
