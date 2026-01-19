@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dasbp47txnne2"]
+[gd_scene load_steps=5 format=3 uid="uid://dasbp47txnne2"]
 
 [ext_resource type="Script" uid="uid://ff5kynq7d6o7" path="res://features/menus/main_menu/main_menu.gd" id="1_xqkuk"]
 [ext_resource type="PackedScene" uid="uid://ltyy6bdqfl" path="res://features/menus/main_menu/game_watch/game_watch.tscn" id="1_yojr0"]
+[ext_resource type="PackedScene" uid="uid://c7mcbwhsrlybw" path="res://features/menus/main_menu/header/header.tscn" id="3_ul4es"]
+
+[sub_resource type="Theme" id="Theme_ul4es"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +13,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ul4es")
 script = ExtResource("1_xqkuk")
 
 [node name="GameWatch" parent="." instance=ExtResource("1_yojr0")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 1
+offset_right = 1366.0
+offset_bottom = 768.0
+
+[node name="Header" parent="VBoxContainer" instance=ExtResource("3_ul4es")]
+custom_minimum_size = Vector2(1366, 200)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SideOptionsButtons" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MainWorkspace" type="Control" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2

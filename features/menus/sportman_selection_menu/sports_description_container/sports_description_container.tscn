@@ -57,6 +57,7 @@ placeholder_text = "Nome do atleta"
 [node name="SportsButton0" type="Button" parent="MainContainer/VBoxContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(380, 50)
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 button_pressed = true
 text = "Levantador de Peso Olímpico"
@@ -64,12 +65,14 @@ text = "Levantador de Peso Olímpico"
 [node name="SportsButton1" type="Button" parent="MainContainer/VBoxContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(380, 50)
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 text = "Corredor de Longas Distâncias"
 
 [node name="SportsButton2" type="Button" parent="MainContainer/VBoxContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(380, 50)
 layout_mode = 2
+theme_override_font_sizes/font_size = 25
 toggle_mode = true
 text = "Corredor de 400m Rasos"
 

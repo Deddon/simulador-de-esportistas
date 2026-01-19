@@ -1,16 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dk17qb38uo03f"]
+[gd_scene load_steps=6 format=3 uid="uid://dk17qb38uo03f"]
 
-[ext_resource type="FontFile" uid="uid://c7qtkfw0cdrr6" path="res://assets/fonts/Pixellari.ttf" id="1_vtewl"]
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_3fr7r"]
 [ext_resource type="Script" uid="uid://dwp2t3ofnymyl" path="res://features/menus/sportman_selection_menu/sportsman_selection_menu.gd" id="2_x2erl"]
 [ext_resource type="PackedScene" uid="uid://dasbp47txnne2" path="res://features/menus/main_menu/main_menu.tscn" id="3_3fr7r"]
 [ext_resource type="PackedScene" uid="uid://b656hv6177mnx" path="res://features/menus/sportman_selection_menu/sports_description_container/sports_description_container.tscn" id="3_q0hrj"]
 [ext_resource type="PackedScene" uid="uid://c1q5k7e8ec3my" path="res://features/menus/sportman_selection_menu/sportsman_profile_container/sportsman_profile_container.tscn" id="3_ugoho"]
-
-[sub_resource type="Theme" id="Theme_x2erl"]
-Button/font_sizes/font_size = 25
-Button/fonts/font = ExtResource("1_vtewl")
-Label/fonts/font = ExtResource("1_vtewl")
-LineEdit/fonts/font = ExtResource("1_vtewl")
 
 [node name="SportsmanSelectionMenu" type="Control" node_paths=PackedStringArray("sports_description", "sportsman_profile")]
 layout_mode = 3
@@ -19,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_x2erl")
+theme = ExtResource("1_3fr7r")
 script = ExtResource("2_x2erl")
 sports_description = NodePath("MainContainer/SportsDescriptionContainer")
 sportsman_profile = NodePath("MainContainer/SportsmanProfileContainer")

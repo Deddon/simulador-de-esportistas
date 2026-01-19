@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b0kpgts88gl8a"]
+
+[ext_resource type="FontFile" uid="uid://c7qtkfw0cdrr6" path="res://assets/fonts/Pixellari.ttf" id="1_b2snb"]
+
+[resource]
+Button/fonts/font = ExtResource("1_b2snb")
+Label/fonts/font = ExtResource("1_b2snb")
+LineEdit/fonts/font = ExtResource("1_b2snb")
