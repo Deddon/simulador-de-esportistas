@@ -12,7 +12,7 @@ func _enter_tree() -> void:
 	# WARNING: TEMPORARY
 	var demo_sportsman := Sportsman.new()
 	demo_sportsman.name = "Demo Sportsman"
-	demo_sportsman.current_sport = Constants.SportsmanAvailableSports.OLYMPIC_WEIGHT_LIFTER
+	demo_sportsman.current_sport = Constants.SportsmanAvailableSports.FOUR_HUNDRED_METERS_RUNNER
 	demo_sportsman.weight_kg = 70.0
 	GameBuffer.add_sportsman(demo_sportsman)
 	

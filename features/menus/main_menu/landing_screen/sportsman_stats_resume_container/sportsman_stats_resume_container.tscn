@@ -1,0 +1,139 @@
+[gd_scene load_steps=5 format=3 uid="uid://drs80p7ntee4u"]
+
+[ext_resource type="Script" uid="uid://chgskx7mlirxj" path="res://features/menus/main_menu/landing_screen/sportsman_stats_resume_container/sportsman_stats_resume_container.gd" id="1_b126k"]
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_ixk71"]
+[ext_resource type="Texture2D" uid="uid://6lfhg53jiesj" path="res://assets/sprites/athlet_black_background.png" id="2_tfh5y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ixk71"]
+font_size = 20
+
+[node name="SportsmanStatsResumeContainer" type="Control" node_paths=PackedStringArray("sportsman_name_label", "sportsman_weight_info_label", "sportsman_sport_name_label", "intake_assessment_label")]
+custom_minimum_size = Vector2(369, 372)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+theme = ExtResource("1_ixk71")
+script = ExtResource("1_b126k")
+sportsman_name_label = NodePath("MarginContainer/MainContainer/LeftSide/NameMargin/SportsmanName")
+sportsman_weight_info_label = NodePath("MarginContainer/MainContainer/LeftSide/QuantitativeStatsMargin/VBoxContainer/WeightInfoLabel")
+sportsman_sport_name_label = NodePath("MarginContainer/MainContainer/CenterContainer/RightSide/AnamnesisContainer/MarginContainer/SportsmanSportName")
+intake_assessment_label = NodePath("MarginContainer/MainContainer/LeftSide/QuantitativeStatsMargin/VBoxContainer/IntakeAssessment")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 369.0
+offset_bottom = 372.0
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="MainContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftSide" type="VBoxContainer" parent="MarginContainer/MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NameMargin" type="MarginContainer" parent="MarginContainer/MainContainer/LeftSide"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 5
+
+[node name="SportsmanName" type="Label" parent="MarginContainer/MainContainer/LeftSide/NameMargin"]
+layout_mode = 2
+text = "Carlos"
+label_settings = SubResource("LabelSettings_ixk71")
+horizontal_alignment = 1
+
+[node name="SportsmanIconMargin" type="CenterContainer" parent="MarginContainer/MainContainer/LeftSide"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SportsmanPortrait" type="TextureRect" parent="MarginContainer/MainContainer/LeftSide/SportsmanIconMargin"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("2_tfh5y")
+
+[node name="QuantitativeStatsMargin" type="MarginContainer" parent="MarginContainer/MainContainer/LeftSide"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainContainer/LeftSide/QuantitativeStatsMargin"]
+layout_mode = 2
+
+[node name="WeightInfoLabel" type="Label" parent="MarginContainer/MainContainer/LeftSide/QuantitativeStatsMargin/VBoxContainer"]
+layout_mode = 2
+text = "Peso: 65.0 kg
+Meta: 75.0 kg
+
+Ganho de peso recente:
+-2.0 kg"
+horizontal_alignment = 1
+
+[node name="IntakeAssessment" type="Label" parent="MarginContainer/MainContainer/LeftSide/QuantitativeStatsMargin/VBoxContainer"]
+custom_minimum_size = Vector2(182, 0)
+layout_mode = 2
+size_flags_vertical = 6
+text = "Recordatório: 000.0 kcal"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MainContainer"]
+layout_mode = 2
+
+[node name="RightSide" type="VBoxContainer" parent="MarginContainer/MainContainer/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+
+[node name="AnamnesisContainer" type="VBoxContainer" parent="MarginContainer/MainContainer/CenterContainer/RightSide"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainContainer/CenterContainer/RightSide/AnamnesisContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 10
+
+[node name="SportsmanSportName" type="Label" parent="MarginContainer/MainContainer/CenterContainer/RightSide/AnamnesisContainer/MarginContainer"]
+layout_mode = 2
+text = "Praticante de LPO"
+horizontal_alignment = 1
+
+[node name="SportsmanAnamnesisDescription" type="Label" parent="MarginContainer/MainContainer/CenterContainer/RightSide/AnamnesisContainer"]
+custom_minimum_size = Vector2(163, 0)
+layout_mode = 2
+text = "Busca melhorar seu desempenho esportivo..."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MainContainer/CenterContainer/RightSide/AnamnesisContainer"]
+layout_mode = 2
+
+[node name="OpenAnamnesis" type="Button" parent="MarginContainer/MainContainer/CenterContainer/RightSide/AnamnesisContainer/CenterContainer"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+text = "Anamnese Completa"
+
+[node name="GuidelineContainer" type="VBoxContainer" parent="MarginContainer/MainContainer/CenterContainer/RightSide"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CurrentGuideline" type="Label" parent="MarginContainer/MainContainer/CenterContainer/RightSide/GuidelineContainer"]
+layout_mode = 2
+text = "Guideline adotada
+???"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/MainContainer/CenterContainer/RightSide/GuidelineContainer"]
+layout_mode = 2
+
+[node name="OpenGuidelineReasearch" type="Button" parent="MarginContainer/MainContainer/CenterContainer/RightSide/GuidelineContainer/CenterContainer"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+text = "Pesquisar"
