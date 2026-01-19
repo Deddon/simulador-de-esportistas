@@ -122,7 +122,8 @@ theme_override_constants/margin_bottom = 5
 
 [node name="DatetimeInfo" type="Label" parent="MarginContainer/BackgroundPanel/MarginContainer/HBoxContainer/GameWatch/MarginContainer"]
 layout_mode = 2
-text = "Fevereiro
-20 /  Segunda-feira"
+text = "Janeiro
+01 /  Segunda-feira
+9:30"
 label_settings = SubResource("LabelSettings_og218")
 horizontal_alignment = 1

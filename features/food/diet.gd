@@ -52,6 +52,15 @@ func get_composition() -> Dictionary[String, float]:
 	return diet_composition
 
 
+func get_energy() -> float:
+	var energy_sum: float = 0.0
+	
+	for food_dict: Dictionary in _foods_in_diet.values():
+		energy_sum += food_dict.food.get_energy()
+	
+	return energy_sum
+
+
 func _to_string() -> String:
 	if not diet_name:
 		return "<Diet>"
