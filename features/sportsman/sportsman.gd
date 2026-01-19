@@ -27,5 +27,5 @@ func harris_benedict() -> float:
 
 func met_expenditure() -> float:
 	var calories_per_minute: float
-	calories_per_minute = (Constants.AVAILABLE_SPORTS_MET[current_sport] * 3.5 * weight_kg) / 200
+	calories_per_minute = (Constants.AvailableSportsMet[current_sport] * 3.5 * weight_kg) / 200
 	return calories_per_minute * DEFAULT_AVERAGE_TRAINING_MINUTES_DAY
