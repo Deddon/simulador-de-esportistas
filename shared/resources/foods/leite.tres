@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://cs3wn3lebw5re"]
+
+[ext_resource type="Script" uid="uid://d2ib4vwjavhyq" path="res://features/food/food.gd" id="1_6vpun"]
+[ext_resource type="Texture2D" uid="uid://cybmopf7dix5j" path="res://assets/sprites/foods/leite.png" id="2_v08vi"]
+
+[resource]
+script = ExtResource("1_6vpun")
+name = "Leite Integral"
+texture = ExtResource("2_v08vi")
+description = "De vacaaaaa"
+composition = Dictionary[String, float]({
+"CHO": 36.0,
+"LIP": 9.0,
+"PTN": 17.0,
+"fibers": 0.0
+})
+metadata/_custom_type_script = "uid://d2ib4vwjavhyq"

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://bax262d14k621"]
+
+[ext_resource type="Script" uid="uid://d2ib4vwjavhyq" path="res://features/food/food.gd" id="1_41dj6"]
+[ext_resource type="Texture2D" uid="uid://bd5d0nekjf2su" path="res://assets/sprites/foods/abacate.png" id="2_ughay"]
+
+[resource]
+script = ExtResource("1_41dj6")
+name = "Abacate"
+texture = ExtResource("2_ughay")
+description = "Veeeeerde"
+composition = Dictionary[String, float]({
+"CHO": 14.0,
+"LIP": 30.0,
+"PTN": 11.0,
+"fibers": 4.0
+})
+metadata/_custom_type_script = "uid://d2ib4vwjavhyq"

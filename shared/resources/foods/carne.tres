@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://46xp7hl2c3si"]
+
+[ext_resource type="Script" uid="uid://d2ib4vwjavhyq" path="res://features/food/food.gd" id="1_fvhef"]
+[ext_resource type="Texture2D" uid="uid://begakm4vhpyq2" path="res://assets/sprites/foods/steak.png" id="2_qgd2p"]
+
+[resource]
+script = ExtResource("1_fvhef")
+name = "Carne Grelhada"
+texture = ExtResource("2_qgd2p")
+description = "Um bifão"
+composition = Dictionary[String, float]({
+"CHO": 0.0,
+"LIP": 5.0,
+"PTN": 20.0,
+"fibers": 0.0
+})
+metadata/_custom_type_script = "uid://d2ib4vwjavhyq"

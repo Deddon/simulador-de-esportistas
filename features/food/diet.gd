@@ -28,6 +28,30 @@ func get_foods() -> Array[Food]:
 	return _foods_array
 
 
+func get_composition() -> Dictionary[String, float]:
+	var diet_composition: Dictionary[String, float] = {
+		"CHO": 0.0,
+		"PTN": 0.0,
+		"LIP": 0.0,
+		"fibers": 0.0,
+	}
+	
+	for food_dict: Dictionary in _foods_in_diet.values():
+		var current_food: Food = food_dict.food
+		var weight_proportion: float = food_dict.weight / 100.0
+		
+		for nutrient_name: String in current_food.composition.keys():
+			if not diet_composition.has(nutrient_name):
+				push_error("Nutrient %s isen't part of the know nutrients. Food: %s." % [
+					nutrient_name, current_food.name
+				])
+				continue
+				
+			diet_composition[nutrient_name] += current_food.composition[nutrient_name] * weight_proportion
+	
+	return diet_composition
+
+
 func _to_string() -> String:
 	if not diet_name:
 		return "<Diet>"
