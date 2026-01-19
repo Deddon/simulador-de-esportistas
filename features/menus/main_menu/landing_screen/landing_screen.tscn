@@ -71,7 +71,6 @@ size_flags_horizontal = 3
 
 [node name="EventsResumeContainer" parent="MarginContainer/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_mdmh7")]
 layout_mode = 2
-script = null
 
 [node name="LastSubmittedDietContainer" parent="MarginContainer/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_bchmr")]
 layout_mode = 2

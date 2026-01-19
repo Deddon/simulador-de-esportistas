@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgpes2acfocog"]
+[gd_scene load_steps=5 format=3 uid="uid://dgpes2acfocog"]
 
-[ext_resource type="Script" uid="uid://d34dsyaga6osg" path="res://features/menus/main_menu/landing_screen/events_resume_container.tscn/events_resume_container.gd" id="1_3gfug"]
 [ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_26ey7"]
 [ext_resource type="Texture2D" uid="uid://bkyiclhxg11pm" path="res://assets/sprites/icons/globe.png" id="2_26ey7"]
 [ext_resource type="Texture2D" uid="uid://bprnn7r1kgd7k" path="res://assets/sprites/icons/sneakers.png" id="3_m07db"]
@@ -12,7 +11,6 @@ layout_mode = 3
 anchors_preset = 0
 size_flags_vertical = 3
 theme = ExtResource("1_26ey7")
-script = ExtResource("1_3gfug")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 layout_mode = 1
