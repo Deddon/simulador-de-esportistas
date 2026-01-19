@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://clr2lus4108wx" path="res://features/menus/main_menu/game_watch/game_watch.gd" id="1_bww0i"]
 
-[node name="GameWatch" type="Node"]
+[node name="GameWatch" type="Node" groups=["game_watch"]]
 script = ExtResource("1_bww0i")
 
 [node name="TicksTimer" type="Timer" parent="."]
+unique_name_in_owner = true

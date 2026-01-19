@@ -2,6 +2,9 @@ class_name MainMenu
 extends Control
 
 
+@export var game_watch: MainMenuGameWatch
+
+
 func _enter_tree() -> void:
 	if GameBuffer.get_buffered_sportsman():
 		return
@@ -14,3 +17,8 @@ func _enter_tree() -> void:
 	GameBuffer.add_sportsman(demo_sportsman)
 	
 	await get_tree().create_timer(0.5).timeout
+
+
+func _ready() -> void:
+	game_watch.set_start_datetime_at_business_hour()
+	game_watch.start()

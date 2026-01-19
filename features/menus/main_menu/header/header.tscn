@@ -13,18 +13,17 @@ font_size = 20
 font_size = 20
 
 [node name="Header" type="Control" node_paths=PackedStringArray("sportsman_data_label", "datetime_info_label")]
-custom_minimum_size = Vector2(1152, 200)
+custom_minimum_size = Vector2(1152, 0)
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
 offset_right = 214.0
-offset_bottom = 200.0
+offset_bottom = 180.0
 grow_horizontal = 2
 theme = ExtResource("1_vxas7")
 script = ExtResource("1_mj6yx")
 sportsman_data_label = NodePath("BackgroundPanel/MarginContainer/HBoxContainer/NameAndSport/MarginContainer2/SportsmanData")
 datetime_info_label = NodePath("BackgroundPanel/MarginContainer/HBoxContainer/GameWatch/MarginContainer/DatetimeInfo")
-metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
 [node name="BackgroundPanel" type="Panel" parent="."]

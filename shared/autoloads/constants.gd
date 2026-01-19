@@ -15,3 +15,6 @@ const AvailableSportsMet = [
 	11.0, # Long Run - Running, 7 mph (8.5 min/mile)
 	10.0 # Speed Run - Running, on a track, team practic
 ]
+
+
+const GAME_TICKS_PER_SECOND := 0.75
