@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://l7eqm3ayclx4"]
+[gd_scene load_steps=5 format=3 uid="uid://l7eqm3ayclx4"]
 
 [ext_resource type="PackedScene" uid="uid://drs80p7ntee4u" path="res://features/menus/main_menu/landing_screen/sportsman_stats_resume_container/sportsman_stats_resume_container.tscn" id="1_ilire"]
 [ext_resource type="PackedScene" uid="uid://dgpes2acfocog" path="res://features/menus/main_menu/landing_screen/events_resume_container.tscn/events_resume_container.tscn" id="2_mdmh7"]
+[ext_resource type="PackedScene" uid="uid://bpihpl1cjqgdc" path="res://features/menus/main_menu/landing_screen/last_submitted_diet_container/last_submitted_diet_container.tscn" id="3_bchmr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dpjqw"]
 font_size = 30
@@ -70,7 +71,7 @@ size_flags_horizontal = 3
 
 [node name="EventsResumeContainer" parent="MarginContainer/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_mdmh7")]
 layout_mode = 2
+script = null
 
-[node name="LastSubmittedDietContainer" type="Control" parent="MarginContainer/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="LastSubmittedDietContainer" parent="MarginContainer/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_bchmr")]
 layout_mode = 2
-size_flags_vertical = 3
