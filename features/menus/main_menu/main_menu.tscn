@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dasbp47txnne2"]
+[gd_scene load_steps=6 format=3 uid="uid://dasbp47txnne2"]
 
 [ext_resource type="Script" uid="uid://ff5kynq7d6o7" path="res://features/menus/main_menu/main_menu.gd" id="1_xqkuk"]
 [ext_resource type="PackedScene" uid="uid://ltyy6bdqfl" path="res://features/menus/main_menu/game_watch/game_watch.tscn" id="1_yojr0"]
 [ext_resource type="PackedScene" uid="uid://c7mcbwhsrlybw" path="res://features/menus/main_menu/header/header.tscn" id="3_ul4es"]
+[ext_resource type="PackedScene" uid="uid://b6ujjrrjk0nn2" path="res://features/menus/main_menu/side_options_buttons/side_options_buttons.tscn" id="4_e0f0j"]
 
 [sub_resource type="Theme" id="Theme_ul4es"]
 
@@ -30,10 +31,12 @@ custom_minimum_size = Vector2(1366, 150)
 layout_mode = 2
 
 [node name="BodyContainer" type="HBoxContainer" parent="MainContainer"]
+custom_minimum_size = Vector2(0, 498)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SideOptionsButtons" type="Control" parent="MainContainer/BodyContainer"]
+[node name="SideOptionsButtons" parent="MainContainer/BodyContainer" instance=ExtResource("4_e0f0j")]
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 2
 
 [node name="MainWorkspace" type="Control" parent="MainContainer/BodyContainer"]
