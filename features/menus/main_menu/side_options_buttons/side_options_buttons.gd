@@ -24,7 +24,6 @@ func _open_sportsman_profile(is_toggled: bool) -> void:
 		title_label.text = "Mostrando\nPerfil do Paciente"
 		
 	else:
-		print(is_toggled)
 		title_label.text = "Ações Disponíveis\n"
 
 

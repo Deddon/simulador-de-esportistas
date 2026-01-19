@@ -20,10 +20,6 @@ config/icon="uid://dkhdhwwni3jmp"
 GameBuffer="*res://shared/autoloads/game_buffer.gd"
 Constants="*res://shared/autoloads/constants.gd"
 
-[display]
-
-window/size/mode=2
-
 [file_customization]
 
 folder_colors={

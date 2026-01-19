@@ -13,29 +13,34 @@ font_size = 20
 font_size = 20
 
 [node name="Header" type="Control" node_paths=PackedStringArray("sportsman_data_label", "datetime_info_label")]
-custom_minimum_size = Vector2(1152, 0)
+custom_minimum_size = Vector2(1152, 150)
 layout_mode = 3
 anchors_preset = 10
 anchor_right = 1.0
-offset_right = 214.0
-offset_bottom = 180.0
+offset_bottom = 150.0
 grow_horizontal = 2
 theme = ExtResource("1_vxas7")
 script = ExtResource("1_mj6yx")
-sportsman_data_label = NodePath("BackgroundPanel/MarginContainer/HBoxContainer/NameAndSport/MarginContainer2/SportsmanData")
-datetime_info_label = NodePath("BackgroundPanel/MarginContainer/HBoxContainer/GameWatch/MarginContainer/DatetimeInfo")
+sportsman_data_label = NodePath("MarginContainer/BackgroundPanel/MarginContainer/HBoxContainer/NameAndSport/MarginContainer2/SportsmanData")
+datetime_info_label = NodePath("MarginContainer/BackgroundPanel/MarginContainer/HBoxContainer/GameWatch/MarginContainer/DatetimeInfo")
 metadata/_edit_group_ = true
 
-[node name="BackgroundPanel" type="Panel" parent="."]
-custom_minimum_size = Vector2(1152, 0)
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
 
-[node name="MarginContainer" type="MarginContainer" parent="BackgroundPanel"]
+[node name="BackgroundPanel" type="Panel" parent="MarginContainer"]
+custom_minimum_size = Vector2(1112, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BackgroundPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,15 +52,15 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BackgroundPanel/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BackgroundPanel/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="NameAndSport" type="Panel" parent="BackgroundPanel/MarginContainer/HBoxContainer"]
+[node name="NameAndSport" type="Panel" parent="MarginContainer/BackgroundPanel/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer2" type="MarginContainer" parent="BackgroundPanel/MarginContainer/HBoxContainer/NameAndSport"]
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/BackgroundPanel/MarginContainer/HBoxContainer/NameAndSport"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,18 +72,18 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
 
-[node name="SportsmanData" type="Label" parent="BackgroundPanel/MarginContainer/HBoxContainer/NameAndSport/MarginContainer2"]
+[node name="SportsmanData" type="Label" parent="MarginContainer/BackgroundPanel/MarginContainer/HBoxContainer/NameAndSport/MarginContainer2"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "placeholder_sportsman_name"
 label_settings = SubResource("LabelSettings_vxas7")
 horizontal_alignment = 1
 
-[node name="NextEvent" type="Panel" parent="BackgroundPanel/MarginContainer/HBoxContainer"]
+[node name="NextEvent" type="Panel" parent="MarginContainer/BackgroundPanel/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="BackgroundPanel/MarginContainer/HBoxContainer/NextEvent"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BackgroundPanel/MarginContainer/HBoxContainer/NextEvent"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,7 +95,7 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
 
-[node name="NextEventInfo" type="Label" parent="BackgroundPanel/MarginContainer/HBoxContainer/NextEvent/MarginContainer"]
+[node name="NextEventInfo" type="Label" parent="MarginContainer/BackgroundPanel/MarginContainer/HBoxContainer/NextEvent/MarginContainer"]
 layout_mode = 2
 text = "Próximo evento
 Copa Mundial de LPO (Bolívia)
@@ -99,11 +104,11 @@ Faltam 20 dias "
 label_settings = SubResource("LabelSettings_cc7mj")
 horizontal_alignment = 1
 
-[node name="GameWatch" type="Panel" parent="BackgroundPanel/MarginContainer/HBoxContainer"]
+[node name="GameWatch" type="Panel" parent="MarginContainer/BackgroundPanel/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="BackgroundPanel/MarginContainer/HBoxContainer/GameWatch"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BackgroundPanel/MarginContainer/HBoxContainer/GameWatch"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -115,7 +120,7 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 5
 
-[node name="DatetimeInfo" type="Label" parent="BackgroundPanel/MarginContainer/HBoxContainer/GameWatch/MarginContainer"]
+[node name="DatetimeInfo" type="Label" parent="MarginContainer/BackgroundPanel/MarginContainer/HBoxContainer/GameWatch/MarginContainer"]
 layout_mode = 2
 text = "Fevereiro
 20 /  Segunda-feira"
