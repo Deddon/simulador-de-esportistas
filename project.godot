@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Simulador de Esportistas v4"
+run/main_scene="uid://dk17qb38uo03f"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="uid://dkhdhwwni3jmp"
 
@@ -18,6 +19,10 @@ config/icon="uid://dkhdhwwni3jmp"
 
 GameBuffer="*res://shared/autoloads/game_buffer.gd"
 Constants="*res://shared/autoloads/constants.gd"
+
+[display]
+
+window/size/mode=2
 
 [file_customization]
 
@@ -30,5 +35,6 @@ folder_colors={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
