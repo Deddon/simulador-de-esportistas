@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://c21cea7qvmkvb"]
+
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_tka4w"]
+[ext_resource type="PackedScene" uid="uid://dm8jwt53uuxdy" path="res://features/menus/main_menu/sportsman_tab/sportsman_tab.tscn" id="1_yojr0"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_tka4w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="FooterContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="TabsContainer" type="HBoxContainer" parent="VBoxContainer/MarginContainer/FooterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SportsmanTab1" parent="VBoxContainer/MarginContainer/FooterContainer/TabsContainer" instance=ExtResource("1_yojr0")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SportsmanTab2" parent="VBoxContainer/MarginContainer/FooterContainer/TabsContainer" instance=ExtResource("1_yojr0")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GameWatchUI" type="Control" parent="."]
+anchors_preset = 0
