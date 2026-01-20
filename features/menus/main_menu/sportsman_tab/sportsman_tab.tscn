@@ -6,8 +6,8 @@
 [sub_resource type="LabelSettings" id="LabelSettings_wepuo"]
 font_size = 25
 
-[node name="SportsmanTabs" type="Control" node_paths=PackedStringArray("sportsman_name_label", "click_sensor_button")]
-custom_minimum_size = Vector2(160, 50)
+[node name="SportsmanTabs" type="Control" node_paths=PackedStringArray("sportsman_name_label", "click_sensor_button", "hover_color_rect")]
+custom_minimum_size = Vector2(227, 50)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 160.0
@@ -16,6 +16,7 @@ theme = ExtResource("1_km2wv")
 script = ExtResource("2_s0aww")
 sportsman_name_label = NodePath("BackgroundPanel/VBoxContainer/CenterContainer/SportsmanName")
 click_sensor_button = NodePath("Button")
+hover_color_rect = NodePath("HoverEffect")
 
 [node name="BackgroundPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -39,7 +40,7 @@ size_flags_vertical = 3
 
 [node name="SportsmanName" type="Label" parent="BackgroundPanel/VBoxContainer/CenterContainer"]
 layout_mode = 2
-text = "Name"
+text = "Nenhum paciente"
 label_settings = SubResource("LabelSettings_wepuo")
 horizontal_alignment = 1
 
@@ -47,6 +48,16 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 color = Color(0, 0.64705884, 0.1254902, 1)
+
+[node name="HoverEffect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.09019608)
 
 [node name="Button" type="Button" parent="."]
 self_modulate = Color(1, 1, 1, 0)

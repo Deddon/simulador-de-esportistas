@@ -2,16 +2,23 @@ class_name MainMenuSportsmanTab
 extends Control
 
 
-signal tab_selected(tab_sportsman: Sportsman)
-
 @export var sportsman_name_label: Label
 @export var click_sensor_button: Button
+@export var hover_color_rect: ColorRect
 
 var _sportsman: Sportsman
+
+@onready var sportsman_profile: MainMenuSportsmanProfile = get_tree().get_first_node_in_group("sportsman_profile")
 
 
 func _ready() -> void:
 	click_sensor_button.toggled.connect(_handle_tab_seletion)
+	click_sensor_button.mouse_entered.connect(func():
+		hover_color_rect.show()
+	)
+	click_sensor_button.mouse_exited.connect(func():
+		hover_color_rect.hide()
+	)
 
 
 func update_tab(sportsman: Sportsman) -> void:
@@ -26,5 +33,5 @@ func update_tab(sportsman: Sportsman) -> void:
 
 
 func _handle_tab_seletion(is_selected: bool) -> void:
-	if is_selected:
-		tab_selected.emit(_sportsman)
+	if is_selected and sportsman_profile:
+		sportsman_profile.update_sportsman_stats(_sportsman)

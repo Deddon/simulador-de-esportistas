@@ -101,10 +101,13 @@ func _on_game_watch_tick() -> void:
 	_ticks_since_start += 1
 	ticked.emit()
 	
+	if not running_event:
+		return
+	
 	if event_end_remaining_ticks >= 0:
+		print_debug("running this")
 		event_end_remaining_ticks -= 1
 	
 	else:
-		print_debug("Event: ", running_event.name, " has finished.")
 		event_finished.emit(running_event)
 		running_event = null
