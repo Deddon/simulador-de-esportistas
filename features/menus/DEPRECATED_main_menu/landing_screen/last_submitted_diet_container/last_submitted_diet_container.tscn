@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpihpl1cjqgdc"]
 
-[ext_resource type="Script" uid="uid://btjmwx5361it" path="res://features/menus/main_menu/landing_screen/last_submitted_diet_container/last_submitted_diet_container.gd" id="1_6p50w"]
+[ext_resource type="Script" uid="uid://btjmwx5361it" path="res://features/menus/DEPRECATED_main_menu/landing_screen/last_submitted_diet_container/last_submitted_diet_container.gd" id="1_6p50w"]
 [ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_o6xi5"]
 
 [node name="LastSubmittedDietContainer" type="Control" node_paths=PackedStringArray("when_no_diet_container", "when_diet_container", "open_diet_manager_button", "diet_name_label", "cho_label", "ptn_label", "lip_label", "fibers_label")]

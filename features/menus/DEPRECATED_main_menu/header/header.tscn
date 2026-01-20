@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c7mcbwhsrlybw"]
 
-[ext_resource type="Script" uid="uid://w73huh06nvsg" path="res://features/menus/main_menu/header/header.gd" id="1_mj6yx"]
+[ext_resource type="Script" uid="uid://w73huh06nvsg" path="res://features/menus/DEPRECATED_main_menu/header/header.gd" id="1_mj6yx"]
 [ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_vxas7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vxas7"]

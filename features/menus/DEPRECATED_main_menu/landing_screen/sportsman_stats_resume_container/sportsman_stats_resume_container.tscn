@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://drs80p7ntee4u"]
 
-[ext_resource type="Script" uid="uid://chgskx7mlirxj" path="res://features/menus/main_menu/landing_screen/sportsman_stats_resume_container/sportsman_stats_resume_container.gd" id="1_b126k"]
+[ext_resource type="Script" uid="uid://chgskx7mlirxj" path="res://features/menus/DEPRECATED_main_menu/landing_screen/sportsman_stats_resume_container/sportsman_stats_resume_container.gd" id="1_b126k"]
 [ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_ixk71"]
 [ext_resource type="Texture2D" uid="uid://6lfhg53jiesj" path="res://assets/sprites/athlet_black_background.png" id="2_tfh5y"]
 

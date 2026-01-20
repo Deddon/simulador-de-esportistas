@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6ujjrrjk0nn2"]
 
-[ext_resource type="Script" uid="uid://ykgeg0qk6pa3" path="res://features/menus/main_menu/side_options_buttons/side_options_buttons.gd" id="1_js2as"]
+[ext_resource type="Script" uid="uid://ykgeg0qk6pa3" path="res://features/menus/DEPRECATED_main_menu/side_options_buttons/side_options_buttons.gd" id="1_js2as"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_idnvm"]
 font_size = 25
