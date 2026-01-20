@@ -2,6 +2,7 @@ class_name MainMenuGameWatch
 extends Node
 
 
+signal event_finished(target_event: SportsEvent)
 signal ticked()
 
 const MINUTE := 60
@@ -9,11 +10,18 @@ const HOUR := 3600
 const DAY := 86400
 const WEEK := 604800
 const UTC_MINUS_3 := -10800
-const _SIMULATED_TIME_INCREASE_SECONDS := 20 * MINUTE
+
+const MONTH_NAMES: Array[String] = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
+const WEEKDAYS_NAMES: Array[String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+
+@export var simulated_time_increase_seconds: float = 1200.0
 
 var _start_date: float = 0.0
 var _ticks_since_start: int = 0
 var has_date_been_set: bool = false
+
+var running_event: SportsEvent
+var event_end_remaining_ticks: int = -1
 
 @onready var ticks_timer: Timer = %TicksTimer
 
@@ -54,12 +62,34 @@ func start() -> void:
 		push_error("No start date set.")
 
 
-func get_simulated_datetime() -> Dictionary:
-	const MONTH_NAMES: Array[String] = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
-	const WEEKDAYS_NAMES: Array[String] = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"]
+func time_event(target_event: SportsEvent) -> void:
+	if running_event:
+		push_warning("Timing %s but event %s was running." % [running_event.name, target_event.name])
 	
-	var simulated_time_seconds = _start_date + (_ticks_since_start * _SIMULATED_TIME_INCREASE_SECONDS)
+	var event_duration_on_ticks: float = (DAY / simulated_time_increase_seconds) * target_event.duration_days
+	var ticks_when_event_finished: float = _ticks_since_start + event_duration_on_ticks
+	
+	running_event = target_event
+	event_end_remaining_ticks = int(ticks_when_event_finished)
+
+
+func get_simulated_datetime() -> Dictionary:
+	var simulated_time_seconds = _start_date + (_ticks_since_start * simulated_time_increase_seconds)
 	var datetime_dict: Dictionary = Time.get_datetime_dict_from_unix_time(simulated_time_seconds)
+	
+	datetime_dict["weekday_string"] = WEEKDAYS_NAMES[datetime_dict.weekday]
+	datetime_dict["month_string"] = MONTH_NAMES[datetime_dict.month - 1]
+	
+	return datetime_dict
+
+
+func get_event_finish_datetime(target_event: SportsEvent) -> Dictionary:
+	var event_duration_on_ticks: float = (DAY / simulated_time_increase_seconds) * target_event.duration_days
+	var ticks_when_event_finished: float = _ticks_since_start + event_duration_on_ticks
+	
+	var datetime_dict: Dictionary = Time.get_datetime_dict_from_unix_time(int(
+		_start_date + (ticks_when_event_finished * simulated_time_increase_seconds)
+	))
 	
 	datetime_dict["weekday_string"] = WEEKDAYS_NAMES[datetime_dict.weekday]
 	datetime_dict["month_string"] = MONTH_NAMES[datetime_dict.month - 1]
@@ -70,3 +100,11 @@ func get_simulated_datetime() -> Dictionary:
 func _on_game_watch_tick() -> void:
 	_ticks_since_start += 1
 	ticked.emit()
+	
+	if event_end_remaining_ticks >= 0:
+		event_end_remaining_ticks -= 1
+	
+	else:
+		print_debug("Event: ", running_event.name, " has finished.")
+		event_finished.emit(running_event)
+		running_event = null

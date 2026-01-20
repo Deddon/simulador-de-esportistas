@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SportsEvent" load_steps=2 format=3 uid="uid://bhjvtg8e2wbwl"]
+
+[ext_resource type="Script" uid="uid://cof2c8uugyf0p" path="res://features/sports_event/sports_event.gd" id="1_praln"]
+
+[resource]
+script = ExtResource("1_praln")
+name = "Campeonato"
+duration_days = 0.25
+description = "TESTE DEBUG"
+metadata/_custom_type_script = "uid://cof2c8uugyf0p"
