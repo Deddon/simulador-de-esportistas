@@ -23,6 +23,8 @@ theme = ExtResource("1_ed43s")
 script = ExtResource("2_luu7m")
 player_name_line_edit = NodePath("CenterContainer/VBoxContainer/NameContainer/VBoxContainer/PlayerName")
 professional_name_and_crn_label = NodePath("CenterContainer/VBoxContainer/MarginContainer/ProfessionalName&CRN")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1

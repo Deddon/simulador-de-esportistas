@@ -13,6 +13,7 @@ const DEFAULT_AVERAGE_TRAINING_MINUTES_DAY := (DEFAULT_TRAINING_WEEK_FREQUENCY *
 @export var name: String
 @export var weight_kg: float = 60.0
 @export var current_sport: Constants.SportsmanAvailableSports = Constants.SportsmanAvailableSports.NULL
+@export var base_needs_guideline: NutrientGuideline
 
 
 func calculate_energy() -> float:
