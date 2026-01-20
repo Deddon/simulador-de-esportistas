@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="NutrientGuideline" load_steps=2 format=3 uid="uid://cncdsvj8wtesp"]
+
+[ext_resource type="Script" uid="uid://c6cm5ixops0xl" path="res://features/nutrient_guideline/nutrient_guideline.gd" id="1_47mom"]
+
+[resource]
+script = ExtResource("1_47mom")
+name = "Olympic Weight Lifting Macronutrients Management"
+target_sport = 1
+description = "Novos estudos do ACSM baseado em dados coletados durante as olímpiadas de 2024 propõem novas diretrizes para o planejamento alimentar de atletas de LPO."
+composition_proportion = Dictionary[String, float]({
+"CHO": 0.457,
+"LIP": 0.976,
+"PTN": 0.123,
+"fibers": -1.0
+})
+publishers = "ACSM"
+metadata/_custom_type_script = "uid://c6cm5ixops0xl"

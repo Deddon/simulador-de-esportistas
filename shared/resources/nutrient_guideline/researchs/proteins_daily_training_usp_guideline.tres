@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="NutrientGuideline" load_steps=2 format=3 uid="uid://ei45lmgmcqrh"]
+
+[ext_resource type="Script" uid="uid://c6cm5ixops0xl" path="res://features/nutrient_guideline/nutrient_guideline.gd" id="1_ayn8o"]
+
+[resource]
+script = ExtResource("1_ayn8o")
+name = "Protein Importance on Desportive Dayly Training"
+description = "Um novo papel desenvolvido por pesquisadores da USP estabeleceu novas diretrizes de proteínas e aminoácidos, bem como, sua relevância dentro do treinamento de atletas profissionais de diversas modalidades."
+composition_proportion = Dictionary[String, float]({
+"CHO": -1.0,
+"LIP": -1.0,
+"PTN": 0.842,
+"fibers": -1.0
+})
+publishers = "USP Nutrition Department"
+metadata/_custom_type_script = "uid://c6cm5ixops0xl"

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Sportsman" load_steps=4 format=3 uid="uid://dvft4nx7va7rw"]
+
+[ext_resource type="Script" uid="uid://c6cm5ixops0xl" path="res://features/nutrient_guideline/nutrient_guideline.gd" id="1_fvhhw"]
+[ext_resource type="Script" uid="uid://b3d810d2x1cwp" path="res://features/sportsman/sportsman.gd" id="2_sjxym"]
+
+[sub_resource type="Resource" id="Resource_atutl"]
+script = ExtResource("1_fvhhw")
+name = "LilianBaseGuideline"
+target_sport = 3
+description = "Nutricionista, começou a correr e sentir que seu lugar era nas corridas de velocidade, agora busca apoio nutricional específico para 400m."
+composition_proportion = Dictionary[String, float]({
+"CHO": 5.0,
+"LIP": 0.8,
+"PTN": 1.8,
+"fibers": 44.0
+})
+metadata/_custom_type_script = "uid://c6cm5ixops0xl"
+
+[resource]
+script = ExtResource("2_sjxym")
+name = "Lilian"
+weight_kg = 59.2
+current_sport = 3
+base_needs_guideline = SubResource("Resource_atutl")
+metadata/_custom_type_script = "uid://b3d810d2x1cwp"

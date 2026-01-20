@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Sportsman" load_steps=4 format=3 uid="uid://bbojqyv8d21mm"]
+
+[ext_resource type="Script" uid="uid://c6cm5ixops0xl" path="res://features/nutrient_guideline/nutrient_guideline.gd" id="1_0psem"]
+[ext_resource type="Script" uid="uid://b3d810d2x1cwp" path="res://features/sportsman/sportsman.gd" id="2_y80sc"]
+
+[sub_resource type="Resource" id="Resource_i677q"]
+script = ExtResource("1_0psem")
+name = "IsabelaBaseGuideline"
+target_sport = 1
+description = "Apaixonada por treino funcional, veio do crossfit e quer aumentar PCT para competir, agora no LPO."
+composition_proportion = Dictionary[String, float]({
+"CHO": 5.6,
+"LIP": 1.0,
+"PTN": 1.1,
+"fibers": 44.0
+})
+metadata/_custom_type_script = "uid://c6cm5ixops0xl"
+
+[resource]
+script = ExtResource("2_y80sc")
+name = "Isabela Navarro"
+weight_kg = 65.0
+current_sport = 1
+base_needs_guideline = SubResource("Resource_i677q")
+metadata/_custom_type_script = "uid://b3d810d2x1cwp"

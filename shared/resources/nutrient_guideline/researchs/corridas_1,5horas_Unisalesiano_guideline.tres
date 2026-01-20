@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="NutrientGuideline" load_steps=2 format=3 uid="uid://bdqdldbt4jd65"]
+
+[ext_resource type="Script" uid="uid://c6cm5ixops0xl" path="res://features/nutrient_guideline/nutrient_guideline.gd" id="1_bhedg"]
+
+[resource]
+script = ExtResource("1_bhedg")
+name = "Aporte de Carboidratos em Corridas Com Duração Menores que 1.5 Horas"
+target_sport = 2
+description = "Nutricionistas, recém-formados e professores, do curso de nutrição do Unisalesiano Araçatuba, fizeram um estudo randomizado duplo-cego para desenvolver uma diretriz nova no planejamento de atletas que correm corridas de rua por menos de uma hora e meia."
+composition_proportion = Dictionary[String, float]({
+"CHO": 0.847,
+"LIP": -1.0,
+"PTN": -1.0,
+"fibers": 0.954
+})
+publishers = "\"Gonçalves, Gomes & Bernardo\""
+metadata/_custom_type_script = "uid://c6cm5ixops0xl"

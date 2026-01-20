@@ -21,3 +21,11 @@ extends Resource
 
 @export_group("Metadata")
 @export var metadata: Dictionary[String, Variant] = {}
+
+
+func set_publish_date_from_seconds(publish_seconds: float, time_offset: float = 0.0) -> void:
+	simulated_publish_time_seconds = publish_seconds + time_offset
+
+
+func set_ticks_to_unlock_research(ticks: int) -> void:
+	research_unlock_ticks = ticks
