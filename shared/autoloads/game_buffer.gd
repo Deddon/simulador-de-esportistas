@@ -1,6 +1,7 @@
 extends Node
 
 
+var player_name: String = ""
 var _buffered_diet: Diet
 var _buffered_sportsman: Sportsman
 

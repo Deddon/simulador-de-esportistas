@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgtb0u1cyeb7b"]
+
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_ed43s"]
+[ext_resource type="Script" uid="uid://bo33i0xmwofjh" path="res://features/menus/start_menu/start_menu.gd" id="2_luu7m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_luu7m"]
+font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_s0r3t"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_7ev2o"]
+font_size = 25
+
+[node name="StartMenu" type="Control" node_paths=PackedStringArray("player_name_line_edit", "professional_name_and_crn_label")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ed43s")
+script = ExtResource("2_luu7m")
+player_name_line_edit = NodePath("CenterContainer/VBoxContainer/NameContainer/VBoxContainer/PlayerName")
+professional_name_and_crn_label = NodePath("CenterContainer/VBoxContainer/MarginContainer/ProfessionalName&CRN")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="GameTitle" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "PROTÓTIPO
+SIMULADOR DE ESPORTISTAS"
+label_settings = SubResource("LabelSettings_luu7m")
+horizontal_alignment = 1
+
+[node name="NameContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 205
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 205
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/NameContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer/NameContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/NameContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Qual seu nome?"
+label_settings = SubResource("LabelSettings_s0r3t")
+horizontal_alignment = 1
+
+[node name="PlayerName" type="LineEdit" parent="CenterContainer/VBoxContainer/NameContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+placeholder_text = "Daniela Navarro"
+alignment = 1
+expand_to_text_length = true
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="ProfessionalName&CRN" type="Label" parent="CenterContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "
+"
+label_settings = SubResource("LabelSettings_7ev2o")
+horizontal_alignment = 1
+vertical_alignment = 1
