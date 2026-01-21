@@ -14,6 +14,7 @@ const DEFAULT_AVERAGE_TRAINING_MINUTES_DAY := (DEFAULT_TRAINING_WEEK_FREQUENCY *
 @export var weight_kg: float = 60.0
 @export var current_sport: Constants.SportsmanAvailableSports = Constants.SportsmanAvailableSports.NULL
 @export var base_needs_guideline: NutrientGuideline
+@export var _past_events: Array[SportsEventResult]
 
 
 func calculate_energy() -> float:
@@ -30,3 +31,11 @@ func met_expenditure() -> float:
 	var calories_per_minute: float
 	calories_per_minute = (Constants.AvailableSportsMet[current_sport] * 3.5 * weight_kg) / 200
 	return calories_per_minute * DEFAULT_AVERAGE_TRAINING_MINUTES_DAY
+
+
+func add_finished_event_result(event_result: SportsEventResult) -> void:
+	_past_events.append(event_result)
+
+
+func get_past_events() -> Array[SportsEventResult]:
+	return _past_events

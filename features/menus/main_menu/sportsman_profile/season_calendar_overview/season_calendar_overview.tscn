@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://do50sr2v2exe1"]
+
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_av0mr"]
+[ext_resource type="Script" uid="uid://delng28xu2n6c" path="res://features/menus/main_menu/sportsman_profile/season_calendar_overview/season_calendar_overview.gd" id="1_rvetf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rvetf"]
+font_size = 40
+
+[node name="SeasonCalendarOverview" type="Control" node_paths=PackedStringArray("label")]
+custom_minimum_size = Vector2(838, 594)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -314.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_av0mr")
+script = ExtResource("1_rvetf")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+label_settings = SubResource("LabelSettings_rvetf")

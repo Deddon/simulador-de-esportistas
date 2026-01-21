@@ -20,6 +20,5 @@ func update_sportsman_stats(sportsman: Sportsman) -> void:
 	get_viewport().gui_release_focus()
 	side_bar_options.reset_buttons()
 	
-	print_debug("Now show %s stats." % current_sportsman.name)
 	no_sportsman_selected_container.hide()
 	sportsman_selectecd_container.show()
