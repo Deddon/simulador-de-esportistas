@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_ppvhs"]
 [ext_resource type="Script" uid="uid://ff5kynq7d6o7" path="res://features/menus/DEPRECATED_main_menu/DEPRECATED_main_menu.gd" id="2_lhb0k"]
-[ext_resource type="PackedScene" uid="uid://ltyy6bdqfl" path="res://features/menus/DEPRECATED_main_menu/game_watch/game_watch.tscn" id="3_ad5aj"]
+[ext_resource type="PackedScene" uid="uid://ltyy6bdqfl" path="res://features/menus/main_menu/game_watch/game_watch.tscn" id="3_ad5aj"]
 [ext_resource type="PackedScene" uid="uid://c7mcbwhsrlybw" path="res://features/menus/DEPRECATED_main_menu/header/header.tscn" id="4_n7rd5"]
 [ext_resource type="PackedScene" uid="uid://b6ujjrrjk0nn2" path="res://features/menus/DEPRECATED_main_menu/side_options_buttons/side_options_buttons.tscn" id="5_x7d2a"]
 [ext_resource type="PackedScene" uid="uid://l7eqm3ayclx4" path="res://features/menus/DEPRECATED_main_menu/landing_screen/landing_screen.tscn" id="6_ic7im"]

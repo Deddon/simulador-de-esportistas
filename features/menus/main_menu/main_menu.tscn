@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dy8s0vju4c7cu" path="res://features/menus/main_menu/main_menu.gd" id="1_xqkuk"]
 [ext_resource type="PackedScene" uid="uid://dm8jwt53uuxdy" path="res://features/menus/main_menu/sportsman_tab/sportsman_tab.tscn" id="1_yojr0"]
 [ext_resource type="PackedScene" uid="uid://bcyde4w12samy" path="res://features/menus/main_menu/sportsman_profile/sportsman_profile.tscn" id="4_aukys"]
-[ext_resource type="PackedScene" uid="uid://ltyy6bdqfl" path="res://features/menus/DEPRECATED_main_menu/game_watch/game_watch.tscn" id="4_e0f0j"]
+[ext_resource type="PackedScene" uid="uid://ltyy6bdqfl" path="res://features/menus/main_menu/game_watch/game_watch.tscn" id="4_e0f0j"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("sportsman_tab1", "sportsman_tab2")]
 layout_mode = 3
