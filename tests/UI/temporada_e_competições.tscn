@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://shy12jpmb1tx"]
+
+[node name="Temporada e Competições" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+metadata/_tab_index = 0

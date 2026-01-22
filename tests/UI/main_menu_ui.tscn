@@ -1,0 +1,121 @@
+[gd_scene load_steps=9 format=3 uid="uid://crfaio4twr5jl"]
+
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_epb8o"]
+[ext_resource type="Script" uid="uid://dcki61o7n4xmq" path="res://tests/UI/main_menu_ui.gd" id="1_xpt6q"]
+[ext_resource type="PackedScene" uid="uid://shy12jpmb1tx" path="res://tests/UI/temporada_e_competições.tscn" id="2_o4eki"]
+[ext_resource type="PackedScene" uid="uid://cu8dlnhj5i66e" path="res://tests/UI/planejamento_alimentar.tscn" id="3_jgmvm"]
+[ext_resource type="PackedScene" uid="uid://b2wujmuiluvlk" path="res://tests/UI/resultados_e_progressão.tscn" id="3_rxkf8"]
+[ext_resource type="PackedScene" uid="uid://m5spwqgnc31j" path="res://tests/UI/antropometria_e_evolução.tscn" id="4_7w7b7"]
+[ext_resource type="PackedScene" uid="uid://c2y5l3sfl2tfw" path="res://tests/UI/visão_geral.tscn" id="4_rxkf8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_epb8o"]
+font_size = 30
+
+[node name="MainMenuUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_epb8o")
+script = ExtResource("1_xpt6q")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Header" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer/Header"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/Header/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Header/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Atleta: João Carvalho
+Levantador de Peso Olímpico"
+label_settings = SubResource("LabelSettings_epb8o")
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/Header/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Header/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+text = "Temporada
+2026
+
+Janeiro
+Semana 1"
+label_settings = SubResource("LabelSettings_epb8o")
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/Header/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Header/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "Status
+Em preparação "
+label_settings = SubResource("LabelSettings_epb8o")
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/Header/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="VBoxContainer/Header/HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+text = "MUDAR PACIENTE"
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+tab_alignment = 1
+current_tab = 1
+
+[node name="Visão Geral" parent="VBoxContainer/TabContainer" instance=ExtResource("4_rxkf8")]
+visible = false
+custom_minimum_size = Vector2(970, 0)
+layout_mode = 2
+
+[node name="Planejamento Alimentar" parent="VBoxContainer/TabContainer" instance=ExtResource("3_jgmvm")]
+custom_minimum_size = Vector2(970, 0)
+layout_mode = 2
+
+[node name="Antropometria e Evolução" parent="VBoxContainer/TabContainer" instance=ExtResource("4_7w7b7")]
+layout_mode = 2
+
+[node name="Temporada e Competições" parent="VBoxContainer/TabContainer" instance=ExtResource("2_o4eki")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Resultados e Progressão" parent="VBoxContainer/TabContainer" instance=ExtResource("3_rxkf8")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4

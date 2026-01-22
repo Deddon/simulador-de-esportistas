@@ -1,0 +1,330 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2y5l3sfl2tfw"]
+
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_p3yoc"]
+[ext_resource type="Texture2D" uid="uid://bkyiclhxg11pm" path="res://assets/sprites/icons/globe.png" id="3_dlaua"]
+[ext_resource type="Texture2D" uid="uid://c36djoskclt7n" path="res://assets/sprites/foods/coco.png" id="3_ol0we"]
+[ext_resource type="Texture2D" uid="uid://prgdvdqnma1r" path="res://assets/sprites/foods/cenoura.png" id="3_x6n2m"]
+[ext_resource type="Texture2D" uid="uid://bd5d0nekjf2su" path="res://assets/sprites/foods/abacate.png" id="4_ol0we"]
+
+[sub_resource type="Theme" id="Theme_p3yoc"]
+Button/font_sizes/font_size = 25
+Label/font_sizes/font_size = 25
+
+[node name="Visão Geral" type="Control"]
+custom_minimum_size = Vector2(965, 744)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 970.0
+offset_bottom = 744.0
+theme = ExtResource("1_p3yoc")
+metadata/_tab_index = 0
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 4.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_p3yoc")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="PlanejamentoAlimentar" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Planejamento Alimentar"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer"]
+layout_mode = 2
+text = "EDITAR DIETA"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="CenterContainer" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/VBoxContainer2"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+texture = ExtResource("4_ol0we")
+
+[node name="DEPRECATED" type="MarginContainer" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="GridContainer" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 8
+
+[node name="Panel" type="Panel" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_x6n2m")
+
+[node name="Panel2" type="Panel" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_x6n2m")
+
+[node name="Panel3" type="Panel" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2/Panel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_x6n2m")
+
+[node name="Panel4" type="Panel" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2/Panel4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ol0we")
+
+[node name="Panel5" type="Panel" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2/Panel5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ol0we")
+
+[node name="Panel6" type="Panel" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2/Panel6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_x6n2m")
+
+[node name="Panel7" type="Panel" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2/Panel7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_x6n2m")
+
+[node name="Panel8" type="Panel" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2/Panel8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_x6n2m")
+
+[node name="Panel9" type="Panel" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2/Panel9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_x6n2m")
+
+[node name="Panel10" type="Panel" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2/Panel10"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_x6n2m")
+
+[node name="Panel11" type="Panel" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/DEPRECATED/ScrollContainer/CenterContainer/VBoxContainer2/Panel11"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_x6n2m")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Diet: Demo_Diet
+000.0 kcal"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="ScrollContainer/HBoxContainer/PlanejamentoAlimentar/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "Criada
+Semana 2
+
+Utilizada
+2 vezes"
+horizontal_alignment = 1
+
+[node name="ProximaCompeticao" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/ProximaCompeticao"]
+layout_mode = 2
+text = "Proxima Competicao"
+
+[node name="Panel" type="Panel" parent="ScrollContainer/HBoxContainer/ProximaCompeticao"]
+custom_minimum_size = Vector2(970, 118)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/ProximaCompeticao/Panel"]
+layout_mode = 0
+offset_right = 970.0
+offset_bottom = 118.0
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="ScrollContainer/HBoxContainer/ProximaCompeticao/Panel/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/ProximaCompeticao/Panel/HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("3_dlaua")
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/ProximaCompeticao/Panel/HBoxContainer"]
+layout_mode = 2
+text = "Campeonato Mundial
+Participou 0 vezes"
+
+[node name="Label2" type="Label" parent="ScrollContainer/HBoxContainer/ProximaCompeticao/Panel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Semana 10"
+horizontal_alignment = 2
+
+[node name="Estatisticas(Tendencia&Pontuacoes)" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/Estatisticas(Tendencia&Pontuacoes)"]
+layout_mode = 2
+text = "Estatisticas"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/HBoxContainer/Estatisticas(Tendencia&Pontuacoes)"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Grafico" type="Control" parent="ScrollContainer/HBoxContainer/Estatisticas(Tendencia&Pontuacoes)/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Line2D" type="Line2D" parent="ScrollContainer/HBoxContainer/Estatisticas(Tendencia&Pontuacoes)/HBoxContainer/Grafico"]
+position = Vector2(-71, 36)
+points = PackedVector2Array(124, 74, 257, 30, 374, 86, 539, -1, 615, 72)
+width = 2.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/Estatisticas(Tendencia&Pontuacoes)/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/Estatisticas(Tendencia&Pontuacoes)/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Tendencia
+
+Perda de peso: +- 2 kg"

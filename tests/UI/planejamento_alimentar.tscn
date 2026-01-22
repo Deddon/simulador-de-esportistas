@@ -1,0 +1,251 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu8dlnhj5i66e"]
+
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_o2bw6"]
+
+[sub_resource type="Theme" id="Theme_o2bw6"]
+Label/font_sizes/font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_o2bw6"]
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_hlmtn"]
+font_size = 30
+
+[node name="Planejamento Alimentar" type="Control"]
+custom_minimum_size = Vector2(965, 744)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 970.0
+offset_bottom = 744.0
+theme = ExtResource("1_o2bw6")
+metadata/_tab_index = 1
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 4.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_o2bw6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+text = "Planejamento Alimentar"
+label_settings = SubResource("LabelSettings_o2bw6")
+horizontal_alignment = 1
+
+[node name="CurrentDiet" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 280)
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/CurrentDiet"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer"]
+layout_mode = 2
+text = "Dieta atual: Dieta Demonstrativa"
+label_settings = SubResource("LabelSettings_hlmtn")
+horizontal_alignment = 1
+
+[node name="DietNutrients&Energy" type="MarginContainer" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy"]
+layout_mode = 2
+
+[node name="Energy" type="Label" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy/VBoxContainer"]
+layout_mode = 2
+text = "2134.9 kcal"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CHO: 302.0 g"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PTN: 125.5 g"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LIP: 67.0  g"
+horizontal_alignment = 1
+
+[node name="Buttons" type="MarginContainer" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="Buttons" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/Buttons"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/Buttons/Buttons"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "CONFERIR DIETA"
+
+[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/Buttons/Buttons"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "EDITAR DIETA"
+
+[node name="Button3" type="Button" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/Buttons/Buttons"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "EXCLUIR DIETA"
+
+[node name="Guideline" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 280)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Guideline"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer"]
+layout_mode = 2
+text = "Diretrizes"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer"]
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="CenterContainer" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(360, 130)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(300, 130)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/MarginContainer/Panel"]
+custom_minimum_size = Vector2(300, 130)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/MarginContainer/Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/MarginContainer/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Diretriz 1"
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/MarginContainer/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Diretriz 1"
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/MarginContainer/Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Diretriz 1"
+
+[node name="CenterContainer" type="CenterContainer" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 15
+
+[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(370, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "VER DIRETRIZES"
+
+[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(370, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "PESQUISAR DIRETRIZES"
+
+[node name="Recordatorio" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 280)
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Recordatorio"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer"]
+layout_mode = 2
+text = "Recordatório"
+horizontal_alignment = 1
+
+[node name="DietNutrients&Energy" type="MarginContainer" parent="ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer/DietNutrients&Energy"]
+layout_mode = 2
+
+[node name="Energy" type="Label" parent="ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer/DietNutrients&Energy/VBoxContainer"]
+layout_mode = 2
+text = "1994.3 kcal"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer/DietNutrients&Energy/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer/DietNutrients&Energy/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CHO: 211.3 g"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer/DietNutrients&Energy/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PTN: 197.5 g"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer/DietNutrients&Energy/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LIP: 71 .0  g"
+horizontal_alignment = 1

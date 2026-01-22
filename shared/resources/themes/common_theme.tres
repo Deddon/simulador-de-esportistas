@@ -6,3 +6,4 @@
 Button/fonts/font = ExtResource("1_b2snb")
 Label/fonts/font = ExtResource("1_b2snb")
 LineEdit/fonts/font = ExtResource("1_b2snb")
+TabContainer/fonts/font = ExtResource("1_b2snb")

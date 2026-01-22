@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b2wujmuiluvlk"]
+
+[node name="Resultados e Progressão" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+metadata/_tab_index = 1
