@@ -29,130 +29,139 @@ grow_horizontal = 2
 grow_vertical = 2
 border_width = 4.0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
 theme = SubResource("Theme_o2bw6")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 text = "Planejamento Alimentar"
 label_settings = SubResource("LabelSettings_o2bw6")
 horizontal_alignment = 1
 
-[node name="CurrentDiet" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="CurrentDiet" type="MarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 280)
 layout_mode = 2
 theme_override_constants/margin_top = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/CurrentDiet"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/CurrentDiet"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer"]
 layout_mode = 2
 text = "Dieta atual: Dieta Demonstrativa"
 label_settings = SubResource("LabelSettings_hlmtn")
 horizontal_alignment = 1
 
-[node name="DietNutrients&Energy" type="MarginContainer" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer"]
+[node name="DietNutrients&Energy" type="MarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy"]
 layout_mode = 2
 
-[node name="Energy" type="Label" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy/VBoxContainer"]
+[node name="Energy" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy/VBoxContainer"]
 layout_mode = 2
-text = "2134.9 kcal"
+text = "
+VCT: 2234.9 kcal
+TMB: 2134.9 kcal Diferença: +100.0 kcal"
 horizontal_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy/VBoxContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy/VBoxContainer/MarginContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "CHO: 302.0 g"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy/VBoxContainer/HBoxContainer2"]
+[node name="Label2" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy/VBoxContainer/MarginContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "PTN: 125.5 g"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy/VBoxContainer/HBoxContainer2"]
+[node name="Label3" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/DietNutrients&Energy/VBoxContainer/MarginContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "LIP: 67.0  g"
 horizontal_alignment = 1
 
-[node name="Buttons" type="MarginContainer" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer"]
+[node name="Buttons" type="MarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 30
 theme_override_constants/margin_right = 30
 
-[node name="Buttons" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/Buttons"]
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/Buttons"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/Buttons/Buttons"]
+[node name="Button" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/Buttons/Buttons"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
 text = "CONFERIR DIETA"
 
-[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/Buttons/Buttons"]
+[node name="Button2" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/Buttons/Buttons"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
 text = "EDITAR DIETA"
 
-[node name="Button3" type="Button" parent="ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/Buttons/Buttons"]
+[node name="Button3" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/CurrentDiet/VBoxContainer/Buttons/Buttons"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
 text = "EXCLUIR DIETA"
 
-[node name="Guideline" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="Guideline" type="MarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 280)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Guideline"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Guideline"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Guideline/VBoxContainer"]
 layout_mode = 2
 text = "Diretrizes"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Guideline/VBoxContainer"]
 custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="CenterContainer" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="CenterContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(360, 130)
 layout_mode = 2
 
-[node name="Panel" type="Panel" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="Panel" type="Panel" parent="MarginContainer/ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(300, 130)
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/MarginContainer/Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/MarginContainer/Panel"]
 custom_minimum_size = Vector2(300, 130)
 layout_mode = 1
 anchors_preset = 15
@@ -162,89 +171,89 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/MarginContainer/Panel/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/MarginContainer/Panel/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/MarginContainer/Panel/ScrollContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/MarginContainer/Panel/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Diretriz 1"
 
-[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/MarginContainer/Panel/ScrollContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/MarginContainer/Panel/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Diretriz 1"
 
-[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/MarginContainer/Panel/ScrollContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/MarginContainer/Panel/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Diretriz 1"
 
-[node name="CenterContainer" type="CenterContainer" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/CenterContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 15
 
-[node name="Button" type="Button" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(370, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "VER DIRETRIZES"
 
-[node name="Button2" type="Button" parent="ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
+[node name="Button2" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer/Guideline/VBoxContainer/HBoxContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(370, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "PESQUISAR DIRETRIZES"
 
-[node name="Recordatorio" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
+[node name="Recordatorio" type="MarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 280)
 layout_mode = 2
 theme_override_constants/margin_top = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Recordatorio"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Recordatorio"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer"]
 layout_mode = 2
 text = "Recordatório"
 horizontal_alignment = 1
 
-[node name="DietNutrients&Energy" type="MarginContainer" parent="ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer"]
+[node name="DietNutrients&Energy" type="MarginContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer/DietNutrients&Energy"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer/DietNutrients&Energy"]
 layout_mode = 2
 
-[node name="Energy" type="Label" parent="ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer/DietNutrients&Energy/VBoxContainer"]
+[node name="Energy" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer/DietNutrients&Energy/VBoxContainer"]
 layout_mode = 2
 text = "1994.3 kcal"
 horizontal_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer/DietNutrients&Energy/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer/DietNutrients&Energy/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer/DietNutrients&Energy/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer/DietNutrients&Energy/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "CHO: 211.3 g"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer/DietNutrients&Energy/VBoxContainer/HBoxContainer2"]
+[node name="Label2" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer/DietNutrients&Energy/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "PTN: 197.5 g"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer/DietNutrients&Energy/VBoxContainer/HBoxContainer2"]
+[node name="Label3" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer/Recordatorio/VBoxContainer/DietNutrients&Energy/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "LIP: 71 .0  g"
