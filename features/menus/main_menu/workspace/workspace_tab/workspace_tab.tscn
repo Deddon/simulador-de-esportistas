@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://x2w8as7u0i7q"]
+
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_5aqfg"]
+[ext_resource type="Script" uid="uid://dgxfx32jwi877" path="res://features/menus/main_menu/workspace/workspace_tab/workspace_tab.gd" id="1_jwbuj"]
+
+[node name="WorkspaceTab" type="Control" node_paths=PackedStringArray("mouse_detector_button")]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_5aqfg")
+script = ExtResource("1_jwbuj")
+mouse_detector_button = NodePath("MouseDetector")
+
+[node name="MouseDetector" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 20
+toggle_mode = true
+text = "Tab"
+autowrap_mode = 3

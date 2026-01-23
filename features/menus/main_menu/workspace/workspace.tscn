@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://br404k3amkk2v"]
+
+[ext_resource type="Script" uid="uid://1itkwfke63pn" path="res://features/menus/main_menu/workspace/workspace.gd" id="1_mbgqg"]
+[ext_resource type="PackedScene" uid="uid://x2w8as7u0i7q" path="res://features/menus/main_menu/workspace/workspace_tab/workspace_tab.tscn" id="2_gv5mi"]
+
+[node name="Workspace" type="Control" node_paths=PackedStringArray("main_container", "tabs_container")]
+custom_minimum_size = Vector2(982, 768)
+layout_mode = 3
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_mbgqg")
+main_container = NodePath("MainContainer")
+tabs_container = NodePath("MainContainer/TabsContainer")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_width = 4.0
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabsContainer" type="HBoxContainer" parent="MainContainer"]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+
+[node name="VisaoGeral" parent="MainContainer/TabsContainer" instance=ExtResource("2_gv5mi")]
+layout_mode = 2
+size_flags_horizontal = 3
+tab_name = "Visão Geral"
+
+[node name="PlanejamentoAlimentar" parent="MainContainer/TabsContainer" instance=ExtResource("2_gv5mi")]
+layout_mode = 2
+size_flags_horizontal = 3
+tab_name = "Planejamento Alimentar"
+
+[node name="Antropometria&Evolucao" parent="MainContainer/TabsContainer" instance=ExtResource("2_gv5mi")]
+layout_mode = 2
+size_flags_horizontal = 3
+tab_name = "Antropometria & Evolução"
+
+[node name="Temporada&Competicoes" parent="MainContainer/TabsContainer" instance=ExtResource("2_gv5mi")]
+layout_mode = 2
+size_flags_horizontal = 3
+tab_name = "Temporada & Competições"
+
+[node name="Resultados" parent="MainContainer/TabsContainer" instance=ExtResource("2_gv5mi")]
+layout_mode = 2
+size_flags_horizontal = 3
+tab_name = "Resultados"

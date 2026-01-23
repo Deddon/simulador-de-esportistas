@@ -14,7 +14,7 @@ extends Control
 func _ready() -> void:
 	var demo_sportsman: Sportsman = preload("res://shared/resources/sportsman/heloisa_four_hundred_meters_runner.tres")
 	
-	game_watch.ticked.connect(func(): game_watch.print_simulated_datetime())
+	#game_watch.ticked.connect(func(): game_watch.print_simulated_datetime())
 	side_bar.sportsman_change_requested.connect(_change_sportsman)
 	
 	game_watch.set_start_datetime_at_business_hour()
