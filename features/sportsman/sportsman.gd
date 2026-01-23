@@ -18,6 +18,10 @@ const DEFAULT_AVERAGE_TRAINING_MINUTES_DAY := (DEFAULT_TRAINING_WEEK_FREQUENCY *
 @export var current_diet: Diet:
 	set = _add_diet
 
+@export_group("Description")
+@export_multiline var description: String
+
+@export_group("Privates")
 @export var _submitted_diets_history: Array[Diet]
 @export var _events_history: Array[SportsEventResult]
 @export var _body_fat_percentage: float = 16.0
