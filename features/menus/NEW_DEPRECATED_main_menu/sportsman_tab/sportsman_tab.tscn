@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dm8jwt53uuxdy"]
 
 [ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_km2wv"]
-[ext_resource type="Script" uid="uid://ci17ign7aqkq" path="res://features/menus/main_menu/sportsman_tab/sportsman_tab.gd" id="2_s0aww"]
+[ext_resource type="Script" uid="uid://ci17ign7aqkq" path="res://features/menus/NEW_DEPRECATED_main_menu/sportsman_tab/sportsman_tab.gd" id="2_s0aww"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wepuo"]
 font_size = 25

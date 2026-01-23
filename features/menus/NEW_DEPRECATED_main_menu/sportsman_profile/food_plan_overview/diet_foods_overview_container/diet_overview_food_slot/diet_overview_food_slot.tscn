@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2m1fep6unav8"]
+
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_ssgxd"]
+[ext_resource type="Script" uid="uid://bkrdtjctgu77a" path="res://features/menus/NEW_DEPRECATED_main_menu/sportsman_profile/food_plan_overview/diet_foods_overview_container/diet_overview_food_slot/diet_overview_food_slot.gd" id="2_3eyh8"]
+[ext_resource type="Texture2D" uid="uid://d08eourr15wgb" path="res://assets/sprites/not_found.png" id="3_3eyh8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ssgxd"]
+font_size = 25
+
+[node name="DietOverviewFoodSlot" type="Control" node_paths=PackedStringArray("food_texture_rect", "food_name_and_calories_label")]
+custom_minimum_size = Vector2(534, 160)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 534.0
+offset_bottom = 160.0
+theme = ExtResource("1_ssgxd")
+script = ExtResource("2_3eyh8")
+food_texture_rect = NodePath("BackgroundPanel/HBoxContainer/CenterContainer/FoodTexture")
+food_name_and_calories_label = NodePath("BackgroundPanel/HBoxContainer/FoodName&Calories")
+
+[node name="BackgroundPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="BackgroundPanel/HBoxContainer"]
+layout_mode = 2
+
+[node name="FoodTexture" type="TextureRect" parent="BackgroundPanel/HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture = ExtResource("3_3eyh8")
+
+[node name="FoodName&Calories" type="Label" parent="BackgroundPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "food_name
+food_kcal"
+label_settings = SubResource("LabelSettings_ssgxd")

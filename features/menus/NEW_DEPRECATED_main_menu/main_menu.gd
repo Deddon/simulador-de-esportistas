@@ -9,12 +9,10 @@ extends Control
 
 
 func _ready() -> void:
-	game_watch.ticked.connect(func(): print("Game Menu: tick."); game_watch.print_simulated_datetime())
+	#game_watch.ticked.connect(func(): print("Game Menu: tick."); game_watch.print_simulated_datetime())
 	game_watch.event_finished.connect(_handle_event_finished)
 	game_watch.set_start_datetime_at_business_hour()
 	game_watch.start()
-	
-	print(game_watch.get_simulated_datetime())
 	
 	sportsman_tab1.update_tab(preload("res://shared/resources/sportsman/carlos_olympic_weight_lifter.tres"))
 	sportsman_tab2.update_tab(preload("res://shared/resources/sportsman/heloisa_four_hundred_meters_runner.tres"))

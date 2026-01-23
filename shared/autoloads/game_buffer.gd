@@ -2,21 +2,22 @@ extends Node
 
 
 var player_name: String = ""
-var _buffered_diet: Diet
-var _buffered_sportsman: Sportsman
-
-
-func add_diet(diet: Diet) -> void:
-	_buffered_diet = diet
-
-
-func get_buffered_diet() -> Diet:
-	return _buffered_diet
+var _buffered_sportsmen: Array[Sportsman]
 
 
 func add_sportsman(sportsman: Sportsman) -> void:
-	_buffered_sportsman = sportsman
+	_buffered_sportsmen.append(sportsman)
 
 
-func get_buffered_sportsman() -> Sportsman:
-	return _buffered_sportsman
+func get_all_sportsmen() -> Array[Sportsman]:
+	return _buffered_sportsmen
+
+
+func get_sportsman_from_name(sportsman_name: String) -> Sportsman:
+	var selected_sportsman: Sportsman
+	
+	for s: Sportsman in _buffered_sportsmen:
+		if s.name == sportsman_name:
+			selected_sportsman = s
+	
+	return selected_sportsman

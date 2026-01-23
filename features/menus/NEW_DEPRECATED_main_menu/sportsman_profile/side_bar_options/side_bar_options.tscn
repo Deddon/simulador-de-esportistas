@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1ylmveu4b81h"]
 
 [ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_aetum"]
-[ext_resource type="Script" uid="uid://c7bck1i611q3e" path="res://features/menus/main_menu/sportsman_profile/side_bar_options/side_bar_options.gd" id="2_aj62d"]
+[ext_resource type="Script" uid="uid://c7bck1i611q3e" path="res://features/menus/NEW_DEPRECATED_main_menu/sportsman_profile/side_bar_options/side_bar_options.gd" id="2_aj62d"]
 
 [node name="SideBarOptions" type="Control" node_paths=PackedStringArray("food_plan_buton", "season_calendar_button", "anamnesis_button", "past_results_button")]
 custom_minimum_size = Vector2(310, 594)

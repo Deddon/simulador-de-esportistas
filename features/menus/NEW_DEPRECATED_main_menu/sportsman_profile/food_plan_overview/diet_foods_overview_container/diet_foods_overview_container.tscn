@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://bew8wlm54eu5y"]
+
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_gdo0a"]
+[ext_resource type="Script" uid="uid://ddbph8f8oiege" path="res://features/menus/NEW_DEPRECATED_main_menu/sportsman_profile/food_plan_overview/diet_foods_overview_container/diet_foods_overview_container.gd" id="2_jacok"]
+[ext_resource type="PackedScene" uid="uid://c2m1fep6unav8" path="res://features/menus/NEW_DEPRECATED_main_menu/sportsman_profile/food_plan_overview/diet_foods_overview_container/diet_overview_food_slot/diet_overview_food_slot.tscn" id="3_j4kjo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8vpgr"]
+font_size = 25
+
+[node name="DietFoodsOverviewContainer" type="Control" node_paths=PackedStringArray("no_diet_container", "diet_buffered_container", "diet_foods_container")]
+custom_minimum_size = Vector2(534, 594)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+theme = ExtResource("1_gdo0a")
+script = ExtResource("2_jacok")
+no_diet_container = NodePath("NoDietContainer")
+diet_buffered_container = NodePath("DietBufferedScrollContainer")
+diet_foods_container = NodePath("DietBufferedScrollContainer/VBoxContainer")
+food_slot_packed_scene = ExtResource("3_j4kjo")
+
+[node name="NoDietContainer" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NoDietContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NoDietContainer/VBoxContainer"]
+layout_mode = 2
+text = "Nenhum
+Planejamento Alimentar"
+label_settings = SubResource("LabelSettings_8vpgr")
+horizontal_alignment = 1
+
+[node name="DietBufferedScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DietBufferedScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

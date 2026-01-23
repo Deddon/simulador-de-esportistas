@@ -6,26 +6,31 @@ signal food_added(food: Food, food_weight_g: float)
 signal food_removed(food: Food)
 
 @export var diet_name: String
-@export var _foods_in_diet: Dictionary[String, Dictionary] = {}
+@export var _foods_in_diet: Array[Dictionary] = []
 
 
 func add_food(food: Food, food_weight_g: float) -> void:
-	_foods_in_diet[food.name] = {"food": food, "weight": food_weight_g}
+	_foods_in_diet.append({
+		"food": food,
+		"weight": food_weight_g
+	})
 	food_added.emit(food, food_weight_g)
 
 
-func remove_food(food: Food) -> void:
-	var has_food_been_removed: bool = _foods_in_diet.erase(food.name)
-	if has_food_been_removed:
-		food_removed.emit(food)
-
-
-func get_foods() -> Array[Food]:
-	var _foods_array: Array[Food]
-	for food_dict: Dictionary in _foods_in_diet.values():
-		_foods_array.append(food_dict.food)
+func remove_food(target_food: Food) -> void:
+	var inversed_foods_in_diet: Array[Dictionary] = _foods_in_diet.duplicate()
+	inversed_foods_in_diet.reverse()
 	
-	return _foods_array
+	for food_index: int in inversed_foods_in_diet.size():
+		var current_food: Dictionary = inversed_foods_in_diet[food_index]
+		
+		if current_food.food == target_food:
+			_foods_in_diet.remove_at(food_index)
+			food_removed.emit(current_food)
+
+
+func get_foods() -> Array[Dictionary]:
+	return _foods_in_diet
 
 
 func get_composition() -> Dictionary[String, float]:
@@ -36,7 +41,7 @@ func get_composition() -> Dictionary[String, float]:
 		"fibers": 0.0,
 	}
 	
-	for food_dict: Dictionary in _foods_in_diet.values():
+	for food_dict: Dictionary in _foods_in_diet:
 		var current_food: Food = food_dict.food
 		var weight_proportion: float = food_dict.weight / 100.0
 		
@@ -55,7 +60,7 @@ func get_composition() -> Dictionary[String, float]:
 func get_energy() -> float:
 	var energy_sum: float = 0.0
 	
-	for food_dict: Dictionary in _foods_in_diet.values():
+	for food_dict: Dictionary in _foods_in_diet:
 		energy_sum += food_dict.food.get_energy()
 	
 	return energy_sum
