@@ -1,7 +1,7 @@
 extends Node
 
 
-var player_name: String = ""
+var player_data: PackedStringArray
 var _buffered_sportsmen: Array[Sportsman]
 
 

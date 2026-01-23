@@ -2,6 +2,7 @@ class_name StartMenu
 extends Control
 
 
+@export var main_menu_packed_scene: PackedScene
 @export var player_name_line_edit: LineEdit
 @export var professional_name_and_crn_label: Label
 
@@ -12,23 +13,27 @@ func _ready() -> void:
 
 func _update_professional_name(submitted_name: String) -> void:
 	submitted_name = submitted_name.strip_edges()
+	var random_CRN: String = _calc_random_CRN()
+	var final_name: String
 	
 	if " " in submitted_name:
 		var full_name_array: PackedStringArray = submitted_name.split(" ")
+		final_name = " ".join(full_name_array.slice(0, 2))
+		
 		professional_name_and_crn_label.text = (
-			"Nutricionista. %s %s" % [full_name_array[0], full_name_array[-1]] + 
-			"\nCRN: " + _calc_random_CRN()
+			"Nutricionista. %s" % final_name + 
+			"\nCRN: " + random_CRN
 		)
-		professional_name_and_crn_label.text += "\nCRN: " + _calc_random_CRN()
 	
 	else:
+		final_name = submitted_name
 		professional_name_and_crn_label.text = (
-			"Nutricionista. " + submitted_name + "\nCRN: " + _calc_random_CRN()
+			"Nutricionista. " + final_name + "\nCRN: " + random_CRN
 		)
 	
-	GameBuffer.player_name = submitted_name
-	await get_tree().create_timer(3).timeout
-	print("TRYING TO CHANGE SCENE")
+	GameBuffer.player_data = PackedStringArray([final_name, random_CRN])
+	await get_tree().create_timer(5).timeout
+	get_tree().change_scene_to_packed(main_menu_packed_scene)
 
 
 func _calc_random_CRN() -> String:

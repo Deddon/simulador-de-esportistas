@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgtb0u1cyeb7b"]
+[gd_scene load_steps=7 format=3 uid="uid://cgtb0u1cyeb7b"]
 
 [ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_ed43s"]
 [ext_resource type="Script" uid="uid://bo33i0xmwofjh" path="res://features/menus/start_menu/start_menu.gd" id="2_luu7m"]
+[ext_resource type="PackedScene" uid="uid://8lavtnbaoq37" path="res://features/menus/main_menu/new_main_menu.tscn" id="3_s0r3t"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_luu7m"]
 font_size = 45
@@ -21,6 +22,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ed43s")
 script = ExtResource("2_luu7m")
+main_menu_packed_scene = ExtResource("3_s0r3t")
 player_name_line_edit = NodePath("CenterContainer/VBoxContainer/NameContainer/VBoxContainer/PlayerName")
 professional_name_and_crn_label = NodePath("CenterContainer/VBoxContainer/MarginContainer/ProfessionalName&CRN")
 metadata/_edit_lock_ = true

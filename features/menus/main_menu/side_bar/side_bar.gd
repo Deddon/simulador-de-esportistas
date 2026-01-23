@@ -52,8 +52,13 @@ func update(sportsman: Sportsman) -> void:
 
 
 func _fill_nutritionist() -> void:
-	nutritionist_name_label.text = "Nutricionista\nDaniela Navarro"
-	nutritionist_crn_label.text = "84562-3"
+	if GameBuffer.player_data.size() < 2:
+		nutritionist_name_label.text = "Nutricionista\n..."
+		nutritionist_crn_label.text = "00000-0"
+		return
+	
+	nutritionist_name_label.text = "Nutricionista\n" + GameBuffer.player_data[0]
+	nutritionist_crn_label.text = GameBuffer.player_data[1]
 
 
 func _update_season_week() -> void:
