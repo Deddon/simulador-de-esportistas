@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://br404k3amkk2v"]
+[gd_scene load_steps=8 format=3 uid="uid://br404k3amkk2v"]
 
 [ext_resource type="Script" uid="uid://1itkwfke63pn" path="res://features/menus/main_menu/workspace/workspace.gd" id="1_mbgqg"]
 [ext_resource type="PackedScene" uid="uid://x2w8as7u0i7q" path="res://features/menus/main_menu/workspace/workspace_tab/workspace_tab.tscn" id="2_gv5mi"]
+[ext_resource type="PackedScene" uid="uid://4m1407j5kr3" path="res://features/menus/main_menu/workspace/workspace_scenes/visao_geral.tscn" id="3_8464k"]
+[ext_resource type="PackedScene" uid="uid://xfi7uj4nvmk0" path="res://features/menus/main_menu/workspace/workspace_scenes/planejamento_alimentar.tscn" id="4_4ak1i"]
+[ext_resource type="PackedScene" uid="uid://dmcqeskwaq8ok" path="res://features/menus/main_menu/workspace/workspace_scenes/antropometria&evolucao.tscn" id="5_h45mv"]
+[ext_resource type="PackedScene" uid="uid://dooxsyg68vg2y" path="res://features/menus/main_menu/workspace/workspace_scenes/temporada&competicao.tscn" id="6_rdu6d"]
+[ext_resource type="PackedScene" uid="uid://nrinfhvdosis" path="res://features/menus/main_menu/workspace/workspace_scenes/resultados.tscn" id="7_n2ieb"]
 
 [node name="Workspace" type="Control" node_paths=PackedStringArray("main_container", "tabs_container")]
 custom_minimum_size = Vector2(982, 768)
@@ -41,26 +46,32 @@ custom_minimum_size = Vector2(0, 45)
 layout_mode = 2
 
 [node name="VisaoGeral" parent="MainContainer/TabsContainer" instance=ExtResource("2_gv5mi")]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 tab_name = "Visão Geral"
+current_packed_scene = ExtResource("3_8464k")
 
 [node name="PlanejamentoAlimentar" parent="MainContainer/TabsContainer" instance=ExtResource("2_gv5mi")]
 layout_mode = 2
 size_flags_horizontal = 3
 tab_name = "Planejamento Alimentar"
+current_packed_scene = ExtResource("4_4ak1i")
 
 [node name="Antropometria&Evolucao" parent="MainContainer/TabsContainer" instance=ExtResource("2_gv5mi")]
 layout_mode = 2
 size_flags_horizontal = 3
 tab_name = "Antropometria & Evolução"
+current_packed_scene = ExtResource("5_h45mv")
 
 [node name="Temporada&Competicoes" parent="MainContainer/TabsContainer" instance=ExtResource("2_gv5mi")]
 layout_mode = 2
 size_flags_horizontal = 3
 tab_name = "Temporada & Competições"
+current_packed_scene = ExtResource("6_rdu6d")
 
 [node name="Resultados" parent="MainContainer/TabsContainer" instance=ExtResource("2_gv5mi")]
 layout_mode = 2
 size_flags_horizontal = 3
 tab_name = "Resultados"
+current_packed_scene = ExtResource("7_n2ieb")
