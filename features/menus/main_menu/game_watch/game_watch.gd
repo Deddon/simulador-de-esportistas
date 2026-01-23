@@ -88,6 +88,11 @@ func get_now_simulated_seconds() -> float:
 	return now_simulated_seconds
 
 
+func get_now_simulated_weeks() -> float:
+	var simulated_time_since_start: float = (_ticks_since_start * simulated_time_increase_seconds)
+	return simulated_time_since_start / (7 * DAY)
+
+
 ## If no argument received, returns current simulated datetime.
 func get_simulated_datetime(input_simulated_seconds: float = -1.0) -> Dictionary:
 	if not has_date_been_set:
