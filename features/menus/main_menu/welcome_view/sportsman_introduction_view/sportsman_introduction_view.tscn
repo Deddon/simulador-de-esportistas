@@ -1,0 +1,136 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8yt5skhuiokj"]
+
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_4a8bj"]
+[ext_resource type="Texture2D" uid="uid://6lfhg53jiesj" path="res://assets/sprites/athlet_black_background.png" id="1_snpd4"]
+[ext_resource type="Script" uid="uid://c40n5k4lnm0v6" path="res://features/menus/main_menu/welcome_view/sportsman_introduction_view/sportsman_introduction_view.gd" id="2_tjed1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_snpd4"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_4a8bj"]
+font_size = 30
+
+[node name="SportsmanIntroductionView" type="Control" node_paths=PackedStringArray("name_label", "current_sport_label", "weight_label", "description_label", "dismiss_button")]
+process_mode = 3
+custom_minimum_size = Vector2(750, 550)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 750.0
+offset_bottom = 550.0
+theme = ExtResource("1_4a8bj")
+script = ExtResource("2_tjed1")
+name_label = NodePath("MainMargin/VBoxContainer/SportsmanNameContainer/SportsmanName")
+current_sport_label = NodePath("MainMargin/VBoxContainer/Icon&Antropometrics/Icon&Antropometrics/VBoxContainer/SportsmanCurrentSport")
+weight_label = NodePath("MainMargin/VBoxContainer/Icon&Antropometrics/Icon&Antropometrics/VBoxContainer/Age&Weight/SportsmanWeight")
+description_label = NodePath("MainMargin/VBoxContainer/DescriptionContainer/VBoxContainer/Description")
+dismiss_button = NodePath("MainMargin/VBoxContainer/DismissContainer/CenterContainer/DismissIntroduction")
+metadata/_edit_group_ = true
+
+[node name="BackgroundPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin"]
+layout_mode = 2
+
+[node name="SportsmanNameContainer" type="MarginContainer" parent="MainMargin/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="SportsmanName" type="Label" parent="MainMargin/VBoxContainer/SportsmanNameContainer"]
+layout_mode = 2
+text = "name_placeholder"
+label_settings = SubResource("LabelSettings_snpd4")
+horizontal_alignment = 1
+
+[node name="Icon&Antropometrics" type="MarginContainer" parent="MainMargin/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Icon&Antropometrics" type="HBoxContainer" parent="MainMargin/VBoxContainer/Icon&Antropometrics"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMargin/VBoxContainer/Icon&Antropometrics/Icon&Antropometrics"]
+layout_mode = 2
+
+[node name="SportsmanIcon" type="TextureRect" parent="MainMargin/VBoxContainer/Icon&Antropometrics/Icon&Antropometrics/CenterContainer"]
+custom_minimum_size = Vector2(160, 160)
+layout_mode = 2
+texture = ExtResource("1_snpd4")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/VBoxContainer/Icon&Antropometrics/Icon&Antropometrics"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SportsmanCurrentSport" type="Label" parent="MainMargin/VBoxContainer/Icon&Antropometrics/Icon&Antropometrics/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "current_sport_placeholder"
+label_settings = SubResource("LabelSettings_4a8bj")
+
+[node name="Age&Weight" type="HBoxContainer" parent="MainMargin/VBoxContainer/Icon&Antropometrics/Icon&Antropometrics/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SportsmanAge" type="Label" parent="MainMargin/VBoxContainer/Icon&Antropometrics/Icon&Antropometrics/VBoxContainer/Age&Weight"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Idade: 24 anos"
+label_settings = SubResource("LabelSettings_4a8bj")
+
+[node name="SportsmanWeight" type="Label" parent="MainMargin/VBoxContainer/Icon&Antropometrics/Icon&Antropometrics/VBoxContainer/Age&Weight"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Peso: 0.0 kg"
+label_settings = SubResource("LabelSettings_4a8bj")
+
+[node name="DescriptionContainer" type="MarginContainer" parent="MainMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/VBoxContainer/DescriptionContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainMargin/VBoxContainer/DescriptionContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Descrição"
+label_settings = SubResource("LabelSettings_4a8bj")
+
+[node name="Description" type="RichTextLabel" parent="MainMargin/VBoxContainer/DescriptionContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+text = "Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum v Lorem ipsum Lorem ipsum Lorem ipsum."
+
+[node name="DismissContainer" type="MarginContainer" parent="MainMargin/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMargin/VBoxContainer/DismissContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DismissIntroduction" type="Button" parent="MainMargin/VBoxContainer/DismissContainer/CenterContainer"]
+custom_minimum_size = Vector2(390, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "COMEÇAR ATENDIMENTOS"

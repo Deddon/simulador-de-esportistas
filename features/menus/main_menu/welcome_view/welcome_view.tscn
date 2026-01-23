@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://cltr4tytr71hf"]
+
+[ext_resource type="Script" uid="uid://dgutn1cba1don" path="res://features/menus/main_menu/welcome_view/welcome_view.gd" id="1_ldcbd"]
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="2_ne3k5"]
+[ext_resource type="PackedScene" uid="uid://c8yt5skhuiokj" path="res://features/menus/main_menu/welcome_view/sportsman_introduction_view/sportsman_introduction_view.tscn" id="3_hol2t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ne3k5"]
+font_size = 40
+
+[node name="WelcomeView" type="CanvasLayer" node_paths=PackedStringArray("welcome_container", "start_button", "introduction_view")]
+process_mode = 3
+script = ExtResource("1_ldcbd")
+welcome_container = NodePath("WelcomeContainer")
+start_button = NodePath("WelcomeContainer/CenterContainer/Start")
+introduction_view = NodePath("SportsmanIntroductionView")
+
+[node name="Background" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WelcomeContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -144.5
+offset_right = 400.0
+offset_bottom = 144.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ne3k5")
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="WelcomeContainer"]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+text = "Bem-vindo, parabéns pelo comprometimento com a nutrição clínica esportiva. Agora você passará pelos desafios de um profissional durante a temporada de 2026"
+label_settings = SubResource("LabelSettings_ne3k5")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="WelcomeContainer"]
+layout_mode = 2
+
+[node name="Start" type="Button" parent="WelcomeContainer/CenterContainer"]
+custom_minimum_size = Vector2(340, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 45
+text = "COMEÇAR"
+
+[node name="SportsmanIntroductionView" parent="." instance=ExtResource("3_hol2t")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
