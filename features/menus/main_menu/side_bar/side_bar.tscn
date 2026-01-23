@@ -15,7 +15,7 @@ font_size = 30
 [sub_resource type="LabelSettings" id="LabelSettings_ntosp"]
 font_size = 30
 
-[node name="SideBar" type="Control" node_paths=PackedStringArray("sportsman_name_label", "sportsman_current_sport_label", "season_era_label", "season_week_label", "nutritionist_name_label", "nutritionist_crn_label", "game_state_node")]
+[node name="SideBar" type="Control" node_paths=PackedStringArray("change_sportsman_button", "sportsman_name_label", "sportsman_current_sport_label", "season_era_label", "season_week_label", "nutritionist_name_label", "nutritionist_crn_label", "game_state_node")]
 process_mode = 3
 custom_minimum_size = Vector2(380, 0)
 layout_mode = 3
@@ -24,6 +24,7 @@ anchor_bottom = 1.0
 grow_vertical = 2
 theme = ExtResource("1_8nh8g")
 script = ExtResource("2_x375n")
+change_sportsman_button = NodePath("MarginContainer/BackgroundPanel/MainContainer/GameState/CenterContainer/ChangeSportsman")
 sportsman_name_label = NodePath("MarginContainer/BackgroundPanel/MainContainer/SportsmanInfo/VBoxContainer/Name&Sport/CenterContainer/VBoxContainer/Name")
 sportsman_current_sport_label = NodePath("MarginContainer/BackgroundPanel/MainContainer/SportsmanInfo/VBoxContainer/Name&Sport/CenterContainer/VBoxContainer/MarginContainer/CurrentSport")
 season_era_label = NodePath("MarginContainer/BackgroundPanel/MainContainer/SportsmanInfo/VBoxContainer/SeasonInfo/VBoxContainer/SeasonEra")
@@ -149,6 +150,7 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="MarginContainer/BackgroundPanel/MainContainer/GameState/CenterContainer"]
+visible = false
 custom_minimum_size = Vector2(280, 60)
 layout_mode = 2
 
@@ -168,3 +170,9 @@ grow_vertical = 2
 text = "Jogo pausado"
 label_settings = SubResource("LabelSettings_ntosp")
 horizontal_alignment = 1
+
+[node name="ChangeSportsman" type="Button" parent="MarginContainer/BackgroundPanel/MainContainer/GameState/CenterContainer"]
+custom_minimum_size = Vector2(280, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Mudar Paciente"

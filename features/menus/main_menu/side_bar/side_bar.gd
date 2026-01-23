@@ -2,6 +2,9 @@ class_name MainMenuSideBar
 extends Control
 
 
+signal sportsman_change_requested()
+
+@export var change_sportsman_button: Button
 @export var sportsman_name_label: Label
 @export var sportsman_current_sport_label: Label
 @export var season_era_label: Label
@@ -16,6 +19,7 @@ var _sportsman: Sportsman
 
 
 func _ready() -> void:
+	game_state_node.show()
 	game_state_node.modulate.a = float(get_tree().paused)
 	_fill_nutritionist()
 	
@@ -24,11 +28,18 @@ func _ready() -> void:
 	
 	_update_season_week()
 	game_watch.ticked.connect(_update_season_week)
+	change_sportsman_button.pressed.connect(func():
+		get_viewport().gui_release_focus()
+		sportsman_change_requested.emit()
+	)
 
 
 func _process(_delta: float) -> void:
 	var pause_state: bool = get_tree().paused
 	game_state_node.modulate.a = float(pause_state)
+	
+	change_sportsman_button.modulate.a = float(not pause_state)
+	change_sportsman_button.disabled = pause_state
 	
 	if Input.is_action_just_pressed("pause"):
 		get_tree().paused = not pause_state

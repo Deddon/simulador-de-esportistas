@@ -15,6 +15,8 @@ func _ready() -> void:
 	var demo_sportsman: Sportsman = preload("res://shared/resources/sportsman/heloisa_four_hundred_meters_runner.tres")
 	
 	game_watch.ticked.connect(func(): game_watch.print_simulated_datetime())
+	side_bar.sportsman_change_requested.connect(_change_sportsman)
+	
 	game_watch.set_start_datetime_at_business_hour()
 	game_watch.start()
 	
@@ -22,3 +24,7 @@ func _ready() -> void:
 		welcome_view.show_welcome(demo_sportsman)
 	
 	side_bar.update(demo_sportsman)
+
+
+func _change_sportsman() -> void:
+	print_debug("Sportsman change requested.")
