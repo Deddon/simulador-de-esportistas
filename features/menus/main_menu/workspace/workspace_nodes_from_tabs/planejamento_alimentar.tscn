@@ -1,0 +1,214 @@
+[gd_scene load_steps=8 format=3 uid="uid://xfi7uj4nvmk0"]
+
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_osrup"]
+[ext_resource type="Script" uid="uid://b047idtsbc2l2" path="res://features/menus/main_menu/workspace/workspace_nodes_from_tabs/planejamento_alimentar.gd" id="2_e1ga7"]
+[ext_resource type="PackedScene" uid="uid://cvylcfsqxgk1j" path="res://features/menus/main_menu/workspace/workspace_nodes_from_tabs/diet_history_container/diet_history_container.tscn" id="3_nx6r7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_osrup"]
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_e1ga7"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_nx6r7"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_65bi3"]
+font_size = 30
+
+[node name="PlanejamentoAlimentar" type="Control" node_paths=PackedStringArray("current_diet_container", "diet_name_label", "desired_get_label", "get_label", "calorie_difference_label", "diet_vct_label", "cho_label", "ptn_label", "lip_label", "no_diet_container", "diet_history_container")]
+custom_minimum_size = Vector2(982, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 982.0
+offset_bottom = 714.0
+size_flags_vertical = 3
+theme = ExtResource("1_osrup")
+script = ExtResource("2_e1ga7")
+current_diet_container = NodePath("ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin")
+diet_name_label = NodePath("ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/CurrentDietName")
+desired_get_label = NodePath("ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer/DietCaloricValues/GETDesejado")
+get_label = NodePath("ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer/DietCaloricValues/GET")
+calorie_difference_label = NodePath("ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer/DietCaloricValues/Diferenca")
+diet_vct_label = NodePath("ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer/MacrosValuesContainer/VCTDieta")
+cho_label = NodePath("ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer/MacrosValuesContainer/CHO")
+ptn_label = NodePath("ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer/MacrosValuesContainer/PTN")
+lip_label = NodePath("ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer/MacrosValuesContainer/LIP")
+no_diet_container = NodePath("ScrollContainer/MarginContainer/MainContainer/NoDietMargin")
+diet_history_container = NodePath("ScrollContainer/MarginContainer/MainContainer/DietHistoryContainer")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="MainContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TitleMargin" type="MarginContainer" parent="ScrollContainer/MarginContainer/MainContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Title" type="Label" parent="ScrollContainer/MarginContainer/MainContainer/TitleMargin"]
+layout_mode = 2
+text = "Planejamento Alimentar"
+label_settings = SubResource("LabelSettings_osrup")
+horizontal_alignment = 1
+
+[node name="CurrentDietMargin" type="MarginContainer" parent="ScrollContainer/MarginContainer/MainContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="CurrentDietContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="CurrentDietName" type="Label" parent="ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer"]
+layout_mode = 2
+text = "Dieta Atual
+Dieta Campeonato Mundial"
+label_settings = SubResource("LabelSettings_e1ga7")
+horizontal_alignment = 1
+
+[node name="DietValuesContainer" type="HBoxContainer" parent="ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DietCaloricValues" type="VBoxContainer" parent="ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GETDesejado" type="Label" parent="ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer/DietCaloricValues"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "GET Desejado: 2000.0 kcal"
+label_settings = SubResource("LabelSettings_nx6r7")
+horizontal_alignment = 1
+
+[node name="GET" type="Label" parent="ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer/DietCaloricValues"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "GET: 1820.0 kcal"
+label_settings = SubResource("LabelSettings_nx6r7")
+horizontal_alignment = 1
+
+[node name="Diferenca" type="Label" parent="ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer/DietCaloricValues"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Diferença: +180.0 kcal"
+label_settings = SubResource("LabelSettings_nx6r7")
+horizontal_alignment = 1
+
+[node name="MacrosValuesContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VCTDieta" type="Label" parent="ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer/MacrosValuesContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "VCT Dieta: 2015.2 kcal"
+label_settings = SubResource("LabelSettings_nx6r7")
+horizontal_alignment = 1
+
+[node name="CHO" type="Label" parent="ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer/MacrosValuesContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "CHO: 300.0 g"
+label_settings = SubResource("LabelSettings_nx6r7")
+horizontal_alignment = 1
+
+[node name="PTN" type="Label" parent="ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer/MacrosValuesContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "PTN: 300.0 g"
+label_settings = SubResource("LabelSettings_nx6r7")
+horizontal_alignment = 1
+
+[node name="LIP" type="Label" parent="ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer/MacrosValuesContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "LIP : 300.0 g"
+label_settings = SubResource("LabelSettings_nx6r7")
+horizontal_alignment = 1
+
+[node name="DietManipulationButtons" type="HBoxContainer" parent="ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="CenterContainer" type="CenterContainer" parent="ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietManipulationButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ShowAllDietNutrients" type="Button" parent="ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietManipulationButtons/CenterContainer"]
+custom_minimum_size = Vector2(350, 55)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 25
+text = "TODOS NUTRIENTES"
+
+[node name="CenterContainer2" type="CenterContainer" parent="ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietManipulationButtons"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EditDiet" type="Button" parent="ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietManipulationButtons/CenterContainer2"]
+custom_minimum_size = Vector2(350, 55)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "EDITAR DIETA"
+
+[node name="NoDietMargin" type="MarginContainer" parent="ScrollContainer/MarginContainer/MainContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 30
+
+[node name="CenterContainer" type="CenterContainer" parent="ScrollContainer/MarginContainer/MainContainer/NoDietMargin"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer/MainContainer/NoDietMargin/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/MarginContainer/MainContainer/NoDietMargin/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Este atleta ainda não possui nenhuma dieta, crie uma para suas necessidades individuais."
+label_settings = SubResource("LabelSettings_65bi3")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="ScrollContainer/MarginContainer/MainContainer/NoDietMargin/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="CreateFirtsDiet" type="Button" parent="ScrollContainer/MarginContainer/MainContainer/NoDietMargin/CenterContainer/VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(350, 55)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "CRIAR UMA DIETA"
+
+[node name="DietHistoryContainer" parent="ScrollContainer/MarginContainer/MainContainer" instance=ExtResource("3_nx6r7")]
+layout_mode = 2
+size_flags_vertical = 3

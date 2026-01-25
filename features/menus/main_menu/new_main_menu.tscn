@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://jbnnednhmvd4" path="res://features/menus/main_menu/side_bar/side_bar.tscn" id="4_217j6"]
 [ext_resource type="PackedScene" uid="uid://br404k3amkk2v" path="res://features/menus/main_menu/workspace/workspace.tscn" id="5_w0uvm"]
 
-[node name="NewMainMenu" type="Control" node_paths=PackedStringArray("side_bar")]
+[node name="NewMainMenu" type="Control" node_paths=PackedStringArray("side_bar") groups=["main_menu"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

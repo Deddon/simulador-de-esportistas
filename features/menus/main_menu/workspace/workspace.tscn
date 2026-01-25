@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://1itkwfke63pn" path="res://features/menus/main_menu/workspace/workspace.gd" id="1_mbgqg"]
 [ext_resource type="PackedScene" uid="uid://x2w8as7u0i7q" path="res://features/menus/main_menu/workspace/workspace_tab/workspace_tab.tscn" id="2_gv5mi"]
-[ext_resource type="PackedScene" uid="uid://4m1407j5kr3" path="res://features/menus/main_menu/workspace/workspace_scenes/visao_geral.tscn" id="3_8464k"]
-[ext_resource type="PackedScene" uid="uid://xfi7uj4nvmk0" path="res://features/menus/main_menu/workspace/workspace_scenes/planejamento_alimentar.tscn" id="4_4ak1i"]
-[ext_resource type="PackedScene" uid="uid://dmcqeskwaq8ok" path="res://features/menus/main_menu/workspace/workspace_scenes/antropometria&evolucao.tscn" id="5_h45mv"]
-[ext_resource type="PackedScene" uid="uid://dooxsyg68vg2y" path="res://features/menus/main_menu/workspace/workspace_scenes/temporada&competicao.tscn" id="6_rdu6d"]
-[ext_resource type="PackedScene" uid="uid://nrinfhvdosis" path="res://features/menus/main_menu/workspace/workspace_scenes/resultados.tscn" id="7_n2ieb"]
+[ext_resource type="PackedScene" uid="uid://4m1407j5kr3" path="res://features/menus/main_menu/workspace/workspace_nodes_from_tabs/visao_geral.tscn" id="3_8464k"]
+[ext_resource type="PackedScene" uid="uid://xfi7uj4nvmk0" path="res://features/menus/main_menu/workspace/workspace_nodes_from_tabs/planejamento_alimentar.tscn" id="4_4ak1i"]
+[ext_resource type="PackedScene" uid="uid://dmcqeskwaq8ok" path="res://features/menus/main_menu/workspace/workspace_nodes_from_tabs/antropometria&evolucao.tscn" id="5_h45mv"]
+[ext_resource type="PackedScene" uid="uid://dooxsyg68vg2y" path="res://features/menus/main_menu/workspace/workspace_nodes_from_tabs/temporada&competicao.tscn" id="6_rdu6d"]
+[ext_resource type="PackedScene" uid="uid://nrinfhvdosis" path="res://features/menus/main_menu/workspace/workspace_nodes_from_tabs/resultados.tscn" id="7_n2ieb"]
 
 [node name="Workspace" type="Control" node_paths=PackedStringArray("main_container", "tabs_container")]
 custom_minimum_size = Vector2(982, 768)

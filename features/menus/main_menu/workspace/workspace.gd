@@ -27,6 +27,7 @@ func _create_tabs_button_group() -> void:
 
 func _show_visao_geral_at_start() -> void:
 	instantiated_tabs_scene[0] = %VisaoGeral.current_packed_scene.instantiate()
+	instantiated_tabs_scene[0].set_anchors_preset(Control.PRESET_FULL_RECT)
 	main_container.add_child(instantiated_tabs_scene[0])
 	instantiated_tabs_scene[0].show()
 
@@ -42,6 +43,7 @@ func _handle_tab_selection(tab_packed_scene: PackedScene, selected_tab: int) -> 
 	if not instantiated_tabs_scene.has(selected_tab):
 		var tab_scene: Control = tab_packed_scene.instantiate()
 		instantiated_tabs_scene[selected_tab] = tab_scene
+		instantiated_tabs_scene[selected_tab].set_anchors_preset(Control.PRESET_FULL_RECT)
 		
 		main_container.add_child(instantiated_tabs_scene[selected_tab])
 	

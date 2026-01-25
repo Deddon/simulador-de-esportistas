@@ -1,0 +1,172 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvylcfsqxgk1j"]
+
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_wu3jc"]
+[ext_resource type="Script" uid="uid://p6wapns7i11n" path="res://features/menus/main_menu/workspace/workspace_nodes_from_tabs/diet_history_container/diet_history_container.gd" id="2_qua87"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oe02v"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_wu3jc"]
+font_size = 30
+
+[node name="DietHistoryContainer" type="Control" node_paths=PackedStringArray("diet_history_container", "no_diet_history_container")]
+custom_minimum_size = Vector2(942, 389)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 942.0
+offset_bottom = 201.0
+theme = ExtResource("1_wu3jc")
+script = ExtResource("2_qua87")
+diet_history_container = NodePath("MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer")
+no_diet_history_container = NodePath("MarginContainer/VBoxContainer/NoDietHistoryContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(942, 0)
+layout_mode = 0
+theme_override_constants/margin_top = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Histórico de Dietas"
+label_settings = SubResource("LabelSettings_oe02v")
+horizontal_alignment = 1
+
+[node name="NoDietHistoryContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/NoDietHistoryContainer"]
+layout_mode = 2
+text = "Você ainda não prescreveu outras dietas
+para este atleta."
+label_settings = SubResource("LabelSettings_oe02v")
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 324)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DietHistoryContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_top = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HistoryDietInfoRow" type="Panel" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DietName&Description" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 100
+
+[node name="MarginContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow/HBoxContainer/DietName&Description"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow/HBoxContainer/DietName&Description/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HistoryDietName" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow/HBoxContainer/DietName&Description/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Dieta Campeonato Mundial (Hight Carb)"
+label_settings = SubResource("LabelSettings_wu3jc")
+
+[node name="HistoryDietDescription" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow/HBoxContainer/DietName&Description/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Descrição: Dieta montada focando na alta..."
+label_settings = SubResource("LabelSettings_wu3jc")
+
+[node name="DietManipulationButtons" type="CenterContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow/HBoxContainer/DietManipulationButtons"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="DietDetails" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow/HBoxContainer/DietManipulationButtons/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "DETALHES"
+
+[node name="CopyDiet" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow/HBoxContainer/DietManipulationButtons/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "COPIAR"
+
+[node name="HistoryDietInfoRow2" type="Panel" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DietName&Description" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_right = 120
+
+[node name="MarginContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow2/HBoxContainer/DietName&Description"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow2/HBoxContainer/DietName&Description/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HistoryDietName" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow2/HBoxContainer/DietName&Description/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Amistoso"
+label_settings = SubResource("LabelSettings_wu3jc")
+
+[node name="HistoryDietDescription" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow2/HBoxContainer/DietName&Description/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Descrição: Dieta sem grandes demandas."
+label_settings = SubResource("LabelSettings_wu3jc")
+
+[node name="DietManipulationButtons" type="CenterContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow2/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow2/HBoxContainer/DietManipulationButtons"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="DietDetails" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow2/HBoxContainer/DietManipulationButtons/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "DETALHES"
+
+[node name="CopyDiet" type="Button" parent="MarginContainer/VBoxContainer/ScrollContainer/DietHistoryContainer/VBoxContainer/HistoryDietInfoRow2/HBoxContainer/DietManipulationButtons/VBoxContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "COPIAR"

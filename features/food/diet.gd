@@ -7,6 +7,7 @@ signal food_removed(food: Food)
 
 @export var diet_name: String
 @export var _foods_in_diet: Array[Dictionary] = []
+@export var short_description: String
 
 
 func add_food(food: Food, food_weight_g: float) -> void:
@@ -57,7 +58,7 @@ func get_composition() -> Dictionary[String, float]:
 	return diet_composition
 
 
-func get_energy() -> float:
+func calculate_energy() -> float:
 	var energy_sum: float = 0.0
 	
 	for food_dict: Dictionary in _foods_in_diet:

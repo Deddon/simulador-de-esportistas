@@ -2,6 +2,8 @@ class_name Sportsman
 extends Resource
 
 
+signal changed_properties()
+
 const DEFAULT_HEIGHT_CM := 180
 const DEFAULT_AGE_YEARS := 24
 
@@ -51,6 +53,7 @@ func met_expenditure() -> float:
 
 func add_finished_event_result(event_result: SportsEventResult) -> void:
 	_events_history.append(event_result)
+	changed_properties.emit()
 
 
 func get_events_history() -> Array[SportsEventResult]:
@@ -60,6 +63,7 @@ func get_events_history() -> Array[SportsEventResult]:
 func set_body_fat(new_body_fat_percentage: float) -> void:
 	if new_body_fat_percentage > 0.0:
 		_body_fat_percentage = new_body_fat_percentage
+		changed_properties.emit()
 
 
 func get_body_fat() -> float:
@@ -69,6 +73,7 @@ func get_body_fat() -> float:
 func set_max_vo2(new_max_vo2_ml_kg_min: float) -> void:
 	if new_max_vo2_ml_kg_min > 0.0:
 		_max_vo2_ml_kg_min = new_max_vo2_ml_kg_min
+		changed_properties.emit()
 
 
 func get_max_vo2() -> float:
@@ -79,13 +84,19 @@ func get_weight_history() -> Array[float]:
 	return _weight_history_kg
 
 
+func get_submitted_diets_history() -> Array[Diet]:
+	return _submitted_diets_history
+
+
 func _set_new_weight(new_weight_kg: float) -> void:
 	if new_weight_kg > 0.0 and new_weight_kg != weight_kg:
 		_weight_history_kg.append(weight_kg)
 		weight_kg = new_weight_kg
+		changed_properties.emit()
 
 
 func _add_diet(new_diet: Diet) -> void:
 	if new_diet != current_diet:
 		_submitted_diets_history.append(current_diet)
 		current_diet = new_diet
+		changed_properties.emit()
