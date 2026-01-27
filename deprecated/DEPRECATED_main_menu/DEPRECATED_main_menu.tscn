@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://dasbp47txnne2"]
+
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_ppvhs"]
+[ext_resource type="Script" uid="uid://ff5kynq7d6o7" path="res://deprecated/DEPRECATED_main_menu/DEPRECATED_main_menu.gd" id="2_lhb0k"]
+[ext_resource type="PackedScene" uid="uid://ltyy6bdqfl" path="res://features/menus/main_menu/game_watch/game_watch.tscn" id="3_ad5aj"]
+[ext_resource type="PackedScene" uid="uid://c7mcbwhsrlybw" path="res://deprecated/DEPRECATED_main_menu/header/header.tscn" id="4_n7rd5"]
+[ext_resource type="PackedScene" uid="uid://b6ujjrrjk0nn2" path="res://deprecated/DEPRECATED_main_menu/side_options_buttons/side_options_buttons.tscn" id="5_x7d2a"]
+[ext_resource type="PackedScene" uid="uid://l7eqm3ayclx4" path="res://deprecated/DEPRECATED_main_menu/landing_screen/landing_screen.tscn" id="6_ic7im"]
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("game_watch")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ppvhs")
+script = ExtResource("2_lhb0k")
+game_watch = NodePath("GameWatch")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="GameWatch" parent="." instance=ExtResource("3_ad5aj")]
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 1
+offset_right = 1156.0
+offset_bottom = 648.0
+theme_override_constants/separation = 0
+
+[node name="Header" parent="MainContainer" instance=ExtResource("4_n7rd5")]
+layout_mode = 2
+
+[node name="BodyContainer" type="HBoxContainer" parent="MainContainer"]
+custom_minimum_size = Vector2(1152, 498)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SideOptionsButtons" parent="MainContainer/BodyContainer" instance=ExtResource("5_x7d2a")]
+layout_mode = 2
+
+[node name="MainWorkspace" type="Control" parent="MainContainer/BodyContainer"]
+custom_minimum_size = Vector2(802, 498)
+layout_mode = 2
+
+[node name="LandingScreen" parent="MainContainer/BodyContainer/MainWorkspace" instance=ExtResource("6_ic7im")]
+layout_mode = 1
+offset_right = 0.0
+offset_bottom = 0.0

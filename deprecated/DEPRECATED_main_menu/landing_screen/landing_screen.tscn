@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://l7eqm3ayclx4"]
+
+[ext_resource type="PackedScene" uid="uid://drs80p7ntee4u" path="res://deprecated/DEPRECATED_main_menu/landing_screen/sportsman_stats_resume_container/sportsman_stats_resume_container.tscn" id="1_ilire"]
+[ext_resource type="PackedScene" uid="uid://dgpes2acfocog" path="res://deprecated/DEPRECATED_main_menu/landing_screen/events_resume_container.tscn/events_resume_container.tscn" id="2_mdmh7"]
+[ext_resource type="PackedScene" uid="uid://bpihpl1cjqgdc" path="res://deprecated/DEPRECATED_main_menu/landing_screen/last_submitted_diet_container/last_submitted_diet_container.tscn" id="3_bchmr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dpjqw"]
+font_size = 30
+
+[node name="LandingScreen" type="Control"]
+custom_minimum_size = Vector2(802, 498)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -350.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="BackgroundPanel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BackgroundPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Title" type="Label" parent="MarginContainer/BackgroundPanel/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Bem-vindo"
+label_settings = SubResource("LabelSettings_dpjqw")
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BackgroundPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SportsmanStatsResumeContainer" parent="MarginContainer/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("1_ilire")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EventsResumeContainer" parent="MarginContainer/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_mdmh7")]
+layout_mode = 2
+
+[node name="LastSubmittedDietContainer" parent="MarginContainer/BackgroundPanel/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("3_bchmr")]
+layout_mode = 2

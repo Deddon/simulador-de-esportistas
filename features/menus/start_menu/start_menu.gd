@@ -21,14 +21,14 @@ func _update_professional_name(submitted_name: String) -> void:
 		final_name = " ".join(full_name_array.slice(0, 2))
 		
 		professional_name_and_crn_label.text = (
-			"Nutricionista. %s" % final_name + 
+			"Nutricionista %s" % final_name + 
 			"\nCRN: " + random_CRN
 		)
 	
 	else:
 		final_name = submitted_name
 		professional_name_and_crn_label.text = (
-			"Nutricionista. " + final_name + "\nCRN: " + random_CRN
+			"Nutricionista " + final_name + "\nCRN: " + random_CRN
 		)
 	
 	GameBuffer.player_data = PackedStringArray([final_name, random_CRN])

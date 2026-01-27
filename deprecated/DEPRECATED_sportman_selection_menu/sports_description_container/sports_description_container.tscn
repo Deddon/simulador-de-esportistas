@@ -1,0 +1,89 @@
+[gd_scene load_steps=3 format=3 uid="uid://b656hv6177mnx"]
+
+[ext_resource type="Script" uid="uid://cyhuino17uopl" path="res://deprecated/DEPRECATED_sportman_selection_menu/sports_description_container/sports_description_container.gd" id="1_516m3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yy05b"]
+font_size = 40
+
+[node name="SportsDescriptionContainer" type="Control" node_paths=PackedStringArray("sports_description_label", "sports_button0", "sports_button1", "sports_button2")]
+custom_minimum_size = Vector2(570, 648)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_516m3")
+sports_description_label = NodePath("MainContainer/MarginContainer/SportsDescription")
+sports_button0 = NodePath("MainContainer/VBoxContainer/CenterContainer/VBoxContainer/SportsButton0")
+sports_description0 = "Um esporte pouco comum mas que envolve muita potência, técnica e, pricipalmente preparo físico intenso"
+sports_button1 = NodePath("MainContainer/VBoxContainer/CenterContainer/VBoxContainer/SportsButton1")
+sports_description1 = "Com certeza o esporte com início mais fácil, basta correr. Mas evoluir nesse esporte exige preparo e dentre eles, o acompanhamento nutricional."
+sports_button2 = NodePath("MainContainer/VBoxContainer/CenterContainer/VBoxContainer/SportsButton2")
+sports_description2 = "Pode assustar até mesmo aqueles que já praticam atletismo pelos desafios fisiológicos envolvidos na sua prática."
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MainContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="MainContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 15
+
+[node name="SportsmanName" type="LineEdit" parent="MainContainer/VBoxContainer/CenterContainer/VBoxContainer/MarginContainer" groups=["sportsman_name_line_edit"]]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Junior"
+placeholder_text = "Nome do atleta"
+
+[node name="SportsButton0" type="Button" parent="MainContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(380, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+button_pressed = true
+text = "Levantador de Peso Olímpico"
+
+[node name="SportsButton1" type="Button" parent="MainContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(380, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+text = "Corredor de Longas Distâncias"
+
+[node name="SportsButton2" type="Button" parent="MainContainer/VBoxContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(380, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+text = "Corredor de 400m Rasos"
+
+[node name="MarginContainer" type="MarginContainer" parent="MainContainer"]
+custom_minimum_size = Vector2(0, 280)
+layout_mode = 2
+
+[node name="SportsDescription" type="Label" parent="MainContainer/MarginContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "Insira seu nome e selecione um dos esportes acima para prosseguir"
+label_settings = SubResource("LabelSettings_yy05b")
+horizontal_alignment = 1
+autowrap_mode = 3

@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6ujjrrjk0nn2"]
+
+[ext_resource type="Script" uid="uid://ykgeg0qk6pa3" path="res://deprecated/DEPRECATED_main_menu/side_options_buttons/side_options_buttons.gd" id="1_js2as"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_idnvm"]
+font_size = 25
+
+[node name="SideOptionsButtons" type="Control" node_paths=PackedStringArray("title_label", "show_sportsman_profile_button", "show_food_plan_workspace_button", "show_event_history_button")]
+custom_minimum_size = Vector2(330, 498)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 330.0
+offset_bottom = 498.0
+script = ExtResource("1_js2as")
+title_label = NodePath("MarginContainer/BackgroundPanel/VBoxContainer/MarginContainer2/Title")
+show_sportsman_profile_button = NodePath("MarginContainer/BackgroundPanel/VBoxContainer/MarginContainer/VBoxContainer/ShowSportsmanProfile")
+show_food_plan_workspace_button = NodePath("MarginContainer/BackgroundPanel/VBoxContainer/MarginContainer/VBoxContainer/ShowFoodPlanWorkspace")
+show_event_history_button = NodePath("MarginContainer/BackgroundPanel/VBoxContainer/MarginContainer/VBoxContainer/ShowEventsHistory")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="BackgroundPanel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/BackgroundPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Title" type="Label" parent="MarginContainer/BackgroundPanel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+text = "Ações Disponíveis
+"
+label_settings = SubResource("LabelSettings_idnvm")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BackgroundPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundPanel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="ShowSportsmanProfile" type="Button" parent="MarginContainer/BackgroundPanel/VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+text = "Perfil do Paciente"
+
+[node name="ShowFoodPlanWorkspace" type="Button" parent="MarginContainer/BackgroundPanel/VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+text = "Planejamento
+Alimentar"
+
+[node name="ShowEventsHistory" type="Button" parent="MarginContainer/BackgroundPanel/VBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+text = "Eventos Passados"

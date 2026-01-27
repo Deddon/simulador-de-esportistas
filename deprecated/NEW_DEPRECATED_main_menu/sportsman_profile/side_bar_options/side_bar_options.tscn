@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1ylmveu4b81h"]
+
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_aetum"]
+[ext_resource type="Script" uid="uid://c7bck1i611q3e" path="res://deprecated/NEW_DEPRECATED_main_menu/sportsman_profile/side_bar_options/side_bar_options.gd" id="2_aj62d"]
+
+[node name="SideBarOptions" type="Control" node_paths=PackedStringArray("food_plan_buton", "season_calendar_button", "anamnesis_button", "past_results_button")]
+custom_minimum_size = Vector2(310, 594)
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_aetum")
+script = ExtResource("2_aj62d")
+food_plan_buton = NodePath("MarginContainer/CenterContainer/OptionsButtonContainer/OptionButton")
+season_calendar_button = NodePath("MarginContainer/CenterContainer/OptionsButtonContainer/OptionButton3")
+anamnesis_button = NodePath("MarginContainer/CenterContainer/OptionsButtonContainer/OptionButton2")
+past_results_button = NodePath("MarginContainer/CenterContainer/OptionsButtonContainer/OptionButton4")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+border_width = 3.0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="OptionsButtonContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
+custom_minimum_size = Vector2(230, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="OptionButton" type="Button" parent="MarginContainer/CenterContainer/OptionsButtonContainer"]
+custom_minimum_size = Vector2(270, 90)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+text = "PLANEJAMENTO
+ALIMENTAR"
+
+[node name="OptionButton3" type="Button" parent="MarginContainer/CenterContainer/OptionsButtonContainer"]
+custom_minimum_size = Vector2(270, 90)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+text = "CALENDÁRIO DA
+TEMPORADA"
+
+[node name="OptionButton2" type="Button" parent="MarginContainer/CenterContainer/OptionsButtonContainer"]
+custom_minimum_size = Vector2(270, 90)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+text = "ANAMNESE"
+
+[node name="OptionButton4" type="Button" parent="MarginContainer/CenterContainer/OptionsButtonContainer"]
+custom_minimum_size = Vector2(270, 90)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+toggle_mode = true
+text = "RESULTADOS
+PASSADOS"

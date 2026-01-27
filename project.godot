@@ -29,6 +29,7 @@ window/size/viewport_height=768
 
 folder_colors={
 "res://assets/": "yellow",
+"res://deprecated/": "gray",
 "res://features/": "red",
 "res://shared/": "green",
 "res://tests/": "blue"
