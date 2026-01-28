@@ -12,7 +12,9 @@ const DEFAULT_TRAINING_DURATION_MIN := 40
 const DEFAULT_AVERAGE_TRAINING_MINUTES_DAY := (DEFAULT_TRAINING_WEEK_FREQUENCY * DEFAULT_TRAINING_DURATION_MIN) / 7.0
 
 
-@export var name: String
+@export var name: String:
+	set(new_name):
+		name = new_name.strip_edges()
 @export var weight_kg: float = 60.0:
 	set = _set_new_weight
 @export var current_sport: Constants.SportsmanAvailableSports = Constants.SportsmanAvailableSports.NULL
@@ -54,6 +56,20 @@ func met_expenditure() -> float:
 func add_finished_event_result(event_result: SportsEventResult) -> void:
 	_events_history.append(event_result)
 	changed_properties.emit()
+
+
+func get_sportsman_name(short: bool = false) -> String:
+	if not short:
+		return name
+	
+	var short_name: String = name
+	if name.find(" "):
+		short_name = name.split(" ")[0]
+	
+	if name.length() > 9:
+		short_name = name.substr(0, 8) + "."
+	
+	return short_name
 
 
 func get_events_history() -> Array[SportsEventResult]:

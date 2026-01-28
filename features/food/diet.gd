@@ -34,9 +34,8 @@ func remove_food(target_food: Food) -> void:
 
 
 func set_diet_name(new_name: String) -> void:
-	print_debug("new name set")
 	diet_name = new_name
-	#diet_changed.emit()
+	diet_changed.emit()
 
 
 func get_foods() -> Array[Dictionary]:
