@@ -2,6 +2,7 @@ class_name Diet
 extends Resource
 
 
+signal diet_changed()
 signal food_added(food: Food, food_weight_g: float)
 signal food_removed(food: Food)
 
@@ -16,6 +17,7 @@ func add_food(food: Food, food_weight_g: float) -> void:
 		"weight": food_weight_g
 	})
 	food_added.emit(food, food_weight_g)
+	diet_changed.emit()
 
 
 func remove_food(target_food: Food) -> void:
@@ -28,6 +30,13 @@ func remove_food(target_food: Food) -> void:
 		if current_food.food == target_food:
 			_foods_in_diet.remove_at(food_index)
 			food_removed.emit(current_food)
+			diet_changed.emit()
+
+
+func set_diet_name(new_name: String) -> void:
+	print_debug("new name set")
+	diet_name = new_name
+	#diet_changed.emit()
 
 
 func get_foods() -> Array[Dictionary]:

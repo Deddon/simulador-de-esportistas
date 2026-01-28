@@ -22,6 +22,11 @@ func update_slots(diet: Diet) -> void:
 		no_diet_container.show()
 		return
 	
+	diet.changed.connect(func():
+		print_debug("Diet changed signal triggered, trying to update foods.")
+		update_slots.bind(diet)
+	)
+	
 	on_diet_container.show()
 	no_diet_container.hide()
 	

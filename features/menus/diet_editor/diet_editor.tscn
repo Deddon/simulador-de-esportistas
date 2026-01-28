@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://vap4qcu2ewjh" path="res://features/menus/diet_editor/foods_in_diet_container/foods_in_diet_container.tscn" id="2_3ulrn"]
 [ext_resource type="PackedScene" uid="uid://cgafr1cnegfkl" path="res://features/menus/diet_editor/diet_stats/diet_stats.tscn" id="3_388iv"]
 
-[node name="DietEditor" type="Control" node_paths=PackedStringArray("foods_in_diet_container", "clear_diet_button")]
+[node name="DietEditor" type="Control" node_paths=PackedStringArray("foods_in_diet_container", "diet_stats_container", "clear_diet_button")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -16,7 +16,10 @@ grow_vertical = 2
 theme = ExtResource("1_wkqx2")
 script = ExtResource("1_eh2pj")
 foods_in_diet_container = NodePath("MainContainer/FoodsInDietContainer")
+diet_stats_container = NodePath("MainContainer/DietDashboard/DietStats")
 clear_diet_button = NodePath("MainContainer/DietDashboard/ManipulationButtons/ClearDiet")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="MainContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -25,12 +28,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -502.0
+offset_left = -505.0
 offset_top = -300.0
-offset_right = 502.0
+offset_right = 505.0
 offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 10
 
 [node name="FoodsInDietContainer" parent="MainContainer" instance=ExtResource("2_3ulrn")]
 layout_mode = 2
@@ -46,17 +50,20 @@ size_flags_vertical = 3
 [node name="ManipulationButtons" type="VBoxContainer" parent="MainContainer/DietDashboard"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MainContainer/DietDashboard/ManipulationButtons"]
+[node name="AddFood" type="Button" parent="MainContainer/DietDashboard/ManipulationButtons"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "ADICIONAR ALIMENTO"
 
-[node name="Button3" type="Button" parent="MainContainer/DietDashboard/ManipulationButtons"]
+[node name="CheckNutrients" type="Button" parent="MainContainer/DietDashboard/ManipulationButtons"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "CONFERIR NUTRIENTES"
 
 [node name="ClearDiet" type="Button" parent="MainContainer/DietDashboard/ManipulationButtons"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "LIMPAR DIETA"

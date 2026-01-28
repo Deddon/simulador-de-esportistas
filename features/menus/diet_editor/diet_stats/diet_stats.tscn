@@ -1,11 +1,33 @@
-[gd_scene format=3 uid="uid://cgafr1cnegfkl"]
+[gd_scene load_steps=5 format=3 uid="uid://cgafr1cnegfkl"]
 
-[node name="DietStats" type="Control"]
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_rx6ex"]
+[ext_resource type="Script" uid="uid://b6cv7uv1pio5d" path="res://features/menus/diet_editor/diet_stats/diet_stats.gd" id="1_vyh14"]
+[ext_resource type="LabelSettings" uid="uid://bo7lqvclm238p" path="res://features/menus/diet_editor/diet_stats/common_label_settings.tres" id="3_vg60r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vg60r"]
+font_size = 30
+
+[node name="DietStats" type="Control" node_paths=PackedStringArray("diet_name_label", "diet_name_editor_line_edit", "change_diet_name_button", "sportsman_get_label", "diet_vct_label", "cho_grams_label", "ptn_grams_label", "lip_grams_label", "cho_g_per_kg_label", "ptn_g_per_kg_label", "lip_g_per_kg_label", "check_diet_button", "check_guidelines_button")]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 400.0
-offset_bottom = 400.0
+offset_bottom = 408.0
+theme = ExtResource("1_rx6ex")
+script = ExtResource("1_vyh14")
+diet_name_label = NodePath("MainMargin/MainContainer/DietNameMargin/DietNameContainer/DietName")
+diet_name_editor_line_edit = NodePath("MainMargin/MainContainer/DietNameMargin/DietNameContainer/DietNameEditor")
+change_diet_name_button = NodePath("MainMargin/MainContainer/DietNameMargin/DietNameContainer/CenterContainer/ChangeDietName")
+sportsman_get_label = NodePath("MainMargin/MainContainer/EnergyMargin/CenterContainer/VBoxContainer/SportsmanGET")
+diet_vct_label = NodePath("MainMargin/MainContainer/EnergyMargin/CenterContainer/VBoxContainer/DietVCT")
+cho_grams_label = NodePath("MainMargin/MainContainer/MacrosMargin/MacrosContainer/Grams/cho_grams")
+ptn_grams_label = NodePath("MainMargin/MainContainer/MacrosMargin/MacrosContainer/Grams/ptn_grams")
+lip_grams_label = NodePath("MainMargin/MainContainer/MacrosMargin/MacrosContainer/Grams/lip_grams")
+cho_g_per_kg_label = NodePath("MainMargin/MainContainer/MacrosMargin/MacrosContainer/GramsPerKg/cho_g_per_kg")
+ptn_g_per_kg_label = NodePath("MainMargin/MainContainer/MacrosMargin/MacrosContainer/GramsPerKg/ptn_g_per_kg")
+lip_g_per_kg_label = NodePath("MainMargin/MainContainer/MacrosMargin/MacrosContainer/GramsPerKg/lip_g_per_kg")
+check_diet_button = NodePath("MainMargin/MainContainer/CheckDietOrGuidelines/CenterContainer/HBoxContainer/CheckDiet")
+check_guidelines_button = NodePath("MainMargin/MainContainer/CheckDietOrGuidelines/CenterContainer/HBoxContainer/CheckGuidelines")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 layout_mode = 1
@@ -16,13 +38,166 @@ grow_horizontal = 2
 grow_vertical = 2
 border_width = 4.0
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MainMargin" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="MainContainer" type="VBoxContainer" parent="MainMargin"]
 layout_mode = 2
+
+[node name="DietNameMargin" type="MarginContainer" parent="MainMargin/MainContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="DietNameContainer" type="VBoxContainer" parent="MainMargin/MainContainer/DietNameMargin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="DietName" type="Label" parent="MainMargin/MainContainer/DietNameMargin/DietNameContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Diet1"
+label_settings = SubResource("LabelSettings_vg60r")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="DietNameEditor" type="LineEdit" parent="MainMargin/MainContainer/DietNameMargin/DietNameContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+placeholder_text = "Insira o novo nome"
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMargin/MainContainer/DietNameMargin/DietNameContainer"]
+layout_mode = 2
+
+[node name="ChangeDietName" type="Button" parent="MainMargin/MainContainer/DietNameMargin/DietNameContainer/CenterContainer"]
+custom_minimum_size = Vector2(180, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "ALTERAR NOME"
+
+[node name="EnergyMargin" type="MarginContainer" parent="MainMargin/MainContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMargin/MainContainer/EnergyMargin"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMargin/MainContainer/EnergyMargin/CenterContainer"]
+layout_mode = 2
+
+[node name="SportsmanGET" type="Label" parent="MainMargin/MainContainer/EnergyMargin/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "GET Atleta: 0.0 kcal"
+label_settings = ExtResource("3_vg60r")
+horizontal_alignment = 1
+
+[node name="DietVCT" type="Label" parent="MainMargin/MainContainer/EnergyMargin/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Dieta1: 0.0 kcal"
+label_settings = ExtResource("3_vg60r")
+horizontal_alignment = 1
+
+[node name="MacrosMargin" type="MarginContainer" parent="MainMargin/MainContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="MacrosContainer" type="HBoxContainer" parent="MainMargin/MainContainer/MacrosMargin"]
+layout_mode = 2
+
+[node name="MacrosNames" type="VBoxContainer" parent="MainMargin/MainContainer/MacrosMargin/MacrosContainer"]
+layout_mode = 2
+
+[node name="Macro3" type="Label" parent="MainMargin/MainContainer/MacrosMargin/MacrosContainer/MacrosNames"]
+layout_mode = 2
+text = "CHO"
+label_settings = ExtResource("3_vg60r")
+horizontal_alignment = 1
+
+[node name="Macro2" type="Label" parent="MainMargin/MainContainer/MacrosMargin/MacrosContainer/MacrosNames"]
+layout_mode = 2
+text = "PTN"
+label_settings = ExtResource("3_vg60r")
+horizontal_alignment = 1
+
+[node name="Macro" type="Label" parent="MainMargin/MainContainer/MacrosMargin/MacrosContainer/MacrosNames"]
+layout_mode = 2
+text = "LIP"
+label_settings = ExtResource("3_vg60r")
+horizontal_alignment = 1
+
+[node name="Grams" type="VBoxContainer" parent="MainMargin/MainContainer/MacrosMargin/MacrosContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="cho_grams" type="Label" parent="MainMargin/MainContainer/MacrosMargin/MacrosContainer/Grams"]
+layout_mode = 2
+text = "100.0 g"
+label_settings = ExtResource("3_vg60r")
+horizontal_alignment = 1
+
+[node name="ptn_grams" type="Label" parent="MainMargin/MainContainer/MacrosMargin/MacrosContainer/Grams"]
+layout_mode = 2
+text = "100.0 g"
+label_settings = ExtResource("3_vg60r")
+horizontal_alignment = 1
+
+[node name="lip_grams" type="Label" parent="MainMargin/MainContainer/MacrosMargin/MacrosContainer/Grams"]
+layout_mode = 2
+text = "100.0 g"
+label_settings = ExtResource("3_vg60r")
+horizontal_alignment = 1
+
+[node name="GramsPerKg" type="VBoxContainer" parent="MainMargin/MainContainer/MacrosMargin/MacrosContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="cho_g_per_kg" type="Label" parent="MainMargin/MainContainer/MacrosMargin/MacrosContainer/GramsPerKg"]
+layout_mode = 2
+text = "10.0 g/kg"
+label_settings = ExtResource("3_vg60r")
+horizontal_alignment = 1
+
+[node name="ptn_g_per_kg" type="Label" parent="MainMargin/MainContainer/MacrosMargin/MacrosContainer/GramsPerKg"]
+layout_mode = 2
+text = "10.0 g/kg"
+label_settings = ExtResource("3_vg60r")
+horizontal_alignment = 1
+
+[node name="lip_g_per_kg" type="Label" parent="MainMargin/MainContainer/MacrosMargin/MacrosContainer/GramsPerKg"]
+layout_mode = 2
+text = "10.0 g/kg"
+label_settings = ExtResource("3_vg60r")
+horizontal_alignment = 1
+
+[node name="CheckDietOrGuidelines" type="MarginContainer" parent="MainMargin/MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MainMargin/MainContainer/CheckDietOrGuidelines"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="MainMargin/MainContainer/CheckDietOrGuidelines/CenterContainer"]
+layout_mode = 2
+
+[node name="CheckDiet" type="Button" parent="MainMargin/MainContainer/CheckDietOrGuidelines/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(270, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "CONFERIR DIETA"
+
+[node name="CheckGuidelines" type="Button" parent="MainMargin/MainContainer/CheckDietOrGuidelines/CenterContainer/HBoxContainer"]
+custom_minimum_size = Vector2(270, 35)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "CONFERIR DIRETRIZES"
