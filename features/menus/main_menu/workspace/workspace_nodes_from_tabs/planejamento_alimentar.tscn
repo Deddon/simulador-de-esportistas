@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://xfi7uj4nvmk0"]
+[gd_scene load_steps=9 format=3 uid="uid://xfi7uj4nvmk0"]
 
 [ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_osrup"]
 [ext_resource type="Script" uid="uid://b047idtsbc2l2" path="res://features/menus/main_menu/workspace/workspace_nodes_from_tabs/planejamento_alimentar.gd" id="2_e1ga7"]
+[ext_resource type="PackedScene" uid="uid://db1wjchvatmqj" path="res://features/menus/diet_editor/diet_editor.tscn" id="3_65bi3"]
 [ext_resource type="PackedScene" uid="uid://cvylcfsqxgk1j" path="res://features/menus/main_menu/workspace/workspace_nodes_from_tabs/diet_history_container/diet_history_container.tscn" id="3_nx6r7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_osrup"]
@@ -25,6 +26,7 @@ offset_bottom = 714.0
 size_flags_vertical = 3
 theme = ExtResource("1_osrup")
 script = ExtResource("2_e1ga7")
+diet_editor_packed_scene = ExtResource("3_65bi3")
 current_diet_container = NodePath("ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin")
 diet_name_label = NodePath("ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/CurrentDietName")
 desired_get_label = NodePath("ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer/DietCaloricValues/GETDesejado")

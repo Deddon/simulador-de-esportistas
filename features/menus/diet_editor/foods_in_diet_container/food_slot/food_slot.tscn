@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://besk7oxjsfp31"]
+
+[ext_resource type="Script" uid="uid://d20ix6hfdugci" path="res://features/menus/diet_editor/foods_in_diet_container/food_slot/food_slot.gd" id="1_76rw6"]
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_q87j1"]
+[ext_resource type="Texture2D" uid="uid://d08eourr15wgb" path="res://assets/sprites/not_found.png" id="3_usve5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_usve5"]
+font_size = 30
+
+[node name="DietEditorFoodSlot" type="Control" node_paths=PackedStringArray("food_icon_texture_rect", "food_name_label", "food_stats_info_label")]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 600.0
+theme = ExtResource("1_q87j1")
+script = ExtResource("1_76rw6")
+food_icon_texture_rect = NodePath("MarginContainer/Button/MarginContainer/HBoxContainer/FoodIcon")
+food_name_label = NodePath("MarginContainer/Button/MarginContainer/HBoxContainer/MarginContainer/CenterContainer/VBoxContainer/FoodName")
+food_stats_info_label = NodePath("MarginContainer/Button/MarginContainer/HBoxContainer/MarginContainer/CenterContainer/VBoxContainer/FoodStatsInfo")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Button" type="Button" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 17
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Button/MarginContainer"]
+layout_mode = 2
+
+[node name="FoodIcon" type="TextureRect" parent="MarginContainer/Button/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(65, 65)
+layout_mode = 2
+texture = ExtResource("3_usve5")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Button/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/Button/MarginContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Button/MarginContainer/HBoxContainer/MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="FoodName" type="Label" parent="MarginContainer/Button/MarginContainer/HBoxContainer/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "food_name_placeholder"
+label_settings = SubResource("LabelSettings_usve5")
+
+[node name="FoodStatsInfo" type="Label" parent="MarginContainer/Button/MarginContainer/HBoxContainer/MarginContainer/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "00.0 g - 000.0 kcal"
+label_settings = SubResource("LabelSettings_usve5")

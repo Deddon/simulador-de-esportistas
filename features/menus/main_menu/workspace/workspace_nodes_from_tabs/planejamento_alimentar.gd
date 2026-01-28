@@ -2,6 +2,10 @@ class_name WorkspacePlanejamentoAlimentar
 extends Control
 
 
+## TODO: Connect button to edit diet to this scene.
+@export var diet_editor_packed_scene: PackedScene
+
+@export_group("Nodes")
 @export var current_diet_container: Container
 @export var diet_name_label: Label
 @export var desired_get_label: Label

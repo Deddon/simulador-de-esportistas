@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://vap4qcu2ewjh"]
+
+[ext_resource type="Script" uid="uid://cnjuvgdui41rn" path="res://features/menus/diet_editor/foods_in_diet_container/foods_in_diet_container.gd" id="1_kvm3l"]
+[ext_resource type="PackedScene" uid="uid://besk7oxjsfp31" path="res://features/menus/diet_editor/foods_in_diet_container/food_slot/food_slot.tscn" id="2_38ukk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_38ukk"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_du1l5"]
+font_size = 25
+
+[node name="FoodsInDietContainer" type="Control" node_paths=PackedStringArray("food_slot_container", "on_diet_container", "no_diet_container")]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_kvm3l")
+food_slot_packed_scene = ExtResource("2_38ukk")
+food_slot_container = NodePath("BackgroundPanel/MarginContainer/MainContainer/OnDietContainer/FoodSlotContainer")
+on_diet_container = NodePath("BackgroundPanel/MarginContainer/MainContainer/OnDietContainer")
+no_diet_container = NodePath("BackgroundPanel/MarginContainer/MainContainer/NoDietContainer")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(4.2595716e-06, 0.55452555, 1.92523e-07, 1)
+border_width = 4.0
+
+[node name="BackgroundPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 20
+
+[node name="MainContainer" type="VBoxContainer" parent="BackgroundPanel/MarginContainer"]
+layout_mode = 2
+
+[node name="HeaderContainer" type="MarginContainer" parent="BackgroundPanel/MarginContainer/MainContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BackgroundPanel/MarginContainer/MainContainer/HeaderContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="BackgroundPanel/MarginContainer/MainContainer/HeaderContainer/HBoxContainer"]
+layout_mode = 2
+text = "Lista de
+Alimentos"
+label_settings = SubResource("LabelSettings_38ukk")
+
+[node name="FilterMargin" type="MarginContainer" parent="BackgroundPanel/MarginContainer/MainContainer/HeaderContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Filter" type="LineEdit" parent="BackgroundPanel/MarginContainer/MainContainer/HeaderContainer/HBoxContainer/FilterMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Filtrar"
+
+[node name="OnDietContainer" type="ScrollContainer" parent="BackgroundPanel/MarginContainer/MainContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FoodSlotContainer" type="VBoxContainer" parent="BackgroundPanel/MarginContainer/MainContainer/OnDietContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NoDietContainer" type="CenterContainer" parent="BackgroundPanel/MarginContainer/MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BackgroundPanel/MarginContainer/MainContainer/NoDietContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="BackgroundPanel/MarginContainer/MainContainer/NoDietContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0.31764707)
+layout_mode = 2
+text = "Você ainda não
+adicionou alimentos a dieta..."
+label_settings = SubResource("LabelSettings_du1l5")
+horizontal_alignment = 1
