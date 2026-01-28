@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://dn5juj1gbdec3"]
+
+[ext_resource type="Script" uid="uid://d2ib4vwjavhyq" path="res://features/food/food.gd" id="1_eesvp"]
+[ext_resource type="Texture2D" uid="uid://ce3eik68uf066" path="res://assets/sprites/foods/coxa_de_frango.png" id="2_ukgbe"]
+
+[resource]
+script = ExtResource("1_eesvp")
+name = "Coxa de Frango Assada"
+texture = ExtResource("2_ukgbe")
+composition_database = 1
+description = "Uma ótima variação de carne de frango para dietas, porém com um pouco a mais de gordura."
+composition = Dictionary[String, float]({
+"CHO": 0.71,
+"LIP": 14.55,
+"PTN": 23.64,
+"fibers": 0.16
+})
+metadata/_custom_type_script = "uid://d2ib4vwjavhyq"

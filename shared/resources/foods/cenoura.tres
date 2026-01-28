@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://dexlnticlm24w"]
+
+[ext_resource type="Script" uid="uid://d2ib4vwjavhyq" path="res://features/food/food.gd" id="1_isr08"]
+[ext_resource type="Texture2D" uid="uid://prgdvdqnma1r" path="res://assets/sprites/foods/cenoura.png" id="2_2x50w"]
+
+[resource]
+script = ExtResource("1_isr08")
+name = "Cenoura Cozida"
+texture = ExtResource("2_2x50w")
+composition_database = 1
+description = "Ótima fonte de vitamina A e betacarotenos. Boa até em receitas doces."
+composition = Dictionary[String, float]({
+"CHO": 10.5,
+"LIP": 0.18,
+"PTN": 1.1,
+"fibers": 2.5300000000000002
+})
+metadata/_custom_type_script = "uid://d2ib4vwjavhyq"

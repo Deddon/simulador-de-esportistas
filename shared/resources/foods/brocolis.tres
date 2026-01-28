@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://66apr6vojomc"]
+
+[ext_resource type="Script" uid="uid://d2ib4vwjavhyq" path="res://features/food/food.gd" id="1_2q3s7"]
+[ext_resource type="Texture2D" uid="uid://bcgah8aq6hpmq" path="res://assets/sprites/foods/brocolis.png" id="2_8cgka"]
+
+[resource]
+script = ExtResource("1_2q3s7")
+name = "Brócolis Cozido"
+texture = ExtResource("2_8cgka")
+composition_database = 1
+description = "O vegetal verde escuro mais famoso e consumido pela maioria dos brasileiros."
+composition = Dictionary[String, float]({
+"CHO": 5.07,
+"LIP": 0.35,
+"PTN": 2.99,
+"fibers": 3.0
+})
+metadata/_custom_type_script = "uid://d2ib4vwjavhyq"

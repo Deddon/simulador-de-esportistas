@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Food" load_steps=3 format=3 uid="uid://d1niha05235u6"]
+
+[ext_resource type="Script" uid="uid://d2ib4vwjavhyq" path="res://features/food/food.gd" id="1_pth8r"]
+[ext_resource type="Texture2D" uid="uid://7edg28co2r6e" path="res://assets/sprites/foods/pineapple.png" id="2_acebq"]
+
+[resource]
+script = ExtResource("1_pth8r")
+name = "Abacaxi"
+texture = ExtResource("2_acebq")
+composition_database = 1
+description = "Doce e possui enzimas digestivas, podendo ajudar na digestão após refeições volumosas."
+composition = Dictionary[String, float]({
+"CHO": 12.4,
+"LIP": 0.43,
+"PTN": 0.39,
+"fibers": 1.2
+})
+metadata/_custom_type_script = "uid://d2ib4vwjavhyq"
