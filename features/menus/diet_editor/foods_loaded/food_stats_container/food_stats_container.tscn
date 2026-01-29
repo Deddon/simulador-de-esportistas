@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://csryq86cd3fld"]
+
+[ext_resource type="Script" uid="uid://b17bo27vncvn1" path="res://features/menus/diet_editor/foods_loaded/food_stats_container/food_stats_container.gd" id="1_4440p"]
+
+[node name="FoodStatsContainer" type="Control"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 476.0
+script = ExtResource("1_4440p")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+border_color = Color(0.7869158, 0.00048150003, 0.7869105, 1)
+border_width = 4.0

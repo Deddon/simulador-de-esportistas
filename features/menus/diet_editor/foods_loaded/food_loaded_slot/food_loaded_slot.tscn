@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://2y6rellhsjak"]
+
+[ext_resource type="Script" uid="uid://b1tcbk33nx1t4" path="res://features/menus/diet_editor/foods_loaded/food_loaded_slot/food_loaded_slot.gd" id="1_a11ov"]
+[ext_resource type="Texture2D" uid="uid://d08eourr15wgb" path="res://assets/sprites/not_found.png" id="1_ybsdd"]
+
+[node name="FoodLoadedSlot" type="Control" node_paths=PackedStringArray("food_icon_texture_rect")]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 3
+anchors_preset = 0
+mouse_default_cursor_shape = 2
+script = ExtResource("1_a11ov")
+food_icon_texture_rect = NodePath("Button/MarginContainer/FoodIcon")
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="FoodIcon" type="TextureRect" parent="Button/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_ybsdd")

@@ -1,0 +1,137 @@
+[gd_scene load_steps=6 format=3 uid="uid://duokgqd1abios"]
+
+[ext_resource type="PackedScene" uid="uid://csryq86cd3fld" path="res://features/menus/diet_editor/foods_loaded/food_stats_container/food_stats_container.tscn" id="1_0egos"]
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_47tov"]
+[ext_resource type="Script" uid="uid://yx1o8sg2tvmn" path="res://features/menus/diet_editor/foods_loaded/foods_loaded.gd" id="2_rb55p"]
+[ext_resource type="PackedScene" uid="uid://2y6rellhsjak" path="res://features/menus/diet_editor/foods_loaded/food_loaded_slot/food_loaded_slot.tscn" id="3_eamwh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_47tov"]
+font_size = 35
+
+[node name="FoodsLoaded" type="Control" node_paths=PackedStringArray("foods_loaded_grid")]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_47tov")
+script = ExtResource("2_rb55p")
+foods_loaded_grid = NodePath("MainContainer/FoodsSlotsMargin/FoodsSlotsMainContainer/MarginContainer/FoodsSlotsScroll/FoodsLoadedMargin/FoodsLoadedGrid")
+food_loaded_slot_packed_scene = ExtResource("3_eamwh")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="MainContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -505.0
+offset_top = -300.0
+offset_right = 505.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FoodsSlotsMargin" type="MarginContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ReferenceRect" type="ReferenceRect" parent="MainContainer/FoodsSlotsMargin"]
+layout_mode = 2
+border_width = 4.0
+
+[node name="FoodsSlotsMainContainer" type="VBoxContainer" parent="MainContainer/FoodsSlotsMargin"]
+layout_mode = 2
+
+[node name="TitleMargin" type="MarginContainer" parent="MainContainer/FoodsSlotsMargin/FoodsSlotsMainContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/FoodsSlotsMargin/FoodsSlotsMainContainer/TitleMargin"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MainContainer/FoodsSlotsMargin/FoodsSlotsMainContainer/TitleMargin/HBoxContainer"]
+layout_mode = 2
+text = "Alimentos
+Possíveis"
+label_settings = SubResource("LabelSettings_47tov")
+
+[node name="FilterMargin" type="MarginContainer" parent="MainContainer/FoodsSlotsMargin/FoodsSlotsMainContainer/TitleMargin/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Filter" type="LineEdit" parent="MainContainer/FoodsSlotsMargin/FoodsSlotsMainContainer/TitleMargin/HBoxContainer/FilterMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Filtrar"
+
+[node name="MarginContainer" type="MarginContainer" parent="MainContainer/FoodsSlotsMargin/FoodsSlotsMainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="FoodsSlotsScroll" type="ScrollContainer" parent="MainContainer/FoodsSlotsMargin/FoodsSlotsMainContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FoodsLoadedMargin" type="MarginContainer" parent="MainContainer/FoodsSlotsMargin/FoodsSlotsMainContainer/MarginContainer/FoodsSlotsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 21
+theme_override_constants/margin_bottom = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="MainContainer/FoodsSlotsMargin/FoodsSlotsMainContainer/MarginContainer/FoodsSlotsScroll/FoodsLoadedMargin"]
+layout_mode = 2
+border_width = 4.0
+
+[node name="FoodsLoadedGrid" type="GridContainer" parent="MainContainer/FoodsSlotsMargin/FoodsSlotsMainContainer/MarginContainer/FoodsSlotsScroll/FoodsLoadedMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 4
+
+[node name="FoodStatsMainContainer" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+
+[node name="FoodStatsContainer" parent="MainContainer/FoodStatsMainContainer" instance=ExtResource("1_0egos")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ButtonsContainer" type="CenterContainer" parent="MainContainer/FoodStatsMainContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/FoodStatsMainContainer/ButtonsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="CheckDietWithFood" type="Button" parent="MainContainer/FoodStatsMainContainer/ButtonsContainer/VBoxContainer"]
+custom_minimum_size = Vector2(330, 55)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "CONFERIR DIETA"
+
+[node name="SubmitFood" type="Button" parent="MainContainer/FoodStatsMainContainer/ButtonsContainer/VBoxContainer"]
+custom_minimum_size = Vector2(330, 55)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "CONFIRMAR"
