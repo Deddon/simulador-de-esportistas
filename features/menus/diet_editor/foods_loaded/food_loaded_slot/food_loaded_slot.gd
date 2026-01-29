@@ -13,7 +13,6 @@ var current_food: Food
 
 func _ready() -> void:
 	button.pressed.connect(func():
-		print_debug("feeling pressed")
 		if current_food:
 			food_selected.emit(current_food)
 	)

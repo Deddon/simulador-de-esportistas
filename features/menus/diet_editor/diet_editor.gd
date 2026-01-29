@@ -51,6 +51,10 @@ func clear_diet() -> void:
 	#return current_diet
 
 
+func get_current_diet() -> Diet:
+	return current_diet
+
+
 func _submit_diet() -> void:
 	if not current_diet:
 		printerr("No diet to submit.")

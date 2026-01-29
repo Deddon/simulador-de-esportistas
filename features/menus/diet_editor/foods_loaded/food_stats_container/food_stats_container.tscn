@@ -1,14 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://csryq86cd3fld"]
+[gd_scene load_steps=6 format=3 uid="uid://csryq86cd3fld"]
 
 [ext_resource type="Script" uid="uid://b17bo27vncvn1" path="res://features/menus/diet_editor/foods_loaded/food_stats_container/food_stats_container.gd" id="1_4440p"]
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_y17y7"]
+[ext_resource type="LabelSettings" uid="uid://romw60ypy75a" path="res://features/menus/diet_editor/foods_loaded/food_stats_container/common_label_settings.tres" id="3_42k72"]
 
-[node name="FoodStatsContainer" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_y17y7"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_42k72"]
+font_size = 35
+
+[node name="FoodStatsContainer" type="Control" node_paths=PackedStringArray("main_container", "food_name_label", "food_weight_label", "food_weight_setter_line_edit", "cho_label", "ptn_label", "lip_label", "diet_before_energy_label", "diet_after_energy_label")]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 400.0
 offset_bottom = 476.0
+theme = ExtResource("1_y17y7")
 script = ExtResource("1_4440p")
+main_container = NodePath("MarginContainer/BackgroundPanel/MainContainer")
+food_name_label = NodePath("MarginContainer/BackgroundPanel/MainContainer/TitleContainer/Title")
+food_weight_label = NodePath("MarginContainer/BackgroundPanel/MainContainer/FoodWeightMargin/CenterContainer/VBoxContainer/FoodWeightShown")
+food_weight_setter_line_edit = NodePath("MarginContainer/BackgroundPanel/MainContainer/FoodWeightMargin/CenterContainer/VBoxContainer/CenterContainer/HBoxContainer/FoodWeightSetter")
+cho_label = NodePath("MarginContainer/BackgroundPanel/MainContainer/FoodMacrosMargin/MacrosContainer/VBoxContainer/CHO/cho_grams")
+ptn_label = NodePath("MarginContainer/BackgroundPanel/MainContainer/FoodMacrosMargin/MacrosContainer/VBoxContainer/PTN/ptn_grams")
+lip_label = NodePath("MarginContainer/BackgroundPanel/MainContainer/FoodMacrosMargin/MacrosContainer/VBoxContainer/LIP/lip_grams")
+diet_before_energy_label = NodePath("MarginContainer/BackgroundPanel/MainContainer/EnergyMargin/CenterContainer/EnergyContainer/DietBefore/DietBeforeEnergy")
+diet_after_energy_label = NodePath("MarginContainer/BackgroundPanel/MainContainer/EnergyMargin/CenterContainer/EnergyContainer/DietAfter/DietAfterEnergy")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 layout_mode = 1
@@ -19,3 +39,320 @@ grow_horizontal = 2
 grow_vertical = 2
 border_color = Color(0.7869158, 0.00048150003, 0.7869105, 1)
 border_width = 4.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="BackgroundPanel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MainContainer" type="VBoxContainer" parent="MarginContainer/BackgroundPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleContainer" type="MarginContainer" parent="MarginContainer/BackgroundPanel/MainContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Title" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/TitleContainer"]
+layout_mode = 2
+text = "food_name_placeholder"
+label_settings = SubResource("LabelSettings_y17y7")
+horizontal_alignment = 1
+clip_text = true
+
+[node name="FoodWeightMargin" type="MarginContainer" parent="MarginContainer/BackgroundPanel/MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/BackgroundPanel/MainContainer/FoodWeightMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundPanel/MainContainer/FoodWeightMargin/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="FoodWeightShown" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/FoodWeightMargin/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Contabilizando 000g
+de alimento"
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/BackgroundPanel/MainContainer/FoodWeightMargin/CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/BackgroundPanel/MainContainer/FoodWeightMargin/CenterContainer/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="FoodWeightSetter" type="LineEdit" parent="MarginContainer/BackgroundPanel/MainContainer/FoodWeightMargin/CenterContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "100"
+placeholder_text = "100"
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/FoodWeightMargin/CenterContainer/VBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "g "
+label_settings = SubResource("LabelSettings_42k72")
+
+[node name="FoodMacrosMargin" type="MarginContainer" parent="MarginContainer/BackgroundPanel/MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 15
+
+[node name="MacrosContainer" type="HBoxContainer" parent="MarginContainer/BackgroundPanel/MainContainer/FoodMacrosMargin"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/FoodMacrosMargin/MacrosContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Macros do
+alimento"
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/BackgroundPanel/MainContainer/FoodMacrosMargin/MacrosContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CHO" type="HBoxContainer" parent="MarginContainer/BackgroundPanel/MainContainer/FoodMacrosMargin/MacrosContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/FoodMacrosMargin/MacrosContainer/VBoxContainer/CHO"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CHO: "
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="cho_grams" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/FoodMacrosMargin/MacrosContainer/VBoxContainer/CHO"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0 g"
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PTN" type="HBoxContainer" parent="MarginContainer/BackgroundPanel/MainContainer/FoodMacrosMargin/MacrosContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/FoodMacrosMargin/MacrosContainer/VBoxContainer/PTN"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PTN: "
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ptn_grams" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/FoodMacrosMargin/MacrosContainer/VBoxContainer/PTN"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0 g"
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LIP" type="HBoxContainer" parent="MarginContainer/BackgroundPanel/MainContainer/FoodMacrosMargin/MacrosContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/FoodMacrosMargin/MacrosContainer/VBoxContainer/LIP"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LIP: "
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lip_grams" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/FoodMacrosMargin/MacrosContainer/VBoxContainer/LIP"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0 g"
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MacrosAfterMargin" type="MarginContainer" parent="MarginContainer/BackgroundPanel/MainContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 15
+
+[node name="MacrosContainer" type="VBoxContainer" parent="MarginContainer/BackgroundPanel/MainContainer/MacrosAfterMargin"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/BackgroundPanel/MainContainer/MacrosAfterMargin/MacrosContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 10
+
+[node name="DietWithFood" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/MacrosAfterMargin/MacrosContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Dieta com
+food_name_placeholder"
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+clip_text = true
+
+[node name="CHO" type="HBoxContainer" parent="MarginContainer/BackgroundPanel/MainContainer/MacrosAfterMargin/MacrosContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/MacrosAfterMargin/MacrosContainer/CHO"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CHO: "
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="cho_g_per_kg" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/MacrosAfterMargin/MacrosContainer/CHO"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0 g/kg"
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="cho_grams" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/MacrosAfterMargin/MacrosContainer/CHO"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0 g"
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PTN" type="HBoxContainer" parent="MarginContainer/BackgroundPanel/MainContainer/MacrosAfterMargin/MacrosContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/MacrosAfterMargin/MacrosContainer/PTN"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "PTN: "
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ptn_g_per_kg" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/MacrosAfterMargin/MacrosContainer/PTN"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0 g/kg"
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ptn_grams" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/MacrosAfterMargin/MacrosContainer/PTN"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0 g"
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LIP" type="HBoxContainer" parent="MarginContainer/BackgroundPanel/MainContainer/MacrosAfterMargin/MacrosContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/MacrosAfterMargin/MacrosContainer/LIP"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "LIP: "
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lip_g_per_kg" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/MacrosAfterMargin/MacrosContainer/LIP"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0 g/kg"
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lip_grams" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/MacrosAfterMargin/MacrosContainer/LIP"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0 g"
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EnergyMargin" type="MarginContainer" parent="MarginContainer/BackgroundPanel/MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/BackgroundPanel/MainContainer/EnergyMargin"]
+layout_mode = 2
+
+[node name="EnergyContainer" type="VBoxContainer" parent="MarginContainer/BackgroundPanel/MainContainer/EnergyMargin/CenterContainer"]
+layout_mode = 2
+
+[node name="DietBefore" type="HBoxContainer" parent="MarginContainer/BackgroundPanel/MainContainer/EnergyMargin/CenterContainer/EnergyContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/EnergyMargin/CenterContainer/EnergyContainer/DietBefore"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Dieta Antes: "
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DietBeforeEnergy" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/EnergyMargin/CenterContainer/EnergyContainer/DietBefore"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0000.0 kcal"
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DietAfter" type="HBoxContainer" parent="MarginContainer/BackgroundPanel/MainContainer/EnergyMargin/CenterContainer/EnergyContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/EnergyMargin/CenterContainer/EnergyContainer/DietAfter"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Dieta Depois: "
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DietAfterEnergy" type="Label" parent="MarginContainer/BackgroundPanel/MainContainer/EnergyMargin/CenterContainer/EnergyContainer/DietAfter"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0000.0 kcal"
+label_settings = ExtResource("3_42k72")
+horizontal_alignment = 1
+vertical_alignment = 1

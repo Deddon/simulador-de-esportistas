@@ -8,7 +8,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_47tov"]
 font_size = 35
 
-[node name="FoodsLoaded" type="Control" node_paths=PackedStringArray("foods_loaded_grid")]
+[node name="FoodsLoaded" type="Control" node_paths=PackedStringArray("foods_loaded_grid", "foods_stats_container")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -20,6 +20,7 @@ theme = ExtResource("1_47tov")
 script = ExtResource("2_rb55p")
 foods_loaded_grid = NodePath("MainContainer/FoodsSlotsMargin/FoodsSlotsMainContainer/MarginContainer/FoodsSlotsScroll/FoodsLoadedMargin/FoodsLoadedGrid")
 food_loaded_slot_packed_scene = ExtResource("3_eamwh")
+foods_stats_container = NodePath("MainContainer/FoodStatsMainContainer/FoodStatsContainer")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 

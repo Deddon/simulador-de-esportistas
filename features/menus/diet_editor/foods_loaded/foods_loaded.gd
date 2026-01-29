@@ -21,7 +21,7 @@ func update_loaded_foods() -> void:
 		for i in 2:
 			var food_slot: DietEditorFoodLoadedSlot = food_loaded_slot_packed_scene.instantiate()
 			food_slot.set_slot_food(food)
-			food_slot.food_selected.emit(_handle_food_selection)
+			food_slot.food_selected.connect(_handle_food_selection)
 			foods_loaded_grid.add_child(food_slot)
 
 
