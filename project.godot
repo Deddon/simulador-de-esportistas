@@ -19,6 +19,7 @@ config/icon="uid://dkhdhwwni3jmp"
 
 GameBuffer="*res://shared/autoloads/game_buffer.gd"
 Constants="*res://shared/autoloads/constants.gd"
+Loader="*res://shared/autoloads/loader.gd"
 
 [display]
 
