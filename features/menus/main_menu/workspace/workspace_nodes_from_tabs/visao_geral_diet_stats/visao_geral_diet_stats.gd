@@ -4,8 +4,8 @@ extends HBoxContainer
 
 @export var name_label: Label
 @export var energy_label: Label
-@export var description_label: Label
 @export var creation_date_label: Label
+@export var description_label: Label
 @export var foods_texture_grid_container: GridContainer
 
 var current_diet: Diet
@@ -31,6 +31,7 @@ func update_from(diet: Diet) -> void:
 	
 	name_label.text = current_diet.diet_name
 	energy_label.text = str(snappedf(current_diet.calculate_energy(), 0.1), " kcal")
+	creation_date_label.text = str("Criada: Semana ", current_diet.creation_date_week)
 	description_label.text = current_diet.short_description
 	
 	var diet_foods: Array[Dictionary] = current_diet.get_foods()

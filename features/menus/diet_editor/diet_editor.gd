@@ -19,6 +19,7 @@ var current_diet: Diet
 var current_sportsman: Sportsman
 
 @onready var main_menu: MainMenu = get_tree().get_first_node_in_group("main_menu")
+@onready var game_watch: MainMenuGameWatch = get_tree().get_first_node_in_group("game_watch")
 
 
 func _ready() -> void:
@@ -49,6 +50,8 @@ func update_diet(diet: Diet, sportsman: Sportsman) -> void:
 func clear_diet() -> void:
 	current_diet = Diet.new()
 	current_diet.diet_name = "New Diet from Editor"
+	
+	current_diet.creation_date_week = int(floorf(game_watch.get_now_simulated_weeks()))
 	
 	foods_in_diet_container.update_slots(current_diet)
 	diet_stats_container.reset_diet()

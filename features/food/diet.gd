@@ -10,6 +10,7 @@ signal food_removed(food: Food)
 	set = _set_new_name
 @export var _foods_in_diet: Array[Dictionary] = []
 @export var short_description: String
+@export var creation_date_week: int = -1
 
 
 func add_food(food: Food, food_weight_g: float) -> void:

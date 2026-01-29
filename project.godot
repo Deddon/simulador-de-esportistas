@@ -36,6 +36,11 @@ folder_colors={
 "res://tests/": "blue"
 }
 
+[global_group]
+
+game_watch=""
+main_menu=""
+
 [input]
 
 pause={

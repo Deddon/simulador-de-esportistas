@@ -8,12 +8,12 @@ font_size = 35
 [sub_resource type="LabelSettings" id="LabelSettings_m0xg2"]
 font_size = 25
 
-[node name="VisaoGeralDietStats" type="HBoxContainer" node_paths=PackedStringArray("name_label", "energy_label", "description_label", "creation_date_label", "foods_texture_grid_container")]
+[node name="VisaoGeralDietStats" type="HBoxContainer" node_paths=PackedStringArray("name_label", "energy_label", "creation_date_label", "description_label", "foods_texture_grid_container")]
 script = ExtResource("1_kr7u1")
 name_label = NodePath("DietStatsMargin/DietStatsContainer/DietName")
 energy_label = NodePath("DietStatsMargin/DietStatsContainer/DietEnergy")
-description_label = NodePath("DietStatsMargin/DietStatsContainer/DietDescription")
 creation_date_label = NodePath("DietStatsMargin/DietStatsContainer/CreationDate")
+description_label = NodePath("DietStatsMargin/DietStatsContainer/DietDescription")
 foods_texture_grid_container = NodePath("BackgroundPanel/GridContainer")
 
 [node name="DietStatsMargin" type="MarginContainer" parent="."]
