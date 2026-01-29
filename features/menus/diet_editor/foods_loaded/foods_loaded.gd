@@ -2,6 +2,10 @@ class_name DietEditorFoodsLoadedContainer
 extends Control
 
 
+signal food_selected(food: Food, food_weight_g: float)
+
+@export var submit_food_button: Button
+
 @export var foods_loaded_grid: GridContainer
 @export var food_loaded_slot_packed_scene: PackedScene
 
@@ -9,6 +13,8 @@ extends Control
 
 
 func _ready() -> void:
+	submit_food_button.pressed.connect(_emit_food_selected)
+	
 	update_loaded_foods()
 
 
@@ -27,3 +33,9 @@ func update_loaded_foods() -> void:
 
 func _handle_food_selection(selected_food: Food) -> void:
 	foods_stats_container.get_stats_from(selected_food)
+
+
+func _emit_food_selected() -> void:
+	var food_dict: Dictionary = foods_stats_container.get_selected_food()
+	if food_dict.food:
+		food_selected.emit(food_dict.food, food_dict.weight)

@@ -29,12 +29,15 @@ extends Control
 
 var current_diet: Diet
 var current_food: Food
-var food_weight_g: float
+var food_weight_g: float = 100.0
+var last_food_weight_g: float = 100.0
 
 @onready var diet_editor: DietEditor = get_tree().get_first_node_in_group("diet_editor")
 
 
 func _ready() -> void:
+	food_weight_setter_line_edit.text_submitted.connect(_change_food_weight)
+	
 	main_container.hide()
 	
 	#current_diet = diet_editor.get_current_diet()
@@ -45,7 +48,17 @@ func get_stats_from(food: Food) -> void:
 	current_food = food
 	food_weight_g = 100.0
 	
-	food_name_label.text = food.name
+	_update_stats()
+	
+	main_container.show()
+
+
+func get_selected_food() -> Dictionary:
+	return {"food": current_food, "weight": food_weight_g}
+
+
+func _update_stats() -> void:
+	food_name_label.text = current_food.name
 	
 	food_weight_setter_line_edit.text = str(int(food_weight_g))
 	food_weight_label.text = str("Contabilizando ", int(food_weight_g), "g\nde alimento")
@@ -60,5 +73,13 @@ func get_stats_from(food: Food) -> void:
 	
 	var diet_after_energy: float = diet_before_energy + (current_food.get_energy() * food_proportion)
 	diet_after_energy_label.text = str(snappedf(diet_after_energy, 0.1), " kcal")
+
+
+func _change_food_weight(submitted_text: String) -> void:
+	submitted_text = submitted_text.strip_edges()
+	if not submitted_text.is_valid_float():
+		food_weight_setter_line_edit.text = str(last_food_weight_g)
 	
-	main_container.show()
+	last_food_weight_g = food_weight_g
+	food_weight_g = snappedf(float(submitted_text), 0.1)
+	_update_stats()

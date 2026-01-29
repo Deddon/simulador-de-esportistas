@@ -8,7 +8,7 @@
 [sub_resource type="LabelSettings" id="LabelSettings_47tov"]
 font_size = 35
 
-[node name="FoodsLoaded" type="Control" node_paths=PackedStringArray("foods_loaded_grid", "foods_stats_container")]
+[node name="FoodsLoaded" type="Control" node_paths=PackedStringArray("submit_food_button", "foods_loaded_grid", "foods_stats_container")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -18,6 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_47tov")
 script = ExtResource("2_rb55p")
+submit_food_button = NodePath("MainContainer/FoodStatsMainContainer/ButtonsContainer/VBoxContainer/SubmitFood")
 foods_loaded_grid = NodePath("MainContainer/FoodsSlotsMargin/FoodsSlotsMainContainer/MarginContainer/FoodsSlotsScroll/FoodsLoadedMargin/FoodsLoadedGrid")
 food_loaded_slot_packed_scene = ExtResource("3_eamwh")
 foods_stats_container = NodePath("MainContainer/FoodStatsMainContainer/FoodStatsContainer")

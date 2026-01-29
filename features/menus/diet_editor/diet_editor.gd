@@ -6,7 +6,12 @@ signal diet_submitted(diet: Diet)
 
 @export var foods_in_diet_container: DietEditorFoodsInDietContainer
 @export var diet_stats_container: DietEditorDietStats
+#@export var foods_loaded_canvas_layer: CanvasLayer
 
+@export var main_container: Container
+@export var foods_loaded_container: DietEditorFoodsLoadedContainer
+
+@export var add_food_button: Button
 @export var clear_diet_button: Button
 @export var submit_diet_button: Button
 
@@ -20,6 +25,9 @@ func _ready() -> void:
 	get_tree().paused = true
 	hide()
 	
+	foods_loaded_container.food_selected.connect(_add_food_to_diet)
+	
+	add_food_button.pressed.connect(_open_foods_loaded)
 	clear_diet_button.pressed.connect(clear_diet)
 	submit_diet_button.pressed.connect(_submit_diet)
 	
@@ -53,6 +61,20 @@ func clear_diet() -> void:
 
 func get_current_diet() -> Diet:
 	return current_diet
+
+
+func _add_food_to_diet(food: Food, food_weight_g: float) -> void:
+	current_diet.add_food(food, food_weight_g)
+	update_diet(current_diet, current_sportsman)
+
+
+func _open_foods_loaded() -> void:
+	main_container.hide()
+	foods_loaded_container.show()
+	
+	await foods_loaded_container.food_selected
+	foods_loaded_container.hide()
+	main_container.show()
 
 
 func _submit_diet() -> void:
