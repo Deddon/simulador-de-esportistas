@@ -2,6 +2,8 @@ class_name DietEditorFoodsInDietContainer
 extends Control
 
 
+signal delete_requested(food: Food, food_weight: float)
+
 @export var food_slot_packed_scene: PackedScene
 @export var food_slot_container: Container
 @export var on_diet_container: Container
@@ -34,9 +36,9 @@ func update_slots(diet: Diet) -> void:
 	)
 	
 	for food_dict: Dictionary in diet.get_foods():
-		var food_slot = food_slot_packed_scene.instantiate() as DietEditorFoodSlot
+		var food_slot: DietEditorFoodSlot = food_slot_packed_scene.instantiate()
 		food_slot.update_food(food_dict)
-		food_slot.slot_selected.connect(_handle_slot_press)
+		food_slot.delete_pressed.connect(_request_delete)
 		
 		food_slot_container.add_child(food_slot)
 	
@@ -44,5 +46,5 @@ func update_slots(diet: Diet) -> void:
 	no_diet_container.hide()
 
 
-func _handle_slot_press(food_dict: Dictionary) -> void:
-	print_debug("Slot with food %s was pressed." % food_dict.food.name)
+func _request_delete(selected_food: Food, food_weight: float) -> void:
+	delete_requested.emit(selected_food, food_weight)

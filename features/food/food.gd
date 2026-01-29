@@ -35,8 +35,8 @@ func get_energy() -> float:
 		elif nutrient_name == "LIP":
 			energy_sum += composition[nutrient_name] * 9.0
 	
-	return energy_sum
+	return snappedf(energy_sum, 0.1)
 
 
 func get_energy_from_weight(weight_g: float) -> float:
-	return get_energy() * (weight_g / 100.0)
+	return snappedf(get_energy() * (weight_g / 100.0), 0.1)

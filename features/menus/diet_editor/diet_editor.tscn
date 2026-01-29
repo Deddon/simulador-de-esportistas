@@ -30,8 +30,8 @@ foods_loaded_container = NodePath("FoodsLoadedLayer/FoodsLoaded")
 add_food_button = NodePath("MainContainer/DietDashboard/ManipulationButtons/AddFood")
 clear_diet_button = NodePath("MainContainer/DietDashboard/ManipulationButtons/HBoxContainer/ClearDiet")
 submit_diet_button = NodePath("MainContainer/DietDashboard/ManipulationButtons/SubmitDiet")
-metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
 
 [node name="BackgroundPanel" type="Panel" parent="."]
 layout_mode = 1

@@ -26,6 +26,7 @@ func _ready() -> void:
 	get_tree().paused = true
 	hide()
 	
+	foods_in_diet_container.delete_requested.connect(_delete_food)
 	foods_loaded_container.food_selected.connect(_add_food_to_diet)
 	
 	add_food_button.pressed.connect(_open_foods_loaded)
@@ -38,8 +39,11 @@ func _ready() -> void:
 
 ## Called outside of it.
 func update_diet(diet: Diet, sportsman: Sportsman) -> void:
-	current_diet = diet
-	current_sportsman = sportsman
+	if current_diet != diet:
+		current_diet = diet
+	
+	if current_sportsman != current_sportsman:
+		current_sportsman = sportsman
 	
 	foods_in_diet_container.update_slots(current_diet)
 	diet_stats_container.update_stats(current_diet, current_sportsman)
@@ -64,6 +68,12 @@ func clear_diet() -> void:
 
 func get_current_diet() -> Diet:
 	return current_diet
+
+
+func _delete_food(food_to_delete: Food, food_weight: float) -> void:
+	current_diet.remove_food(food_to_delete, food_weight)
+	update_diet(current_diet, current_sportsman)
+	main_menu.set_current_diet(current_diet)
 
 
 func _add_food_to_diet(food: Food, food_weight_g: float) -> void:
