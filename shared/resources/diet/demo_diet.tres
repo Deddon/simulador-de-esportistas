@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Diet" load_steps=8 format=3 uid="uid://cu67sb8sjbcoi"]
+
+[ext_resource type="Resource" uid="uid://dn5juj1gbdec3" path="res://shared/resources/foods/coxa_de_frango.tres" id="1_k8w8g"]
+[ext_resource type="Resource" uid="uid://dexlnticlm24w" path="res://shared/resources/foods/cenoura.tres" id="2_1uu6c"]
+[ext_resource type="Resource" uid="uid://bax262d14k621" path="res://shared/resources/foods/abacate.tres" id="3_mly4y"]
+[ext_resource type="Resource" uid="uid://66apr6vojomc" path="res://shared/resources/foods/brocolis.tres" id="4_npssn"]
+[ext_resource type="Resource" uid="uid://d1niha05235u6" path="res://shared/resources/foods/abacaxi.tres" id="5_0ocns"]
+[ext_resource type="Resource" uid="uid://cs3wn3lebw5re" path="res://shared/resources/foods/leite.tres" id="6_pluvc"]
+[ext_resource type="Script" uid="uid://bro424x4xvoqg" path="res://features/food/diet.gd" id="7_srcta"]
+
+[resource]
+script = ExtResource("7_srcta")
+diet_name = "Demo Diet v1"
+_foods_in_diet = Array[Dictionary]([{
+"food": ExtResource("1_k8w8g"),
+"weight": 70.0
+}, {
+"food": ExtResource("2_1uu6c"),
+"weight": 80.0
+}, {
+"food": ExtResource("3_mly4y"),
+"weight": 45.0
+}, {
+"food": ExtResource("4_npssn"),
+"weight": 30.0
+}, {
+"food": ExtResource("5_0ocns"),
+"weight": 35.0
+}, {
+"food": ExtResource("6_pluvc"),
+"weight": 40.0
+}])
+short_description = "Uma dieta demonstrativa"

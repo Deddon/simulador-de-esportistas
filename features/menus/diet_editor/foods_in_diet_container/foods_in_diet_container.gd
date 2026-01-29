@@ -18,6 +18,12 @@ func update_slots(diet: Diet) -> void:
 		child.queue_free()
 	
 	if not diet:
+		push_error("Diet is null.")
+		on_diet_container.hide()
+		no_diet_container.show()
+		return
+	
+	if diet.get_foods().size() == 0:
 		on_diet_container.hide()
 		no_diet_container.show()
 		return
@@ -27,15 +33,15 @@ func update_slots(diet: Diet) -> void:
 		update_slots.bind(diet)
 	)
 	
-	on_diet_container.show()
-	no_diet_container.hide()
-	
 	for food_dict: Dictionary in diet.get_foods():
 		var food_slot = food_slot_packed_scene.instantiate() as DietEditorFoodSlot
 		food_slot.update_food(food_dict)
 		food_slot.slot_selected.connect(_handle_slot_press)
 		
 		food_slot_container.add_child(food_slot)
+	
+	on_diet_container.show()
+	no_diet_container.hide()
 
 
 func _handle_slot_press(food_dict: Dictionary) -> void:

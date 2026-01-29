@@ -17,7 +17,7 @@ font_size = 30
 [sub_resource type="LabelSettings" id="LabelSettings_65bi3"]
 font_size = 30
 
-[node name="PlanejamentoAlimentar" type="Control" node_paths=PackedStringArray("current_diet_container", "diet_name_label", "desired_get_label", "get_label", "calorie_difference_label", "diet_vct_label", "cho_label", "ptn_label", "lip_label", "no_diet_container", "diet_history_container")]
+[node name="PlanejamentoAlimentar" type="Control" node_paths=PackedStringArray("current_diet_container", "diet_name_label", "desired_get_label", "get_label", "calorie_difference_label", "diet_vct_label", "cho_label", "ptn_label", "lip_label", "no_diet_container", "edit_diet_button", "create_first_diet_button", "diet_history_container")]
 custom_minimum_size = Vector2(982, 0)
 layout_mode = 3
 anchors_preset = 0
@@ -37,6 +37,8 @@ cho_label = NodePath("ScrollContainer/MarginContainer/MainContainer/CurrentDietM
 ptn_label = NodePath("ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer/MacrosValuesContainer/PTN")
 lip_label = NodePath("ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietValuesContainer/MacrosValuesContainer/LIP")
 no_diet_container = NodePath("ScrollContainer/MarginContainer/MainContainer/NoDietMargin")
+edit_diet_button = NodePath("ScrollContainer/MarginContainer/MainContainer/CurrentDietMargin/CurrentDietContainer/DietManipulationButtons/CenterContainer2/EditDiet")
+create_first_diet_button = NodePath("ScrollContainer/MarginContainer/MainContainer/NoDietMargin/CenterContainer/VBoxContainer/CenterContainer/CreateFirtsDiet")
 diet_history_container = NodePath("ScrollContainer/MarginContainer/MainContainer/DietHistoryContainer")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
@@ -80,6 +82,7 @@ label_settings = SubResource("LabelSettings_osrup")
 horizontal_alignment = 1
 
 [node name="CurrentDietMargin" type="MarginContainer" parent="ScrollContainer/MarginContainer/MainContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_top = 30
 
@@ -182,7 +185,6 @@ theme_override_font_sizes/font_size = 30
 text = "EDITAR DIETA"
 
 [node name="NoDietMargin" type="MarginContainer" parent="ScrollContainer/MarginContainer/MainContainer"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_top = 30
@@ -196,7 +198,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="ScrollContainer/MarginContainer/MainContainer/NoDietMargin/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 0)
 layout_mode = 2
-text = "Este atleta ainda não possui nenhuma dieta, crie uma para suas necessidades individuais."
+text = "Este atleta ainda não possui nenhuma dieta, crie uma para suas necessidades individuais. "
 label_settings = SubResource("LabelSettings_65bi3")
 horizontal_alignment = 1
 vertical_alignment = 1

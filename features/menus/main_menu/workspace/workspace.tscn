@@ -49,29 +49,59 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Resultados")
+focus_neighbor_top = NodePath("../PlanejamentoAlimentar")
+focus_neighbor_right = NodePath("../PlanejamentoAlimentar")
+focus_neighbor_bottom = NodePath("../Resultados")
+focus_next = NodePath("../PlanejamentoAlimentar")
+focus_previous = NodePath("../Resultados")
 tab_name = "Visão Geral"
 current_packed_scene = ExtResource("3_8464k")
 
 [node name="PlanejamentoAlimentar" parent="MainContainer/TabsContainer" instance=ExtResource("2_gv5mi")]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../VisaoGeral")
+focus_neighbor_top = NodePath("../Antropometria&Evolucao")
+focus_neighbor_right = NodePath("../Antropometria&Evolucao")
+focus_neighbor_bottom = NodePath("../VisaoGeral")
+focus_next = NodePath("../Antropometria&Evolucao")
+focus_previous = NodePath("../VisaoGeral")
 tab_name = "Planejamento Alimentar"
 current_packed_scene = ExtResource("4_4ak1i")
 
 [node name="Antropometria&Evolucao" parent="MainContainer/TabsContainer" instance=ExtResource("2_gv5mi")]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../PlanejamentoAlimentar")
+focus_neighbor_top = NodePath("../Temporada&Competicoes")
+focus_neighbor_right = NodePath("../Temporada&Competicoes")
+focus_neighbor_bottom = NodePath("../PlanejamentoAlimentar")
+focus_next = NodePath("../Temporada&Competicoes")
+focus_previous = NodePath("../PlanejamentoAlimentar")
 tab_name = "Antropometria & Evolução"
 current_packed_scene = ExtResource("5_h45mv")
 
 [node name="Temporada&Competicoes" parent="MainContainer/TabsContainer" instance=ExtResource("2_gv5mi")]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Antropometria&Evolucao")
+focus_neighbor_top = NodePath("../Resultados")
+focus_neighbor_right = NodePath("../Resultados")
+focus_neighbor_bottom = NodePath("../Antropometria&Evolucao")
+focus_next = NodePath("../Resultados")
+focus_previous = NodePath("../Antropometria&Evolucao")
 tab_name = "Temporada & Competições"
 current_packed_scene = ExtResource("6_rdu6d")
 
 [node name="Resultados" parent="MainContainer/TabsContainer" instance=ExtResource("2_gv5mi")]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_neighbor_left = NodePath("../Temporada&Competicoes")
+focus_neighbor_top = NodePath("../VisaoGeral")
+focus_neighbor_right = NodePath("../VisaoGeral")
+focus_neighbor_bottom = NodePath("../Temporada&Competicoes")
+focus_next = NodePath("../VisaoGeral")
+focus_previous = NodePath("../Temporada&Competicoes")
 tab_name = "Resultados"
 current_packed_scene = ExtResource("7_n2ieb")

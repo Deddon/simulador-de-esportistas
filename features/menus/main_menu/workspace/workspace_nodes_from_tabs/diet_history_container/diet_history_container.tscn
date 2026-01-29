@@ -35,7 +35,6 @@ label_settings = SubResource("LabelSettings_oe02v")
 horizontal_alignment = 1
 
 [node name="NoDietHistoryContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_constants/margin_top = 20
 
@@ -47,6 +46,7 @@ label_settings = SubResource("LabelSettings_oe02v")
 horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 324)
 layout_mode = 2
 size_flags_vertical = 3

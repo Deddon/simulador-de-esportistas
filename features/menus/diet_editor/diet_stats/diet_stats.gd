@@ -2,6 +2,7 @@ class_name DietEditorDietStats
 extends Control
 
 
+@export var diet_editor: DietEditor
 @export var on_diet_container: Container
 @export var no_diet_container: Container
 @export var create_diet_button: Button
@@ -31,8 +32,10 @@ extends Control
 @export var check_diet_button: Button
 @export var check_guidelines_button: Button
 
-var _diet: Diet
-var _sportsman: Sportsman
+var current_diet: Diet
+var current_sportsman: Sportsman
+
+@onready var main_menu: MainMenu = get_tree().get_first_node_in_group("main_menu")
 
 
 func _ready() -> void:
@@ -40,63 +43,88 @@ func _ready() -> void:
 	create_diet_button.pressed.connect(reset_diet)
 	
 	diet_name_editor_line_edit.hide()
+	
+	on_diet_container.hide()
+	no_diet_container.show()
+	# Do not load macros stats or buttons at first.
 	macros_container.modulate.a = 0.0
 	buttons_container.modulate.a = 0.0
 
 
-func update_stats(diet: Diet, sportsman: Sportsman = null) -> void:
-	_diet = diet
-	if sportsman and sportsman != _sportsman:
-		_sportsman = sportsman
+func update_stats(diet: Diet, sportsman: Sportsman) -> void:
+	current_diet = diet
+	current_sportsman = sportsman
 	
-	if not _diet:
-		push_error("No Diet attached.")
-		_clear_diet()
+	#macros_container.modulate.a = 1.0
+	#buttons_container.modulate.a = 0.0
+	
+	#update_sportsman_name
+	sportsman_get_label.text = str(
+		"GET %s: " % current_sportsman.get_sportsman_name(true),
+		snappedf(current_sportsman.calculate_energy(), 0.1), " kcal"
+	)
+	
+	_update_diet_name()
+	
+	if current_diet.get_foods().size() < 1:
+		#reset_diet()
 		return
 	
-	if _diet.get_foods().size() == 0:
-		macros_container.modulate.a = 0.0
-		buttons_container.modulate.a = 0.0
-		_clear_diet()
-		return
-	
-	var diet_short_name = _shorten_diet_name()
-	diet_vct_label.text = str(diet_short_name, ": ", _diet.calculate_energy(), " kcal")
-	
-	if _sportsman:
-		sportsman_get_label.text = str(
-			"GET %s: " % _sportsman.get_sportsman_name(true),
-			snappedf(_sportsman.calculate_energy(), 0.1), " kcal"
-		)
-	
+	#var diet_short_name = _shorten_diet_name()
+	#diet_vct_label.text = str(diet_short_name, ": ", current_diet.calculate_energy(), " kcal")
 	_update_macros()
+	
+	on_diet_container.show()
+	no_diet_container.hide()
 
 
-func _shorten_diet_name() -> String:
-	var diet_name_to_fit_space: String = _diet.diet_name
-	diet_name_label.text = _diet.diet_name
-	diet_name_editor_line_edit.text = _diet.diet_name
+func reset_diet() -> void:
+	current_diet = Diet.new()
+	current_diet.diet_name = "New Diet From Editor"
+	main_menu.set_current_diet(current_diet)
 	
-	if diet_name_to_fit_space.length() > 9:
-		diet_name_to_fit_space = diet_name_to_fit_space.substr(0, 8) + "."
+	update_stats(current_diet, current_sportsman)
+	on_diet_container.show()
 	
-	return diet_name_to_fit_space
+	macros_container.modulate.a = 0.0
+	buttons_container.modulate.a = 0.0
+	
+	#_clear_diet()
+
+
+func _update_diet_name() -> void:
+	var diet_short_name: String = current_diet.diet_name
+	diet_name_label.text = current_diet.diet_name
+	diet_name_editor_line_edit.text = current_diet.diet_name
+	
+	if diet_short_name.length() > 9:
+		diet_short_name = diet_short_name.substr(0, 8) + "."
+	
+	diet_vct_label.text = str(diet_short_name, ": ", current_diet.calculate_energy(), " kcal")
+
+
+#func _shorten_diet_name() -> String:
+	#var diet_name_to_fit_space: String = current_diet.diet_name
+	#diet_name_label.text = current_diet.diet_name
+	#diet_name_editor_line_edit.text = current_diet.diet_name
+	#
+	#if diet_name_to_fit_space.length() > 9:
+		#diet_name_to_fit_space = diet_name_to_fit_space.substr(0, 8) + "."
+	#
+	#return diet_name_to_fit_space
 
 
 func _update_macros() -> void:
-	macros_container.modulate.a = 1.0
-	buttons_container.modulate.a = 1.0
-	
-	var diet_macros: Dictionary = _diet.get_composition()
+	var diet_macros: Dictionary = current_diet.get_composition()
 	cho_grams_label.text = str(diet_macros["CHO"], " g")
 	ptn_grams_label.text = str(diet_macros["PTN"], " g")
 	lip_grams_label.text = str(diet_macros["LIP"], " g")
 	
-	if not _sportsman:
-		grams_per_kg_container.hide()
-		return
+	#if not current_sportsman:
+		#grams_per_kg_container.hide()
+		#return
 	
-	var sportsman_weight: float = _sportsman.weight_kg
+	var sportsman_weight: float = current_sportsman.weight_kg
 	cho_g_per_kg_label.text = str(
 		snappedf(sportsman_weight / diet_macros["CHO"], 0.1),
 		" g/kg"
@@ -109,8 +137,10 @@ func _update_macros() -> void:
 		snappedf(sportsman_weight / diet_macros["LIP"], 0.1),
 		" g/kg"
 	)
-		
-	grams_per_kg_container.show()
+	
+	#grams_per_kg_container.show()
+	macros_container.modulate.a = 1.0
+	buttons_container.modulate.a = 1.0
 
 
 func _request_new_diet_name() -> void:
@@ -128,20 +158,10 @@ func _request_new_diet_name() -> void:
 	diet_name_editor_line_edit.hide()
 	diet_name_label.show()
 	
-	if _diet:
-		_diet.set_diet_name(new_diet_name)
-		update_stats(_diet)
+	current_diet.set_diet_name(new_diet_name)
+	_update_diet_name()
 
 
-func _clear_diet() -> void:
-	no_diet_container.hide()
-	on_diet_container.show()
-
-
-func reset_diet() -> void:
-	_diet = Diet.new()
-	_diet.diet_name = "Diet1"
-	
-	_clear_diet()
-	
-	update_stats(_diet)
+#func _clear_diet() -> void:
+	#no_diet_container.hide()
+	#on_diet_container.show()

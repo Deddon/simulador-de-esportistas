@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cltr4tytr71hf" path="res://features/menus/main_menu/welcome_view/welcome_view.tscn" id="6_kdtnp"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("side_bar") groups=["main_menu"]]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
