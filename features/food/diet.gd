@@ -6,7 +6,8 @@ signal diet_changed()
 signal food_added(food: Food, food_weight_g: float)
 signal food_removed(food: Food)
 
-@export var diet_name: String
+@export var diet_name: String:
+	set = _set_new_name
 @export var _foods_in_diet: Array[Dictionary] = []
 @export var short_description: String
 
@@ -73,6 +74,12 @@ func calculate_energy() -> float:
 		energy_sum += food_dict.food.get_energy()
 	
 	return energy_sum
+
+
+func _set_new_name(new_name: String) -> void:
+	if not new_name.is_empty():
+		diet_name = new_name
+		diet_changed.emit()
 
 
 func _to_string() -> String:

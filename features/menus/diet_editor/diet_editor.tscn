@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://db1wjchvatmqj"]
+[gd_scene load_steps=8 format=3 uid="uid://db1wjchvatmqj"]
 
 [ext_resource type="Script" uid="uid://dloe6kpkpcs3" path="res://features/menus/diet_editor/diet_editor.gd" id="1_eh2pj"]
 [ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_wkqx2"]
 [ext_resource type="PackedScene" uid="uid://vap4qcu2ewjh" path="res://features/menus/diet_editor/foods_in_diet_container/foods_in_diet_container.tscn" id="2_3ulrn"]
 [ext_resource type="PackedScene" uid="uid://cgafr1cnegfkl" path="res://features/menus/diet_editor/diet_stats/diet_stats.tscn" id="3_388iv"]
 [ext_resource type="PackedScene" uid="uid://duokgqd1abios" path="res://features/menus/diet_editor/foods_loaded/foods_loaded.tscn" id="5_1m6sf"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_1m6sf"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_00roy"]
+events = [SubResource("InputEventKey_1m6sf")]
 
 [node name="DietEditor" type="Control" node_paths=PackedStringArray("foods_in_diet_container", "diet_stats_container", "main_container", "foods_loaded_container", "add_food_button", "clear_diet_button", "submit_diet_button") groups=["diet_editor"]]
 process_mode = 3
@@ -22,7 +29,7 @@ main_container = NodePath("MainContainer")
 foods_loaded_container = NodePath("FoodsLoadedLayer/FoodsLoaded")
 add_food_button = NodePath("MainContainer/DietDashboard/ManipulationButtons/AddFood")
 clear_diet_button = NodePath("MainContainer/DietDashboard/ManipulationButtons/HBoxContainer/ClearDiet")
-submit_diet_button = NodePath("MainContainer/DietDashboard/ManipulationButtons/HBoxContainer/SubmitDiet")
+submit_diet_button = NodePath("MainContainer/DietDashboard/ManipulationButtons/SubmitDiet")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
@@ -71,11 +78,13 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "ADICIONAR ALIMENTO"
 
-[node name="CheckNutrients" type="Button" parent="MainContainer/DietDashboard/ManipulationButtons"]
+[node name="SubmitDiet" type="Button" parent="MainContainer/DietDashboard/ManipulationButtons"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
-text = "CONFERIR NUTRIENTES"
+shortcut = SubResource("Shortcut_00roy")
+text = "FINALIZAR"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/DietDashboard/ManipulationButtons"]
 layout_mode = 2
@@ -87,12 +96,12 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
 text = "LIMPAR DIETA"
 
-[node name="SubmitDiet" type="Button" parent="MainContainer/DietDashboard/ManipulationButtons/HBoxContainer"]
+[node name="CheckNutrients" type="Button" parent="MainContainer/DietDashboard/ManipulationButtons/HBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
-text = "FINALIZAR"
+text = "CONFERIR"
 
 [node name="FoodsLoadedLayer" type="CanvasLayer" parent="."]
 

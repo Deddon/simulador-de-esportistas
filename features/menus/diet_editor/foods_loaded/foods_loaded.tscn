@@ -126,14 +126,14 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="CheckDietWithFood" type="Button" parent="MainContainer/FoodStatsMainContainer/ButtonsContainer/VBoxContainer"]
-custom_minimum_size = Vector2(330, 55)
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "CONFERIR DIETA"
-
 [node name="SubmitFood" type="Button" parent="MainContainer/FoodStatsMainContainer/ButtonsContainer/VBoxContainer"]
 custom_minimum_size = Vector2(330, 55)
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "CONFIRMAR"
+
+[node name="CheckDietWithFood" type="Button" parent="MainContainer/FoodStatsMainContainer/ButtonsContainer/VBoxContainer"]
+custom_minimum_size = Vector2(330, 55)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "CONFERIR DIETA"

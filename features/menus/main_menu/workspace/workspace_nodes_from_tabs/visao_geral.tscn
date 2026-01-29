@@ -1,18 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://4m1407j5kr3"]
+[gd_scene load_steps=7 format=3 uid="uid://4m1407j5kr3"]
 
 [ext_resource type="Script" uid="uid://dsy4okb5gikwi" path="res://features/menus/main_menu/workspace/workspace_nodes_from_tabs/visao_geral.gd" id="1_up46b"]
+[ext_resource type="Theme" uid="uid://b0kpgts88gl8a" path="res://shared/resources/themes/common_theme.tres" id="1_wit2g"]
+[ext_resource type="LabelSettings" uid="uid://bo7lqvclm238p" path="res://features/menus/diet_editor/diet_stats/common_label_settings.tres" id="2_cqk34"]
+[ext_resource type="PackedScene" uid="uid://c6dwu12oerolc" path="res://features/menus/main_menu/workspace/workspace_nodes_from_tabs/visao_geral_diet_stats/visao_geral_diet_stats.tscn" id="3_wit2g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_up46b"]
 font_size = 45
 
-[node name="VisaoGeral" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_cqk34"]
+font_size = 35
+
+[node name="VisaoGeral" type="Control" node_paths=PackedStringArray("diet_stats_container", "no_diet_container")]
 custom_minimum_size = Vector2(982, 0)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 982.0
 offset_bottom = 714.0
 size_flags_vertical = 3
+theme = ExtResource("1_wit2g")
 script = ExtResource("1_up46b")
+diet_stats_container = NodePath("MarginContainer/VBoxContainer/PlanejamentoAlimentarAtual/VBoxContainer/MarginContainer/OnDietContainer")
+no_diet_container = NodePath("MarginContainer/VBoxContainer/PlanejamentoAlimentarAtual/VBoxContainer/MarginContainer/NoDietContainer")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 layout_mode = 1
@@ -30,12 +41,53 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 text = "Visão Geral"
 label_settings = SubResource("LabelSettings_up46b")
+horizontal_alignment = 1
+
+[node name="PlanejamentoAlimentarAtual" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PlanejamentoAlimentarAtual"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/PlanejamentoAlimentarAtual/VBoxContainer"]
+layout_mode = 2
+text = "Planejamento Alimentar Atual"
+label_settings = SubResource("LabelSettings_cqk34")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PlanejamentoAlimentarAtual/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 20
+
+[node name="OnDietContainer" parent="MarginContainer/VBoxContainer/PlanejamentoAlimentarAtual/VBoxContainer/MarginContainer" instance=ExtResource("3_wit2g")]
+visible = false
+layout_mode = 2
+
+[node name="NoDietContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/PlanejamentoAlimentarAtual/VBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/PlanejamentoAlimentarAtual/VBoxContainer/MarginContainer/NoDietContainer"]
+layout_mode = 2
+text = "Não há nenhuma dieta ainda."
+label_settings = ExtResource("2_cqk34")
 horizontal_alignment = 1

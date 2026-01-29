@@ -108,4 +108,3 @@ func _handle_submitting_diet(new_submitted_diet: Diet) -> void:
 func _update_diet_from_main_menu() -> void:
 	current_diet = main_menu.get_current_diet()
 	update_diet()
-	print_debug("\nNew diet: %s." % current_diet.diet_name)

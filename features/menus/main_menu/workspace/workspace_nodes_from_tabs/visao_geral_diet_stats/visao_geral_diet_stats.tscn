@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6dwu12oerolc"]
+
+[ext_resource type="Script" uid="uid://dhlkik1y6gp7p" path="res://features/menus/main_menu/workspace/workspace_nodes_from_tabs/visao_geral_diet_stats/visao_geral_diet_stats.gd" id="1_kr7u1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ucgw5"]
+font_size = 35
+
+[sub_resource type="LabelSettings" id="LabelSettings_m0xg2"]
+font_size = 25
+
+[node name="VisaoGeralDietStats" type="HBoxContainer" node_paths=PackedStringArray("name_label", "energy_label", "description_label", "creation_date_label", "foods_texture_grid_container")]
+script = ExtResource("1_kr7u1")
+name_label = NodePath("DietStatsMargin/DietStatsContainer/DietName")
+energy_label = NodePath("DietStatsMargin/DietStatsContainer/DietEnergy")
+description_label = NodePath("DietStatsMargin/DietStatsContainer/DietDescription")
+creation_date_label = NodePath("DietStatsMargin/DietStatsContainer/CreationDate")
+foods_texture_grid_container = NodePath("BackgroundPanel/GridContainer")
+
+[node name="DietStatsMargin" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DietStatsContainer" type="VBoxContainer" parent="DietStatsMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DietName" type="Label" parent="DietStatsMargin/DietStatsContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "diet_placeholder_name "
+label_settings = SubResource("LabelSettings_ucgw5")
+
+[node name="DietEnergy" type="Label" parent="DietStatsMargin/DietStatsContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "0 kcal"
+label_settings = SubResource("LabelSettings_m0xg2")
+
+[node name="CreationDate" type="Label" parent="DietStatsMargin/DietStatsContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Criada: semana 1"
+label_settings = SubResource("LabelSettings_m0xg2")
+
+[node name="DietDescription" type="Label" parent="DietStatsMargin/DietStatsContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "short_description_name"
+label_settings = SubResource("LabelSettings_m0xg2")
+
+[node name="HboxContainer" type="HBoxContainer" parent="DietStatsMargin/DietStatsContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="DietStatsMargin/DietStatsContainer/HboxContainer"]
+layout_mode = 2
+
+[node name="EditDiet" type="Button" parent="DietStatsMargin/DietStatsContainer/HboxContainer/CenterContainer"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "EDITAR DIETA"
+
+[node name="BackgroundPanel" type="Panel" parent="."]
+custom_minimum_size = Vector2(227, 227)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="BackgroundPanel"]
+custom_minimum_size = Vector2(207, 207)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.5
+offset_top = -103.5
+offset_right = 103.5
+offset_bottom = 103.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+columns = 2
+
+[node name="Food1Texture" type="TextureRect" parent="BackgroundPanel/GridContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+
+[node name="Food2Texture" type="TextureRect" parent="BackgroundPanel/GridContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+
+[node name="Food3Texture" type="TextureRect" parent="BackgroundPanel/GridContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+
+[node name="Food4Texture" type="TextureRect" parent="BackgroundPanel/GridContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2

@@ -37,6 +37,7 @@ theme_override_constants/separation = 0
 layout_mode = 2
 
 [node name="Workspace" parent="ViewportContainer" instance=ExtResource("5_lv4ye")]
+process_mode = 3
 custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
 
